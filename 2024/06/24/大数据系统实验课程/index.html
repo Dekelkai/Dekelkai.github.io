@@ -46,7 +46,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-06-24T02:13:28.000Z">
-<meta property="article:modified_time" content="2024-06-25T15:39:35.012Z">
+<meta property="article:modified_time" content="2024-06-26T03:18:55.877Z">
 <meta property="article:author" content="Tang Xiangkai">
 <meta property="article:tag" content="bigdata">
 <meta name="twitter:card" content="summary">
@@ -1885,7 +1885,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1719329977741),
+    lastupdate: new Date(1719371957290),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate","webinfo"],
       for_post: ["toc"],
@@ -2747,13 +2747,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：2.4k 字</p>
+      <p>字数：2.6k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：10 分钟</p>
+      <p>时长：11 分钟</p>
     </a>
   </div>
 
@@ -3104,6 +3104,57 @@ phoenix，使用<code>!tables</code>命令查看表：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> phoenixdb</span><br><span class="line"><span class="keyword">import</span> phoenixdb.cursor</span><br><span class="line">database_url = <span class="string">'http://localhost:8765/'</span></span><br><span class="line">conn = phoenixdb.connect(database_url, autocommit=<span class="literal">True</span>)</span><br><span class="line">cursor = conn.cursor() cursor.execute(<span class="string">'SELECT * FROM "team_season" limit 10'</span>)</span><br><span class="line"><span class="built_in">print</span> (cursor.fetchall())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/phoenixdb%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/phoenixdb%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="phoenixdb测试结果"></p></li>
 </ol>
+<h3 id="编写程序分析和展示数据">5、编写程序分析和展示数据</h3>
+<p>使用flask框架展示数据：</p>
+<ol type="1">
+<li><p>创建一个python文件main.py：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/python%E4%BB%A3%E7%A0%81%E8%B0%83%E7%94%A8%E6%95%B0%E6%8D%AE.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/python%E4%BB%A3%E7%A0%81%E8%B0%83%E7%94%A8%E6%95%B0%E6%8D%AE.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="python代码调用数据"></p></li>
+<li><p>在同级目录下创建 templates 文件夹，编写存放 myindex.html ：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/templates%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/templates%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="templates文件夹位置"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/myindex%E6%96%87%E4%BB%B6.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/myindex%E6%96%87%E4%BB%B6.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="myindex文件"></p></li>
+<li><p>运行结果：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="展示数据"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%95%B0%E6%8D%AE%E5%B1%95%E7%A4%BA2.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%95%B0%E6%8D%AE%E5%B1%95%E7%A4%BA2.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="数据展示2"></p></li>
+</ol>
+<h3 id="总结-2">6、 总结</h3>
+<p>flask版本问题、安装virtualenv超时，HMaster进程</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/bug1%E5%AE%89%E8%A3%85virtualenv%E8%B6%85%E6%97%B6.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/bug1%E5%AE%89%E8%A3%85virtualenv%E8%B6%85%E6%97%B6.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="bug1安装virtualenv超时"><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%AE%BF%E9%97%AE%E7%AB%AF%E5%8F%A3%E5%87%BA%E9%94%99.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%AE%BF%E9%97%AE%E7%AB%AF%E5%8F%A3%E5%87%BA%E9%94%99.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="访问端口出错"></p>
+<h2 id="四-大数据流计算系统">四、 大数据流计算系统</h2>
+<h4 id="前言-2">0、前言</h4>
+<blockquote>
+<p>涉及数据预处理、消息队列发送和接收消息、数据实时处理、数据实时推送和实时展示等数据
+处理全流程所涉及的各种典型操作， 涵盖 Linux 、Spark 、Kafka 、Flask
+、Flask-SocketIO 、Highcharts.js、sockert.io.js、PyCharm
+等系统和软件的安装和使用方法。</p>
+</blockquote>
+<h4 id="数据处理">1、数据处理</h4>
+<ol type="1">
+<li><p>数据预处理</p>
+<p>上传数据到虚拟机中：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%8A%E4%BC%A0%E6%95%B0%E6%8D%AE%E5%88%B0%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%8A%E4%BC%A0%E6%95%B0%E6%8D%AE%E5%88%B0%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="上传数据到虚拟机中"></p></li>
+<li><p>安装相应的python库：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%AE%89%E8%A3%85%E7%9B%B8%E5%BA%94%E7%9A%84python%E5%BA%93.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%AE%89%E8%A3%85%E7%9B%B8%E5%BA%94%E7%9A%84python%E5%BA%93.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="安装相应的python库"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka_spark%E5%BA%93.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka_spark%E5%BA%93.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="kafka_spark库"></p></li>
+<li><p>编写kafka代码测试生产者和消费者：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%B5%8B%E8%AF%95%E6%B6%88%E8%B4%B9%E5%92%8C%E7%94%9F%E4%BA%A7%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%8D%E7%BD%AE.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%B5%8B%E8%AF%95%E6%B6%88%E8%B4%B9%E5%92%8C%E7%94%9F%E4%BA%A7%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%8D%E7%BD%AE.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="测试消费和生产的代码位置"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E6%B5%8B%E8%AF%95%E5%8F%91%E9%80%81%E6%80%A7%E5%88%AB%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81producer.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E6%B5%8B%E8%AF%95%E5%8F%91%E9%80%81%E6%80%A7%E5%88%AB%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81producer.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="kafka测试发送性别数据代码producer"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E6%B5%8B%E8%AF%95%E6%8E%A5%E6%94%B6%E6%80%A7%E5%88%AB%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81consumer.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E6%B5%8B%E8%AF%95%E6%8E%A5%E6%94%B6%E6%80%A7%E5%88%AB%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81consumer.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="kafka测试接收性别数据代码consumer"></p></li>
+<li><p>测试结果：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E6%B5%8B%E8%AF%95%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E6%B5%8B%E8%AF%95%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="kafka测试服务启动"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/producer%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/producer%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="producer运行测试"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/consumer%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/consumer%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="consumer运行测试"></p></li>
+</ol>
+<h4 id="scala编程实现">2、scala编程实现</h4>
+<ol type="1">
+<li><p>下载spark-streaming-kafka的jar包，并配置环境jar的位置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://search.maven.org/maven2/org/apache/spark/spark-streaming-kafka-0-8_2.11/2.1.0/spark-streaming-kafka-0-8_2.11-2.1.0.jar</span><br></pre></td></tr></table></figure>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%8B%E8%BD%BDspark-streaming-kafka.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%8B%E8%BD%BDspark-streaming-kafka.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="下载spark-streaming-kafka"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/spark-streaming-kafka%E7%A7%BB%E5%8A%A8%E5%88%B0spark%E7%9A%84jars%E9%87%8C.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/spark-streaming-kafka%E7%A7%BB%E5%8A%A8%E5%88%B0spark%E7%9A%84jars%E9%87%8C.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="spark-streaming-kafka移动到spark的jars里"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%8A%8Akafka%E7%9A%84libs%E7%A7%BB%E5%8A%A8%E5%88%B0spark%E7%9A%84jars%E7%9A%84kafka%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%8A%8Akafka%E7%9A%84libs%E7%A7%BB%E5%8A%A8%E5%88%B0spark%E7%9A%84jars%E7%9A%84kafka%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="把kafka的libs移动到spark的jars的kafka文件夹下"></p></li>
+</ol>
+<h4 id="总结-3">总结</h4>
+<p>1、测试里的sex主题怎么创建的</p>
+<p>2、</p>
 
   </div>
   
@@ -3128,10 +3179,10 @@ phoenix，使用<code>!tables</code>命令查看表：</p>
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-06-25T23:39:35+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-06-26T11:18:55+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2024年6月25日</p>
+    <p>更新于：2024年6月26日</p>
   </a>
 </div>
 
@@ -3142,13 +3193,13 @@ phoenix，使用<code>!tables</code>命令查看表：</p>
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：2.4k 字</p>
+      <p>字数：2.6k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：10 分钟</p>
+      <p>时长：11 分钟</p>
     </a>
   </div>
 
@@ -3314,7 +3365,7 @@ phoenix，使用<code>!tables</code>命令查看表：</p>
     <div class='content'>
         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%AE%9E%E9%AA%8C%E5%87%86%E5%A4%87"><span class="toc-text">一、实验准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%8F%8A%E5%BC%80%E5%90%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0"><span class="toc-text">1、导入虚拟机及开启大数据平台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E6%A3%80%E6%B5%8B"><span class="toc-text">2、环境检测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hdfs"><span class="toc-text">HDFS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mapreduce"><span class="toc-text">MapReduce</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#yarn"><span class="toc-text">yarn</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hive"><span class="toc-text">hive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hbase"><span class="toc-text">Hbase</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#spark"><span class="toc-text">spark</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zookeeper"><span class="toc-text">zookeeper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sbt%E6%89%93%E5%8C%85"><span class="toc-text">sbt打包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#azkaban"><span class="toc-text">Azkaban</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#kafka"><span class="toc-text">kafka</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#phoenix-%E9%9B%86%E6%88%90-hbase"><span class="toc-text">Phoenix 集成 HBase</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">3、总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="toc-text">二、大数据批处理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">0、前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-text">1、数据准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-text">2、数据预处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%B9%B6%E9%85%8D%E7%BD%AEmysql"><span class="toc-text">3、启动并配置MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hive%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-text">4、Hive的简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hive%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%92%8C%E5%88%86%E6%9E%90"><span class="toc-text">5、Hive的数据处理和分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8Ehive%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E5%88%B0mysql"><span class="toc-text">6、从hive导入数据到mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ideatomcatecharts%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE"><span class="toc-text">7、idea+Tomcat+ECharts展示数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-text">8、总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2%E5%88%86%E6%9E%90%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F"><span class="toc-text">三、大数据查询分析计算系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80-1"><span class="toc-text">0、前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hbase%E5%88%9B%E5%BB%BA%E8%A1%A8"><span class="toc-text">1、HBase创建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99python%E8%84%9A%E6%9C%AC%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E8%87%B3hbase%E4%B8%AD"><span class="toc-text">2、编写python脚本批量导入数据至hbase中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#phoenix-%E5%BB%BA%E7%AB%8B%E4%B8%8E-hbase-%E7%9B%B8%E6%98%A0%E5%B0%84%E7%9A%84%E8%A1%A8"><span class="toc-text">3、phoenix
 建立与 hbase
-相映射的表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAflask%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE"><span class="toc-text">4、搭建Flask到页面展示数据</span></a></li></ol></li></ol>
+相映射的表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAflask%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE"><span class="toc-text">4、搭建Flask到页面展示数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90%E5%92%8C%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE"><span class="toc-text">5、编写程序分析和展示数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-text">6、 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%B5%81%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F"><span class="toc-text">四、 大数据流计算系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80-2"><span class="toc-text">0、前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-text">1、数据处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#scala%E7%BC%96%E7%A8%8B%E5%AE%9E%E7%8E%B0"><span class="toc-text">2、scala编程实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-3"><span class="toc-text">总结</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
@@ -4467,7 +4518,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/","sameAs":["https://github.com/volantis-x"],"description":"�����⽮���ߣ�ʢ�ػ�����֮"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://Dekelkai.github.io/","name":"Dekel'Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://Dekelkai.github.io/categories/bigdata/","name":"bigdata"}},{"@type":"ListItem","position":3,"item":{"@id":"https://Dekelkai.github.io/2024/06/24/大数据系统实验课程/","name":"大数据系统实验课程"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","keywords":"�����ռ� BigData Scala Hadoop","description":"�����⽮���ߣ�ʢ�ػ�����֮","author":{"@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/","description":"�����⽮���ߣ�ʢ�ػ�����֮"},"publisher":{"@type":"Organization","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://Dekelkai.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"大数据系统实验课程","description":"�����⽮���ߣ�ʢ�ػ�����֮","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/"},"author":{"@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/"},"publisher":{"@type":"Organization","name":"Dekel'Blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/","wordCount":0,"datePublished":"2024-06-24T02:13:28.000Z","dateModified":"2024-06-25T15:39:35.012Z","articleSection":"bigdata","keywords":"bigdata","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/","sameAs":["https://github.com/volantis-x"],"description":"�����⽮���ߣ�ʢ�ػ�����֮"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://Dekelkai.github.io/","name":"Dekel'Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://Dekelkai.github.io/categories/bigdata/","name":"bigdata"}},{"@type":"ListItem","position":3,"item":{"@id":"https://Dekelkai.github.io/2024/06/24/大数据系统实验课程/","name":"大数据系统实验课程"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","keywords":"�����ռ� BigData Scala Hadoop","description":"�����⽮���ߣ�ʢ�ػ�����֮","author":{"@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/","description":"�����⽮���ߣ�ʢ�ػ�����֮"},"publisher":{"@type":"Organization","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://Dekelkai.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"大数据系统实验课程","description":"�����⽮���ߣ�ʢ�ػ�����֮","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/"},"author":{"@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/"},"publisher":{"@type":"Organization","name":"Dekel'Blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/","wordCount":0,"datePublished":"2024-06-24T02:13:28.000Z","dateModified":"2024-06-26T03:18:55.877Z","articleSection":"bigdata","keywords":"bigdata","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
