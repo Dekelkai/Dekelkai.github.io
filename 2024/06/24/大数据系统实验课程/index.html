@@ -46,7 +46,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-06-24T02:13:28.000Z">
-<meta property="article:modified_time" content="2024-06-26T13:40:20.805Z">
+<meta property="article:modified_time" content="2024-06-27T05:44:29.836Z">
 <meta property="article:author" content="Tang Xiangkai">
 <meta property="article:tag" content="bigdata">
 <meta name="twitter:card" content="summary">
@@ -1885,7 +1885,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1719409236131),
+    lastupdate: new Date(1719467112231),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate","webinfo"],
       for_post: ["toc"],
@@ -2747,13 +2747,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：2.9k 字</p>
+      <p>字数：3.4k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：12 分钟</p>
+      <p>时长：14 分钟</p>
     </a>
   </div>
 
@@ -3193,15 +3193,68 @@ socket.io.js 实现 实时接收数据，hightlights.js 展现数据。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">环境版本：</span><br><span class="line">pip3 install Flask-SocketIO==4.3.1</span><br><span class="line">pip3 install python-engineio==3.13.2</span><br><span class="line">pip3 install python-socketio==4.6.0</span><br></pre></td></tr></table></figure>
 <p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/pip3%E7%9A%84ls.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/pip3%E7%9A%84ls.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="pip3的ls"></p>
 <ol type="1">
-<li><code>Flask-SocketIO</code>实时推送数据</li>
+<li><p><strong><code>Flask-SocketIO</code>实时推送数据</strong></p>
+<blockquote>
+<p>Spark Streaming 实时接收 Kafka 中 topic 为“sex”发送的日志数据，然后
+Spark Streaming
+进行实时处理，统计好每秒中男女生购物人数之后，将结果发送至 Kafka，topic
+为“result”。下面是项目文件层级：</p>
+</blockquote>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E5%B1%82%E7%BA%A7.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E5%B1%82%E7%BA%A7.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="项目文件层级"></p>
+<blockquote>
+<p>app.py：作为一个简易的服务器，处理连接请求，以 及处理从kafka
+接收的数据，并实时推送到浏览器。</p>
+<p>background_thread 函数，该函数从 Kafka
+接收消息，并进行处理，获得男女生每秒钟人数，然后将结果通过函数
+socketio.emit实时推送至浏览器。</p>
+</blockquote>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/app%E4%BB%A31.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/app%E4%BB%A31.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="app代1"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/app%E4%BB%A32.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/app%E4%BB%A32.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="app代2"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/app%E4%BB%A3%E7%A0%813.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/app%E4%BB%A3%E7%A0%813.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="app代码3"></p></li>
+<li><p><strong>浏览器获取数据并展示</strong></p>
+<blockquote>
+<p>在app.py路径下创建templates/index.html，其负责获取数据并展示效果。</p>
+<p>该部分就是使用 socket.io.js
+库来实时地接收服务端发送过来的消息，并将消息数据实时地设置在 html
+标签内，交给 highcharts.js
+进行实时获取和展示。如果出现引擎版本不匹配的错误，可以固定下 python
+几个包的版本：</p>
+<p>pip3 install Flask-SocketIO==4.3.1</p>
+<p>pip3 install python-engineio==3.13.2</p>
+<p>pip3 install python-socketio==4.6.0</p>
+<p>js依赖：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">crossorigin</span>=<span class="string">"anonymous"</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">     <span class="attr">integrity</span>=<span class="string">"sha512-TFZqlmDYmi29UdRJTJblfxNrsSgtabj2vxvIqAvsAO2I8//OaBTMfxa8ghzuHQ58hViU5k125Cp00vh9GVgWIg=="</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">     <span class="attr">src</span>=<span class="string">"https://lib.baomitu.com/socket.io/2.5.0/socket.io.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&gt;<span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&gt;<span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://code.highcharts.com/highcharts.src.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&gt;<span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://code.highcharts.com/modules/exporting.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>代码如下</p>
+</blockquote>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A31.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A31.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="index代1"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A32.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A32.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="index代2"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A33.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A33.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="index代3"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A34.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A34.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="index代4"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A35.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A35.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="index代5"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A36.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A36.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="index代6"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A37.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A37.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="index代7"></p></li>
+<li><p><strong>效果展示</strong></p>
+<blockquote>
+<p>启动步骤:</p>
+<ol type="1">
+<li><p>确保 kafka 开启（jps 观察进程是否启动）；</p></li>
+<li><p>开启 producer.py 模拟数据流（python3 producer.py）;</p></li>
+<li><p>启动 Spark Streaming 实时处理数据（scala 版运行
+stratup.sh）。</p></li>
+<li><p>启动 app.py</p></li>
 </ol>
+</blockquote></li>
+</ol>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%90%AF%E5%8A%A8%E7%9A%84%E6%9C%8D%E5%8A%A1.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%90%AF%E5%8A%A8%E7%9A%84%E6%9C%8D%E5%8A%A1.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="启动的服务"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%BF%90%E8%A1%8C%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%BF%90%E8%A1%8C%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="运行接收数据"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%B1%95%E7%A4%BA%E7%BB%93%E6%9E%9C1.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%B1%95%E7%A4%BA%E7%BB%93%E6%9E%9C1.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="展示结果1"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%B1%95%E7%A4%BA%E7%BB%93%E6%9E%9C2.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%B1%95%E7%A4%BA%E7%BB%93%E6%9E%9C2.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="展示结果2"></p>
 <h4 id="总结-3">总结</h4>
-<p>1、测试里的sex主题怎么创建的：</p>
+<p>1、主题列表：</p>
 <p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%BB%E9%A2%98%E5%88%9B%E5%BB%BA%E5%A5%BD%E4%BA%86.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%BB%E9%A2%98%E5%88%9B%E5%BB%BA%E5%A5%BD%E4%BA%86.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="主题创建好了"></p>
 <p>2、整个数据的传输过程：</p>
-<blockquote>
-
-</blockquote>
+<p>3、socket.io.js，exporting.js版本问题包</p>
+<p>4、并发问题</p>
 
   </div>
   
@@ -3226,10 +3279,10 @@ socket.io.js 实现 实时接收数据，hightlights.js 展现数据。</p>
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-06-26T21:40:20+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-06-27T13:44:29+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2024年6月26日</p>
+    <p>更新于：2024年6月27日</p>
   </a>
 </div>
 
@@ -3240,13 +3293,13 @@ socket.io.js 实现 实时接收数据，hightlights.js 展现数据。</p>
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：2.9k 字</p>
+      <p>字数：3.4k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：12 分钟</p>
+      <p>时长：14 分钟</p>
     </a>
   </div>
 
@@ -4565,7 +4618,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/","sameAs":["https://github.com/volantis-x"],"description":"�����⽮���ߣ�ʢ�ػ�����֮"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://Dekelkai.github.io/","name":"Dekel'Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://Dekelkai.github.io/categories/bigdata/","name":"bigdata"}},{"@type":"ListItem","position":3,"item":{"@id":"https://Dekelkai.github.io/2024/06/24/大数据系统实验课程/","name":"大数据系统实验课程"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","keywords":"�����ռ� BigData Scala Hadoop","description":"�����⽮���ߣ�ʢ�ػ�����֮","author":{"@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/","description":"�����⽮���ߣ�ʢ�ػ�����֮"},"publisher":{"@type":"Organization","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://Dekelkai.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"大数据系统实验课程","description":"大数据实验课的笔记","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/"},"author":{"@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/"},"publisher":{"@type":"Organization","name":"Dekel'Blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/","wordCount":0,"datePublished":"2024-06-24T02:13:28.000Z","dateModified":"2024-06-26T13:40:20.805Z","articleSection":"bigdata","keywords":"bigdata","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/","sameAs":["https://github.com/volantis-x"],"description":"�����⽮���ߣ�ʢ�ػ�����֮"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://Dekelkai.github.io/","name":"Dekel'Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://Dekelkai.github.io/categories/bigdata/","name":"bigdata"}},{"@type":"ListItem","position":3,"item":{"@id":"https://Dekelkai.github.io/2024/06/24/大数据系统实验课程/","name":"大数据系统实验课程"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","keywords":"�����ռ� BigData Scala Hadoop","description":"�����⽮���ߣ�ʢ�ػ�����֮","author":{"@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/","description":"�����⽮���ߣ�ʢ�ػ�����֮"},"publisher":{"@type":"Organization","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://Dekelkai.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"大数据系统实验课程","description":"大数据实验课的笔记","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/"},"author":{"@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/"},"publisher":{"@type":"Organization","name":"Dekel'Blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/","wordCount":0,"datePublished":"2024-06-24T02:13:28.000Z","dateModified":"2024-06-27T05:44:29.836Z","articleSection":"bigdata","keywords":"bigdata","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
