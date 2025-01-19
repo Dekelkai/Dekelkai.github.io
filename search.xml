@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>win11获取系统管理员权限方法</title>
-      <link href="/2024/12/30/win11%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E6%96%B9%E6%B3%95/"/>
-      <url>/2024/12/30/win11%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E6%96%B9%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<h3 id="win11获取系统管理员权限">Win11获取系统管理员权限</h3><p>1.win+R 打开运行，输入gpedit.msc然后回车。</p><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20241230210145435.png" alt="image-20241230210145435"></p><p>2.如果显示没有<code>gpedit.msc</code>，以cmd后缀，管理员权限，运行下面代码脚本，然后执行第一步。</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line"><span class="built_in">pushd</span> "%~dp0"</span><br><span class="line"></span><br><span class="line"><span class="built_in">dir</span> /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~<span class="number">3</span>*.mum &gt;List.txt</span><br><span class="line"></span><br><span class="line"><span class="built_in">dir</span> /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~<span class="number">3</span>*.mum &gt;&gt;List.txt</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> /f <span class="variable">%%i</span> <span class="keyword">in</span> ('<span class="built_in">findstr</span> /i . List.txt <span class="number">2</span>^&gt;<span class="built_in">nul</span>') <span class="keyword">do</span> dism /online /norestart /add-package:"C:\Windows\servicing\Packages\<span class="variable">%%i</span>"</span><br><span class="line"></span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure><p>3.打开<code>gpedit.msc</code>，跳转到本地组策略编辑器。</p><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20241230210720042.png" alt="image-20241230210720042"></p><ol start="4" type="1"><li>在组策略编辑器中依次进入“计算机配置—&gt;Windows设置—&gt;安全设置—&gt;本地策略—&gt;安全选项”。</li></ol><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20241230210830956.png" alt="image-20241230210830956"></p><p>5.进入安全选项后双击右侧的“管理员账户状态”。</p><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20241230210926125.png" alt="image-20241230210926125"></p><p>6.在管理员账户状态中，勾选“已启用”，再点击下方“确定”保存即可获得管理员权限。</p><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20241230210953897.png" alt="image-20241230210953897"></p><p>(新增)7.在<code>安全设置</code> 的下面 ，展开 <code>本地策略</code>--&gt; <code>安全选项</code> ，在右边找到<code>用户帐户控制：以管理员批准模式运行所有管理员</code> ，双击它，将<code>本地安全设置</code> 更改为 <code>已禁用</code> 。</p><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20250119225415368.png" alt="image-20250119225415368"></p><p>成功！</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>各数据结构结构体定义</title>
       <link href="/2024/12/04/%E5%90%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%93%E6%9E%84%E4%BD%93%E5%AE%9A%E4%B9%89/"/>
       <url>/2024/12/04/%E5%90%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%93%E6%9E%84%E4%BD%93%E5%AE%9A%E4%B9%89/</url>
