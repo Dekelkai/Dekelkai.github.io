@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>🥸反向传播中梯度消失和梯度爆炸的原因🥸</title>
+      <link href="/2025/02/06/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E4%B8%AD%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8%E7%9A%84%E5%8E%9F%E5%9B%A0/"/>
+      <url>/2025/02/06/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E4%B8%AD%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8%E7%9A%84%E5%8E%9F%E5%9B%A0/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20250206235609756.png" alt="image-20250206235609756"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>各数据结构结构体定义</title>
       <link href="/2024/12/04/%E5%90%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%93%E6%9E%84%E4%BD%93%E5%AE%9A%E4%B9%89/"/>
       <url>/2024/12/04/%E5%90%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%93%E6%9E%84%E4%BD%93%E5%AE%9A%E4%B9%89/</url>
