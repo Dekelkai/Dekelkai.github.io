@@ -73,6 +73,31 @@
     
     
     <entry>
+      <title>ViT 笔记</title>
+      <link href="/2025/01/29/ViT-%E7%AC%94%E8%AE%B0/"/>
+      <url>/2025/01/29/ViT-%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="vit模型整体框架">VIT模型整体框架✨✨✨</h2><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/e7bbdf9a59e3494bbc68eb67affb84eb~tplv-k3u1fbpfcp-zoom-in-crop-mark%3A1512%3A0%3A0%3A0.awebp" alt="image-20220812145556051"></p><blockquote><p>从整体上来看，VIT模型的结构是很少的，事实上确实如此。如果你明白了我上一篇讲解的Transformer的话，那这篇文章真的就特别简单了，可以说没什么难点。这篇文章作者企图不改变Transformer的结构来实现物体分类任务，我们可以来看一下VIT中的TransformerEncoder结构，基本是和Transformer中是一样的。注意我这里说的是基本喔，你对比两篇论文中Encoder的结构你会发现，Norm这个结构的位置是有所变化的，至于为什么这样做，作者也没有提及，个人感觉这个改变对结构影响不会很大，感兴趣的可以改变这个结构尝试尝试效果。<strong><em>另外一点是在VIT中没有使用Decoder结构，这里大家需要注意一下。</em></strong></p></blockquote><h2 id="vit细节梳理">VIT细节梳理✨✨✨</h2><blockquote><p>    首先，想想NLP中的Transformer和CV中的VIT这两个结构输入有什么区别？从变量的类型来看，两者都是一个tensor张量；而从变量的维度来看，NLP中的输入往往是二维的tensor，而CV中往往是一个三维的RGB图像。<strong>【都忽略Batch维度】</strong>这种维度的不统一会导致我们不能直接将图片数据喂入到Transformer结构中去，而是需要进行一定的维度转换，即将三维的tensor转换成二维的tensor，这个过程被称为patch_embedding。</p><p>  那论文中是如何将三维的tensor转化为二维的tensor的呢？如下图所示：</p></blockquote><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/233f40a683db4ebda6515214e38f97a6~tplv-k3u1fbpfcp-zoom-in-crop-mark%3A1512%3A0%3A0%3A0.awebp" alt="image-20220812165754427"></p><blockquote><p>对原图进行卷积，卷积核大小为16<em>16</em>3,步长为16，padding=0，卷积核个数为768，卷积后，我们会得到特征图，其尺寸为14<em>14</em>768，接着将前两个维度展平，就得到了维度为196*798的tensor。其大致过程如下。</p></blockquote><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/7570b718a7764161a3e6035542cb4e95~tplv-k3u1fbpfcp-zoom-in-crop-mark%3A1512%3A0%3A0%3A0.awebp" alt="img"></p><blockquote><p>  我认为这步使用卷积真的很巧妙，我们得到的196x798的二维向量，其实每一行即1x798都包含了原图中16x16x3大小的patch，这就是卷积的提取特征的功能嘛。<strong>【我这样介绍不知道大家会不会有这样的思路——我先用一些CNN模型来对图片提取特征，只要使CNN最后的输出维度为196*768，最后再送入Transformer模型中。其实这就将CNN和Transformer很好的结合在一起了，这种方法是可行的，大家可以自己尝试尝试喔】</strong></p></blockquote><blockquote><p>    现在我们已经得到了196x768维的tensor，我们假设其为x。接下来我们会使用一个维度为1x768维的Classtoken来和x进行Concat操作，输出结果为197*768维的tensor。这里肯定有人有疑问了，为什么这里会加一个Classtoken，在上篇讲述的Transformer中可没有这个操作。--小傻瓜--因为这篇文章我们要用来对物体进行分类啊！！！说不定你现在有点怀疑自己了，因为是分类任务所以要加上Classtoken？这两个还有因果关系不成？一个个问号从你脑海中冒出，百思不得其解。其实啊，这可没什么啥因果关系，只是我们在分类任务中加上Classtoken可能会效果更好。🌵🌵🌵</p><p>  如果我们不加Classtoken，直接将196x768维的tensor输入Encode中，我们的输出同样是196x768，即196个1x768维的向量，这时候我们应该拿哪个向量来当作最后的输出向量进而进行物体分类任务呢？这我们是很难确定的。所以我们干脆在输入Encode前就加上一个1x768维的向量<strong>（这个1维向量放在196x768维向量前面）</strong>，这样在输出时向量的维度就会是197x768，然后我们只需要通过切片的方式获得第一个1x768维向量并将其送入分类头进行分类即可。在代码中这个Classtoken是一个可学习的向量，初始为全0的1x768维向量。🌱🌱🌱</p></blockquote><blockquote><p>Classtoken和x拼接后，输出尺寸变成了197x768，此时我们会加上一个位置编码向量positionEmbedding，其维度为197x768。关于这部分我在上一篇介绍Transformer中已经很详细的介绍过了，这里不再过多阐述原理。但我们可以看一下如果我们不使用位置编码，那么下面两幅图输出的结果将是一致的，这显然是有违我们直觉的。</p></blockquote><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/3a637bc084b845d4a084860b27b6374d~tplv-k3u1fbpfcp-zoom-in-crop-mark%3A1512%3A0%3A0%3A0.awebp" alt="image-20220813102024706"></p><hr><blockquote><p>接下来我们将经过位置编码的输入喂入encoder网络中，并重复L次encoder结构，encoder的结构如下：</p></blockquote><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/b581207f576c4f92bef663438b0012fc~tplv-k3u1fbpfcp-zoom-in-crop-mark%3A1512%3A0%3A0%3A0.awebp" alt="image-20220813102434358"></p><p>经过L个encoder结构后，输入维度没有发生变换，仍为197x768维，此时我们会通过切片的方式提取出Classtoken的信息，其维度为1x768。接着会拿这个1x768维的Class token经过MLPHead层。MLP Head层的结构如下：</p><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/579528ac160c498ab505e9fcf7430acf~tplv-k3u1fbpfcp-zoom-in-crop-mark%3A1512%3A0%3A0%3A0.awebp" alt="image-20220813105327592"></p><blockquote><p>其中Pre-Logits这部分是可选的，其就是一个全连接层加上一个tanh激活函数，具体我们会在下一篇代码实战部分进行讲解。Linear就用于分类了，输出节点个数为我们任务的类别数。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vision Transformer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Transformer 笔记</title>
       <link href="/2025/01/27/Transformer-%E7%AC%94%E8%AE%B0/"/>
       <url>/2025/01/27/Transformer-%E7%AC%94%E8%AE%B0/</url>
