@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://Dekelkai.github.io/2024/12/30/win11获取系统管理员权限方法/"/>
+  <link rel="canonical" href="https://Dekelkai.github.io/2025/04/04/交并比-iou-和广义交并比-giou/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -34,19 +34,19 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>😄win11获取系统管理员权限方法😄 - Dekel'Blog</title>
+  <title>交并比(IoU)和广义交并比(GIoU) - Dekel'Blog</title>
   <meta name="keywords" content="�����ռ� BigData Scala Hadoop">
-  <meta desc name="description" content="歪门邪道，谨慎尝试 - Tang Xiangkai - Dekel'Blog">
-  
+  <meta desc name="description" content="�����⽮���ߣ�ʢ�ػ�����֮ - Tang Xiangkai - Dekel'Blog">
+  <meta name="description" content="交并比IOU(Intersection over Union)：  IoU &#x3D; 交集面积 &#x2F; 并集面积 值范围在 [0,1] 之间：0 表示完全没有重叠，1 表示完全重合  作为损失函数的问题：  如果两个框没有相交，根据定义，IoU&#x3D;0，不能反映两者的距离大小（重合度）。同时因为loss&#x3D;0，没有梯度回传，无法进行学习训练。 IoU无法精确的反映两者的重合度大小。如下图所示，三种">
 <meta property="og:type" content="article">
-<meta property="og:title" content="😄win11获取系统管理员权限方法😄">
-<meta property="og:url" content="https://dekelkai.github.io/2024/12/30/win11%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:title" content="交并比(IoU)和广义交并比(GIoU)">
+<meta property="og:url" content="https://dekelkai.github.io/2025/04/04/%E4%BA%A4%E5%B9%B6%E6%AF%94-IoU-%E5%92%8C%E5%B9%BF%E4%B9%89%E4%BA%A4%E5%B9%B6%E6%AF%94-GIoU/index.html">
 <meta property="og:site_name" content="Dekel&#39;Blog">
-<meta property="og:description" content="歪门邪道，谨慎尝试">
+<meta property="og:description" content="交并比IOU(Intersection over Union)：  IoU &#x3D; 交集面积 &#x2F; 并集面积 值范围在 [0,1] 之间：0 表示完全没有重叠，1 表示完全重合  作为损失函数的问题：  如果两个框没有相交，根据定义，IoU&#x3D;0，不能反映两者的距离大小（重合度）。同时因为loss&#x3D;0，没有梯度回传，无法进行学习训练。 IoU无法精确的反映两者的重合度大小。如下图所示，三种">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2024-12-30T12:59:04.000Z">
-<meta property="article:modified_time" content="2025-02-06T16:07:34.257Z">
+<meta property="article:published_time" content="2025-04-04T09:55:24.000Z">
+<meta property="article:modified_time" content="2025-04-04T09:59:10.826Z">
 <meta property="article:author" content="Tang Xiangkai">
 <meta property="article:tag" content="�����ռ� BigData Scala Hadoop">
 <meta name="twitter:card" content="summary">
@@ -2691,7 +2691,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="https://dekelkai.github.io/2024/12/30/win11获取系统管理员权限方法/">
+  <link itemprop="mainEntityOfPage" href="https://dekelkai.github.io/2025/04/04/交并比-IoU-和广义交并比-GIoU/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Dekel'Blog">
   </span>
@@ -2712,7 +2712,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        😄win11获取系统管理员权限方法😄
+        交并比(IoU)和广义交并比(GIoU)
       </h1>
       <div class='new-meta-box'>
         
@@ -2737,7 +2737,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：287 字</p>
+      <p>字数：407 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -2751,10 +2751,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2024-12-30T20:59:04+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2025-04-04T17:55:24+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2024年12月30日</p>
+    <p>发布于：2025年4月4日</p>
   </a>
 </div>
 
@@ -2789,27 +2789,39 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h3 id="win11获取系统管理员权限">Win11获取系统管理员权限</h3>
-<p>1.win+R 打开运行，输入gpedit.msc然后回车。</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20241230210145435.png" alt="image-20241230210145435"></p>
-<p>2.如果显示没有<code>gpedit.msc</code>，以cmd后缀，管理员权限，运行下面代码脚本，然后执行第一步。</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line"><span class="built_in">pushd</span> "%~dp0"</span><br><span class="line"></span><br><span class="line"><span class="built_in">dir</span> /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~<span class="number">3</span>*.mum &gt;List.txt</span><br><span class="line"></span><br><span class="line"><span class="built_in">dir</span> /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~<span class="number">3</span>*.mum &gt;&gt;List.txt</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> /f <span class="variable">%%i</span> <span class="keyword">in</span> ('<span class="built_in">findstr</span> /i . List.txt <span class="number">2</span>^&gt;<span class="built_in">nul</span>') <span class="keyword">do</span> dism /online /norestart /add-package:"C:\Windows\servicing\Packages\<span class="variable">%%i</span>"</span><br><span class="line"></span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
-<p>3.打开<code>gpedit.msc</code>，跳转到本地组策略编辑器。</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20241230210720042.png" alt="image-20241230210720042"></p>
-<ol start="4" type="1">
-<li>在组策略编辑器中依次进入“计算机配置—&gt;Windows设置—&gt;安全设置—&gt;本地策略—&gt;安全选项”。</li>
+    <p>交并比<strong>IOU(Intersection over Union)</strong>：</p>
+<blockquote>
+<p>IoU = 交集面积 / 并集面积</p>
+<p>值范围在 [0,1] 之间：0 表示完全没有重叠，1 表示完全重合</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20250404163320936.png" alt="image-20250404163320936"></p>
+<p>作为损失函数的问题：</p>
+<ol type="1">
+<li><p>如果两个框没有相交，根据定义，IoU=0，不能反映两者的距离大小（重合度）。同时因为loss=0，没有梯度回传，无法进行学习训练。</p></li>
+<li><p>IoU无法精确的反映两者的重合度大小。如下图所示，三种情况IoU都相等，但看得出来他们的重合度是不一样的，左边的图回归的效果最好，右边的最差。</p></li>
 </ol>
-<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20241230210830956.png" alt="image-20241230210830956"></p>
-<p>5.进入安全选项后双击右侧的“管理员账户状态”。</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20241230210926125.png" alt="image-20241230210926125"></p>
-<p>6.在管理员账户状态中，勾选“已启用”，再点击下方“确定”保存即可获得管理员权限。</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20241230210953897.png" alt="image-20241230210953897"></p>
-<p>(新增)7.在<code>安全设置</code> 的下面 ，展开 <code>本地策略</code>
---&gt; <code>安全选项</code> ，在右边找到
-<code>用户帐户控制：以管理员批准模式运行所有管理员</code> ，双击它，将
-<code>本地安全设置</code> 更改为 <code>已禁用</code> 。</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20250119225415368.png" alt="image-20250119225415368"></p>
-<p>成功！</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20250404170411736.png" alt="image-20250404170411736"></p>
+</blockquote>
+<p>广义交并比<strong>GIOU(Generalized Intersection over
+Union)</strong>：</p>
+<blockquote>
+<p>当两个框不重叠时,IoU就失效了但如果我们能够度量<strong>不重叠的两个框之间的距离</strong>呢?</p>
+<p>GIoU在IoU基础上加了一个惩罚项，关注两个框的<strong>距离</strong>和<strong>相对位置</strong>。<br>
+<strong>关键思想</strong>：</p>
+<ol type="1">
+<li>先画一个能同时包住两个框的<strong>超级大框</strong>（最小封闭框，比如把预测框和真实框当积木，用一个更大的盒子装下它们）。</li>
+<li>计算 <strong>浪费的空间 = 超级大框的面积 - 并集面积</strong>。</li>
+<li><strong>惩罚项 = 浪费的空间 /
+超级大框面积</strong>（浪费越多，GIoU越小）。</li>
+</ol>
+<p><strong>公式简化</strong>：<br>
+<strong>GIoU = IoU - 惩罚项</strong></p>
+<p>（GIoU范围：-1<sub>1</sub>，重合时=1，完全不重合且离得越远越接近-1）</p>
+</blockquote>
+<p>通俗解释：</p>
+<ul>
+<li><strong>IoU</strong>：只关心你和女朋友现在是否在同一间房（1=同屋，0=不同屋）。</li>
+<li><strong>GIoU</strong>：不仅关心是否同屋，还关心你们是隔壁屋（-0.3）还是跨城异地（-0.8）！</li>
+</ul>
 
   </div>
   
@@ -2842,10 +2854,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-02-07T00:07:34+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-04-04T17:59:10+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2025年2月7日</p>
+    <p>更新于：2025年4月4日</p>
   </a>
 </div>
 
@@ -2856,7 +2868,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：287 字</p>
+      <p>字数：407 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -2882,7 +2894,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://dekelkai.github.io/2024/12/30/win11%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E6%96%B9%E6%B3%95/&title=😄win11获取系统管理员权限方法😄 - Dekel'Blog&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://dekelkai.github.io/2025/04/04/%E4%BA%A4%E5%B9%B6%E6%AF%94-IoU-%E5%92%8C%E5%B9%BF%E4%B9%89%E4%BA%A4%E5%B9%B6%E6%AF%94-GIoU/&title=交并比(IoU)和广义交并比(GIoU) - Dekel'Blog&summary="
           
           >
           
@@ -2894,7 +2906,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://dekelkai.github.io/2024/12/30/win11%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E6%96%B9%E6%B3%95/&title=😄win11获取系统管理员权限方法😄 - Dekel'Blog&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://dekelkai.github.io/2025/04/04/%E4%BA%A4%E5%B9%B6%E6%AF%94-IoU-%E5%92%8C%E5%B9%BF%E4%B9%89%E4%BA%A4%E5%B9%B6%E6%AF%94-GIoU/&title=交并比(IoU)和广义交并比(GIoU) - Dekel'Blog&summary="
           
           >
           
@@ -2906,7 +2918,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://dekelkai.github.io/2024/12/30/win11%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E6%96%B9%E6%B3%95/&title=😄win11获取系统管理员权限方法😄 - Dekel'Blog&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://dekelkai.github.io/2025/04/04/%E4%BA%A4%E5%B9%B6%E6%AF%94-IoU-%E5%92%8C%E5%B9%BF%E4%B9%89%E4%BA%A4%E5%B9%B6%E6%AF%94-GIoU/&title=交并比(IoU)和广义交并比(GIoU) - Dekel'Blog&summary="
           
           >
           
@@ -2939,21 +2951,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2025/01/15/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0-%E7%BD%91%E9%A1%B5%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E8%AF%84%E8%AE%BA%E6%8A%93%E5%8F%96/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>爬虫学习-网页网易云音乐评论抓取</p>
+      
+        <a class='next' href='/2025/02/20/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1-%E8%87%AA%E9%80%82%E5%BA%94%E5%92%8C%E4%BA%92%E4%BF%A1%E6%81%AF%E6%9C%80%E5%A4%A7%E5%8C%96%E6%97%A0%E4%BA%BA%E6%9C%BA%E5%AE%9E%E5%AE%9E%E6%97%B6%E8%BF%BD%E8%B8%AA%E8%92%B8%E9%A6%8F%E6%A8%A1%E5%9E%8B/'>
+          <p class='title'>毕业设计-自适应和互信息最大化无人机实实时追踪蒸馏模型<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>
-傍晚时分，坐在屋檐下，看着天慢慢地黑下去，心里寂寞而凄凉，感到自己的生命被剥夺了。当时我是个年轻人，但我害怕这样生活下去，衰老下去。在我看来，这是比死亡更可怕的事。
-一、准备工作
-1. ...</p>
-        </a>
-      
-      
-        <a class='next' href='/2024/12/28/%E5%8D%B0%E7%AB%A0%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F/'>
-          <p class='title'>印章识别系统<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>印章识别系统demo
-demo做了一些实验，一些图片不能够识别出来文字，或者由于ORC的原因文字识别效果不好，但是圆形切割的效果还挺可以。
-看了RCNN的原始论文。
-用MaskRCNN的源...</p>
+1. 输入处理
+输入：
+
+模板图像 ，通常是初始帧或前一帧，尺寸较小，聚焦于目标物体。
+搜索图像 ，当前帧中需要搜索的区域，尺寸较大，覆盖目标可能的移动范围。
+
+分块：
+
+ ...</p>
         </a>
       
     </div>
@@ -2969,7 +2979,7 @@ demo做了一些实验，一些图片不能够识别出来文字，或者由于O
 
   <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2024/12/30/win11%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E6%96%B9%E6%B3%95/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2025/04/04/%E4%BA%A4%E5%B9%B6%E6%AF%94-IoU-%E5%92%8C%E5%B9%BF%E4%B9%89%E4%BA%A4%E5%B9%B6%E6%AF%94-GIoU/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -3003,19 +3013,9 @@ demo做了一些实验，一些图片不能够识别出来文字，或者由于O
   
 
 
-  <section class="widget toc-wrapper desktop mobile " id="toc-div" >
-    
-  <header>
-    
-      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#win11%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90"><span class="toc-text">Win11获取系统管理员权限</span></a></li></ol>
-    </div>
-  </section>
+  <div class="">
+    <!-- pjax占位 -->
+  </div>
 
   
 
@@ -4145,7 +4145,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/","sameAs":["https://github.com/volantis-x"],"description":"�����⽮���ߣ�ʢ�ػ�����֮"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://Dekelkai.github.io/","name":"Dekel'Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"https://Dekelkai.github.io/2024/12/30/win11获取系统管理员权限方法/","name":"😄win11获取系统管理员权限方法😄"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","keywords":"�����ռ� BigData Scala Hadoop","description":"�����⽮���ߣ�ʢ�ػ�����֮","author":{"@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/","description":"�����⽮���ߣ�ʢ�ػ�����֮"},"publisher":{"@type":"Organization","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://Dekelkai.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"😄win11获取系统管理员权限方法😄","description":"歪门邪道，谨慎尝试","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://dekelkai.github.io/2024/12/30/win11%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E6%96%B9%E6%B3%95/"},"author":{"@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/"},"publisher":{"@type":"Organization","name":"Dekel'Blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://dekelkai.github.io/2024/12/30/win11%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E6%96%B9%E6%B3%95/","wordCount":0,"datePublished":"2024-12-30T12:59:04.000Z","dateModified":"2025-02-06T16:07:34.257Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/","sameAs":["https://github.com/volantis-x"],"description":"�����⽮���ߣ�ʢ�ػ�����֮"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://Dekelkai.github.io/","name":"Dekel'Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"https://Dekelkai.github.io/2025/04/04/交并比-IoU-和广义交并比-GIoU/","name":"交并比(IoU)和广义交并比(GIoU)"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","keywords":"�����ռ� BigData Scala Hadoop","description":"�����⽮���ߣ�ʢ�ػ�����֮","author":{"@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/","description":"�����⽮���ߣ�ʢ�ػ�����֮"},"publisher":{"@type":"Organization","name":"Dekel'Blog","url":"https://Dekelkai.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://Dekelkai.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"交并比(IoU)和广义交并比(GIoU)","description":"�����⽮���ߣ�ʢ�ػ�����֮","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://dekelkai.github.io/2025/04/04/%E4%BA%A4%E5%B9%B6%E6%AF%94-IoU-%E5%92%8C%E5%B9%BF%E4%B9%89%E4%BA%A4%E5%B9%B6%E6%AF%94-GIoU/"},"author":{"@type":"Person","name":"Tang Xiangkai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://Dekelkai.github.io/"},"publisher":{"@type":"Organization","name":"Dekel'Blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://dekelkai.github.io/2025/04/04/%E4%BA%A4%E5%B9%B6%E6%AF%94-IoU-%E5%92%8C%E5%B9%BF%E4%B9%89%E4%BA%A4%E5%B9%B6%E6%AF%94-GIoU/","wordCount":0,"datePublished":"2025-04-04T09:55:24.000Z","dateModified":"2025-04-04T09:59:10.826Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

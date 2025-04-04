@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>交并比(IoU)和广义交并比(GIoU)</title>
+      <link href="/2025/04/04/%E4%BA%A4%E5%B9%B6%E6%AF%94-IoU-%E5%92%8C%E5%B9%BF%E4%B9%89%E4%BA%A4%E5%B9%B6%E6%AF%94-GIoU/"/>
+      <url>/2025/04/04/%E4%BA%A4%E5%B9%B6%E6%AF%94-IoU-%E5%92%8C%E5%B9%BF%E4%B9%89%E4%BA%A4%E5%B9%B6%E6%AF%94-GIoU/</url>
+      
+        <content type="html"><![CDATA[<p>交并比<strong>IOU(Intersection over Union)</strong>：</p><blockquote><p>IoU = 交集面积 / 并集面积</p><p>值范围在 [0,1] 之间：0 表示完全没有重叠，1 表示完全重合</p><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20250404163320936.png" alt="image-20250404163320936"></p><p>作为损失函数的问题：</p><ol type="1"><li><p>如果两个框没有相交，根据定义，IoU=0，不能反映两者的距离大小（重合度）。同时因为loss=0，没有梯度回传，无法进行学习训练。</p></li><li><p>IoU无法精确的反映两者的重合度大小。如下图所示，三种情况IoU都相等，但看得出来他们的重合度是不一样的，左边的图回归的效果最好，右边的最差。</p></li></ol><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20250404170411736.png" alt="image-20250404170411736"></p></blockquote><p>广义交并比<strong>GIOU(Generalized Intersection overUnion)</strong>：</p><blockquote><p>当两个框不重叠时,IoU就失效了但如果我们能够度量<strong>不重叠的两个框之间的距离</strong>呢?</p><p>GIoU在IoU基础上加了一个惩罚项，关注两个框的<strong>距离</strong>和<strong>相对位置</strong>。<br><strong>关键思想</strong>：</p><ol type="1"><li>先画一个能同时包住两个框的<strong>超级大框</strong>（最小封闭框，比如把预测框和真实框当积木，用一个更大的盒子装下它们）。</li><li>计算 <strong>浪费的空间 = 超级大框的面积 - 并集面积</strong>。</li><li><strong>惩罚项 = 浪费的空间 /超级大框面积</strong>（浪费越多，GIoU越小）。</li></ol><p><strong>公式简化</strong>：<br><strong>GIoU = IoU - 惩罚项</strong></p><p>（GIoU范围：-1<sub>1</sub>，重合时=1，完全不重合且离得越远越接近-1）</p></blockquote><p>通俗解释：</p><ul><li><strong>IoU</strong>：只关心你和女朋友现在是否在同一间房（1=同屋，0=不同屋）。</li><li><strong>GIoU</strong>：不仅关心是否同屋，还关心你们是隔壁屋（-0.3）还是跨城异地（-0.8）！</li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>毕业设计-自适应和互信息最大化无人机实实时追踪蒸馏模型</title>
       <link href="/2025/02/20/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1-%E8%87%AA%E9%80%82%E5%BA%94%E5%92%8C%E4%BA%92%E4%BF%A1%E6%81%AF%E6%9C%80%E5%A4%A7%E5%8C%96%E6%97%A0%E4%BA%BA%E6%9C%BA%E5%AE%9E%E5%AE%9E%E6%97%B6%E8%BF%BD%E8%B8%AA%E8%92%B8%E9%A6%8F%E6%A8%A1%E5%9E%8B/"/>
       <url>/2025/02/20/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1-%E8%87%AA%E9%80%82%E5%BA%94%E5%92%8C%E4%BA%92%E4%BF%A1%E6%81%AF%E6%9C%80%E5%A4%A7%E5%8C%96%E6%97%A0%E4%BA%BA%E6%9C%BA%E5%AE%9E%E5%AE%9E%E6%97%B6%E8%BF%BD%E8%B8%AA%E8%92%B8%E9%A6%8F%E6%A8%A1%E5%9E%8B/</url>
