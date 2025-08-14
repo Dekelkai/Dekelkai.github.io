@@ -4,38 +4,19 @@
   
     
     <entry>
-      <title>论文阅读-SAMITE Position Prompted SAM2 with Calibrated Memory for Visual Object Tracking</title>
-      <link href="/2025/06/12/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E4%B8%80/"/>
-      <url>/2025/06/12/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E4%B8%80/</url>
+      <title>github提交更新代码</title>
+      <link href="/2025/08/15/github%E6%8F%90%E4%BA%A4%E6%9B%B4%E6%96%B0%E4%BB%A3%E7%A0%81/"/>
+      <url>/2025/08/15/github%E6%8F%90%E4%BA%A4%E6%9B%B4%E6%96%B0%E4%BB%A3%E7%A0%81/</url>
       
-        <content type="html"><![CDATA[<h4 id="背景">背景</h4><p>现有方法 大致可分为 模板匹配法和自回归法，前者通常会忽略帧间的时间依赖性，后者在训练过程中往往会偏向于对象类别，对未见类别的泛化能力较弱。</p><h4 id="最新进展">最新进展</h4><blockquote><p>SAM2</p><p>方法：将每帧预测对象 编码 为记忆，用于后续帧目标的预测。默认情况下，选择第1个提示帧和近6帧记忆预测当前帧3 个掩码（带不同置信度），择置信度高为当前帧预测目标。</p><p>问题：无法克服遮挡和干扰问题。</p></blockquote><blockquote><p>SAMURAI</p><p>方法：利用SAM2的内置 遮挡预测头 来估计遮挡的可能性用来 过滤记忆，同时维护一个 卡尔曼滤波 保持运动的记忆。</p><p>问题：当目标被部分遮挡时，带有遮挡的记忆可能会被用于后续帧的使用。</p></blockquote><blockquote><p>SAM2.1++</p><p>方法：量化每帧生成的 3个预测掩码的差距，差距过大表明存在干扰物，排除该帧。</p><p>问题：3 个掩码会定位于同一个目标，有时会是干扰目标。</p></blockquote><h2 id="提出方法">提出方法</h2><blockquote><p>在SAM2的基础上添加额外模块：</p><ol type="1"><li>Prototypical Memory Bank:量化每帧跟踪结果的特征和位置正确性，并选择最佳帧作为后续帧的条件。由于受遮挡和干扰物体的特征在特征和位置上都不准确，其得分自然会较低，因此可以对其进行过滤，以拦截误差传播；</li><li>Positional Prompt Generator:为了进一步减少干扰因素的影响，采用生成位置掩码提示，为目标提供明确的位置线索，从而实现更精确的跟踪。</li></ol></blockquote><p>模板搜索：通过带有真实标签的第一帧作为模板，在其他搜索帧中匹配对象，未考虑时间信息。</p><p>自回归：当前帧与前几帧的预测坐标作为条件，带有时间依赖性，但是只能限制于训练数据中出现的类别。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="git-本地代码更新到远程仓库流程">Git本地代码更新到远程仓库流程</h2><h3 id="确认当前分支"><strong>1. 确认当前分支</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure><p>若不在目标分支（如 <code>main</code> 或<code>dev</code>），可切换：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout main</span><br></pre></td></tr></table></figure><hr><h3 id="同步远程仓库"><strong>2. 同步远程仓库</strong></h3><p>在提交代码前先同步远程分支，避免冲突：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main --rebase</span><br></pre></td></tr></table></figure><hr><h3 id="查看修改状态"><strong>3. 查看修改状态</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure><ul><li>红色：未追踪或已修改但未暂存的文件</li><li>绿色：已暂存的文件</li></ul><hr><h3 id="添加文件到暂存区"><strong>4. 添加文件到暂存区</strong></h3><p>添加所有修改：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure><p>或指定文件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add file1.py file2.txt</span><br></pre></td></tr></table></figure><hr><h3 id="提交到本地仓库"><strong>5. 提交到本地仓库</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"更新说明"</span></span><br></pre></td></tr></table></figure><p>更新说明应简洁准确，便于后续回溯。</p><hr><h3 id="推送到远程仓库"><strong>6. 推送到远程仓库</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin main</span><br></pre></td></tr></table></figure><hr><h3 id="常见问题处理"><strong>7. 常见问题处理</strong></h3><ul><li><strong>远程有新提交导致推送失败</strong></li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main --rebase</span><br><span class="line">git push origin main</span><br></pre></td></tr></table></figure><ul><li><strong>推送大文件超限（GitHub 2GB 限制）</strong><ul><li>删除不必要的大文件并提交</li><li>使用 Git LFS 进行管理</li></ul></li></ul><hr><h3 id="一键更新命令"><strong>8. 一键更新命令</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main --rebase &amp;&amp; git add . &amp;&amp; git commit -m <span class="string">"更新说明"</span> &amp;&amp; git push origin main</span><br></pre></td></tr></table></figure><p>执行后自动完成同步、暂存、提交与推送。</p><hr><p>如果需要，我可以帮把这个内容再扩展成<strong>图文结合的 Git更新备忘录</strong>，加流程图和示例，这样在博客里更直观。</p>]]></content>
       
-      
-      <categories>
-          
-          <category> 论文 </category>
-          
-      </categories>
       
       
         <tags>
             
-            <tag> paper Read </tag>
+            <tag> git </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>交并比(IoU)和广义交并比(GIoU)</title>
-      <link href="/2025/04/04/%E4%BA%A4%E5%B9%B6%E6%AF%94-IoU-%E5%92%8C%E5%B9%BF%E4%B9%89%E4%BA%A4%E5%B9%B6%E6%AF%94-GIoU/"/>
-      <url>/2025/04/04/%E4%BA%A4%E5%B9%B6%E6%AF%94-IoU-%E5%92%8C%E5%B9%BF%E4%B9%89%E4%BA%A4%E5%B9%B6%E6%AF%94-GIoU/</url>
-      
-        <content type="html"><![CDATA[<p>交并比<strong>IOU(Intersection over Union)</strong>：</p><blockquote><p>IoU = 交集面积 / 并集面积</p><p>值范围在 [0,1] 之间：0 表示完全没有重叠，1 表示完全重合</p><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20250404163320936.png" alt="image-20250404163320936"></p><p>作为损失函数的问题：</p><ol type="1"><li><p>如果两个框没有相交，根据定义，IoU=0，不能反映两者的距离大小（重合度）。同时因为loss=0，没有梯度回传，无法进行学习训练。</p></li><li><p>IoU无法精确的反映两者的重合度大小。如下图所示，三种情况IoU都相等，但看得出来他们的重合度是不一样的，左边的图回归的效果最好，右边的最差。</p></li></ol><p><img src="https://gcore.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20250404170411736.png" alt="image-20250404170411736"></p></blockquote><p>广义交并比<strong>GIOU(Generalized Intersection overUnion)</strong>：</p><blockquote><p>当两个框不重叠时,IoU就失效了但如果我们能够度量<strong>不重叠的两个框之间的距离</strong>呢?</p><p>GIoU在IoU基础上加了一个惩罚项，关注两个框的<strong>距离</strong>和<strong>相对位置</strong>。<br><strong>关键思想</strong>：</p><ol type="1"><li>先画一个能同时包住两个框的<strong>超级大框</strong>（最小封闭框，比如把预测框和真实框当积木，用一个更大的盒子装下它们）。</li><li>计算 <strong>浪费的空间 = 超级大框的面积 - 并集面积</strong>。</li><li><strong>惩罚项 = 浪费的空间 /超级大框面积</strong>（浪费越多，GIoU越小）。</li></ol><p><strong>公式简化</strong>：<br><strong>GIoU = IoU - 惩罚项</strong></p><p>（GIoU范围：-1<sub>1</sub>，重合时=1，完全不重合且离得越远越接近-1）</p></blockquote><p>通俗解释：</p><ul><li><strong>IoU</strong>：只关心你和女朋友现在是否在同一间房（1=同屋，0=不同屋）。</li><li><strong>GIoU</strong>：不仅关心是否同屋，还关心你们是隔壁屋（-0.3）还是跨城异地（-0.8）！</li></ul>]]></content>
-      
-      
       
     </entry>
     
