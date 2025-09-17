@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>论文-Strong Baseline: Multi-UAV Tracking via YOLOv12 with BoT-SORT-ReID</title>
+      <link href="/2025/09/17/%E8%AE%BA%E6%96%87-Strong-Baseline-Multi-UAV-Tracking-via-YOLOv12-with-BoT-SORT-ReID/"/>
+      <url>/2025/09/17/%E8%AE%BA%E6%96%87-Strong-Baseline-Multi-UAV-Tracking-via-YOLOv12-with-BoT-SORT-ReID/</url>
+      
+        <content type="html"><![CDATA[<h3 id="提出的方法以及数据集的缺陷">提出的方法以及数据集的缺陷</h3><p>基于热红外视频的多无人机跟踪任务</p><p>该论文方法与 YOLOv5[18]和DeepSORT[40]管道进行对比。使用了YOLOv12探测器和BoT-SORT-ReIDpipline。此外还采用了一些方法提高了多无人机的跟踪性能。</p><p><img src="http://txkimg.oss-cn-beijing.aliyuncs.com/image_1758099090822.png" alt="image_1758099090822.png"></p><p>图 (a)显示了来自 MOT 训练集的不同背景的热红外帧，而图 1(b)突出了一些小缺陷，如注释错误、冗余、缺失标签和低质量帧，这些缺陷在数据集中占的比例可以忽略不计，在训练过程中可以安全地忽略。(反无人机比赛数据集)</p><h3 id="普遍采用的提升方法">普遍采用的提升方法</h3><p>现有改进主要集中在</p><p><strong>时间建模、实时优化、统一框架、检测后处理</strong></p><p>上述四个方面，而作者的工作在此基础上结合最先进的检测器与跟踪器，在热红外多无人机跟踪上创造了新benchmark，并指引后续研究。</p><h3 id="详细方法">详细方法</h3><h4 id="问题陈述">1、问题陈述</h4><p>尽可能准确地跟踪无人机，评价指标：</p><p>提供初始位置的MOT任务。</p><h4 id="数据">2、数据</h4><p>track3</p><h4 id="yolov12-bot-sort">YOLOv12 + BoT-SORT</h4><blockquote><p>YOLOv12</p></blockquote><p>简单在线实时多目标跟踪技巧优化</p><blockquote><p>BoT-SORT：卡尔曼滤波+运动相机补偿 稳定动态条件下的跟踪</p></blockquote><p><a href="">https://github.com/NirAharon/BoT-SORT</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+            <tag> 目标跟踪 </tag>
+            
+            <tag> 无人机 </tag>
+            
+            <tag> YOLO </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>强化学习（三.1）贝尔曼最优策略和公式推导</title>
       <link href="/2025/09/10/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89-1%EF%BC%89%E8%B4%9D%E5%B0%94%E6%9B%BC%E6%9C%80%E4%BC%98%E7%AD%96%E7%95%A5%E5%92%8C%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/"/>
       <url>/2025/09/10/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89-1%EF%BC%89%E8%B4%9D%E5%B0%94%E6%9B%BC%E6%9C%80%E4%BC%98%E7%AD%96%E7%95%A5%E5%92%8C%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</url>
@@ -389,9 +420,9 @@
       
         <tags>
             
-            <tag> 功能 </tag>
-            
             <tag> LaTeX </tag>
+            
+            <tag> 功能 </tag>
             
         </tags>
       
@@ -468,9 +499,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> Typora </tag>
             
