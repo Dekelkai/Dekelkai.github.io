@@ -1,0 +1,1118 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>大数据系统实验课程 | Dekel'Blog</title><meta name="keywords" content="bigdata"><meta name="author" content="Tang Xiangkai"><meta name="copyright" content="Tang Xiangkai"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="大数据系统实验课程"><meta name="application-name" content="大数据系统实验课程"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="大数据系统实验课程"><meta property="og:url" content="https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/index.html"><meta property="og:site_name" content="Dekel'Blog"><meta property="og:description" content="大数据平台实践笔记"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://dekelkai.github.io/img/default_cover.jpg"><meta property="article:author" content="Tang Xiangkai"><meta property="article:tag" content="再见"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://dekelkai.github.io/img/default_cover.jpg"><meta name="description" content="大数据平台实践笔记"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 智能家居小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Tang Xiangkai","link":"链接: ","source":"来源: Dekel'Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Dekel'Blog',
+  title: '大数据系统实验课程',
+  postAI: '',
+  pageFillDescription: '一、实验准备, 1、导入虚拟机及开启大数据平台, 2、环境检测, HDFS, MapReduce, yarn, hive, Hbase, spark, zookeeper, sbt打包, Azkaban, kafka, Phoenix 集成 HBase, 3、总结, 二、大数据批处理系统, 0、前言, 1、数据准备, 2、数据预处理, 3、启动并配置MySQL, 4、Hive的简单使用, 5、Hive的数据处理和分析, 6、从hive导入数据到mysql, 7、idea+Tomcat+ECharts展示数据, 8、总结, 三、大数据查询分析计算系统, 0、前言, 1、HBase创建表, 2、编写python脚本批量导入数据至hbase中, 4、搭建Flask, 5、编写程序分析和展示数据, 6、总结, 四、 大数据流计算系统, 0、前言, 1、数据处理, 2、scala编程实现实时数据处理, 3、运行kafka项目, 4、数据展示处理, 5、总结, 五、大数据图计算系统, 0、前言, 1、获取实验数据, 2、分析网络主要主题及其伴生关系, 4、理解网络结构, 5、过滤噪声边, 6、系和聚类系数, 7、平均路径长度, 8、Echarts可视化展示, 9、总结一实验准备导入虚拟机及开启大数据平台使用提供的导入虚拟机镜像用连接虚拟机打开镜像中的大数据平台文件在中添加端口映射执行启动大数据平台主机名称变更为执行查看其他三个节点在容器中执行发现无进行然后再执行有则不执行启动的脚本退出大数据平台退出大数据平台主节点容器中执行关闭大数据平台关闭大数据平台虚拟机操作系统中执行关闭虚拟机虚拟机操作系统中执行环境检测大数据平台目前包括的组件有用于存储元数据数据库为账户密码为其中软件版本为进入大数据平台后再命令行输入出现和进程使用命令查看各个节点的当前状态使用一个程序来进行单词计数判断运行是否正常进入创建一个输入一些单词使用上传至使用执行程序结果被保存在中使用查询结果注意在执行中表和表之间数据导入导出时需要调用者如果直接退出有可能是设置计算引擎问题请设置计算引擎为使用使用查看中的所有容器进入节点命令查看服务状态命令节点是角色正常启动启动客户端命令查询在服务中注册的服务器信息命令打包使用对编译好的程序进行打包直接使用镜像中配置好的进行打包命令查看生成的目标文件在中使用提交包命令启动进程中没有先启动进入执行在中访问图形化界面虚拟机用户配置文件在启动创建一个主题查看主题信息利用提供的命令行工具给集群发送消息利用接收消息启动命令位置启动服务命令的进程四个节点的的和配置文件启动各节点的服务创建主题命令当前实验在个节点上都打开了因此数量为测试发送消息命令测试接收消息命令集成先启动命令位置到目录下执行执行总结主要进行了虚拟机的导入安装对后续需要使用到的工具进行了简单配置检测和熟悉为后续实验奠定了基础二大数据批处理系统前言淘宝双大数据批处理分析系统对数据进行分析与预测涉及数据预处理存储查询和可视化分析等数据处理流程及操作包含等软件的安装和使用方法数据准备数据通过上传到原虚拟机上传到中命令查看前十条数据数据预处理第一行都是字段名称在导入时不需要将其删除数据集过大取前条数据作为小数据集建立一个脚本完成截取任务导入数据仓库先在中创建一个存放数据的文件夹然后把数据上传启动并配置进入镜像节点测试修改配置文件先停止容器然后启动进入重启服务自动退出重启容器的简单使用内部表也叫管理表表录会创建在集群上的下的相应的库对应的录中默认创建的表就是内部表外部表外部表需要使关键字外部表会根据创建表时指定的路径来创建录如果没有指定则位置跟内部表相同般使的是第三提供的或者公的数据建表语法必须指定关键字建立数据库创建外部表查询结果操作执行如下命令结果如下利用进行数据分析与处理简单查询分析查询条数统计分析不重复数据查询的数据处理和分析男女买家交易对比男女买家各个年龄段交易对比获取销量前五的商品类别各个省份的的总成交量对比从导入数据到在中创建个新表设置编码为进入节点中使用将中相关数据导入条语句分别对应个表格展示数据创建项目然后导入依赖配置服务修改的地址添加相应的和代码运行效果展示总结主要是在配置时遇到容器崩溃节点被破环进入不了最后将全部格式化重新处理数据和配置其他环境中在需要调用或的任务中需要设置引擎三大数据查询分析计算系统前言统计大数据查询分析计算系统涉及虚拟机镜像的导入系统的使用的使用的使用以及调用的调用的搭建程序创建表进入执行创建表设置表名和列族名编写脚本批量导入数据至中退出后新建文件夹在里面新建文件将数据集数据上传到虚拟机中传输命令数据展示执行让程序能够连接到并检查端口是否可用安装和由于要用到包需要安装需要安装安装执行之前编写的脚本文件导入数据执行文件进入用扫描表显示建立与相映射的表执行启动使用命令查看表在中创建映射的表再用查看表然后就可以使用语句进行是一个层用于与进行交互提供了驱动程序和兼容的查询接口它使得开发者可以用熟悉的语言来查询中的数据搭建安装创建一个独立的环境进入虚拟环境安装测试在虚拟环境下安装启动服务在虚拟环境中测试连接是否正常编写程序分析和展示数据使用框架展示数据创建一个文件在同级目录下创建文件夹编写存放运行结果总结版本问题安装超时进程四大数据流计算系统前言涉及数据预处理消息队列发送和接收消息数据实时处理数据实时推送和实时展示等数据处理全流程所涉及的各种典型操作涵盖等系统和软件的安装和使用方法数据处理数据预处理上传数据到虚拟机中安装相应的库编写代码测试生产者和消费者测试结果编程实现实时数据处理下载的包并配置环境的位置在文件夹中建立文件夹进入文件夹依次建立文件存放目录以及工程文件项目工程主文件设置日志文件为代码程序代码编写打包配置文件运行项目编译打包程序编写运行脚本编写运行脚本在目录下新建文件输入以下内容是一行并给予脚本执行权限修改获得运行权限测试程序修改文件的主题启动服务然后分别运行文件查看结果数据展示处理利用创建程序利用实现实时推送数据利用实现实时接收数据展现数据环境版本实时推送数据实时接收中为发送的日志数据然后进行实时处理统计好每秒中男女生购物人数之后将结果发送至为下面是项目文件层级作为一个简易的服务器处理连接请求以及处理从接收的数据并实时推送到浏览器函数该函数从接收消息并进行处理获得男女生每秒钟人数然后将结果通过函数实时推送至浏览器浏览器获取数据并展示在路径下创建其负责获取数据并展示效果该部分就是使用库来实时地接收服务端发送过来的消息并将消息数据实时地设置在标签内交给进行实时获取和展示如果出现引擎版本不匹配的错误可以固定下几个包的版本依赖代码如下效果展示启动步骤确保开启观察进程是否启动开启模拟数据流启动实时处理数据版运行启动总结主题列表整个数据的传输过程版本问题包并发问题五大数据图计算系统前言用分析网络结构涉及获取数据解析数据分析主要主题以及伴生关系建立伴生网络理解网络结构过滤噪声边计算聚类系数和平均路径长度等数据处理过程涵盖等系统和软件的应用获取实验数据注原始数据量较多但由于本实验镜像虚拟的分布式集群内存只有启动平台就要占用大量内存资源该实验最后一部分计算节点之间的平均路径需要消耗非常多的内存资源不足以计算出结果考虑到单机现有的内存条件所以本实验采取相对合适节点数量的数据集数据量为足以完成整个实验流程及学习内容的要求先将数据通过上传到虚拟机中然后通过命令上传到节点上创建数据库为后面可视化展示做准备查看是否正常启动跟相关没有的话直接启动在创建文件夹并将加载到该文件夹下启动把格式的数据读到中用工具解析文档变量是类的实例用类表示文档中的一个节点该类内置了查询节点信息和节点内容的函数函将解析结果缓存起来分析网络主要主题及其伴生关系获取数据集标签后我们需要知道数据集中标签的总体分布情况为此我们需要使用计算一些基本统计量比如记录条数和主要主题出现频率的直方图并将统计结果保存到用于可视化展示记录下登录时的上面的数据给出了一个大致的描述包括一共有多少个主题最频繁的主题等可以看到我们的数据一共有个文档最频繁出现的只占了很少一部分对此我们猜测包含某个主题的文档的个数的总体分布可能为长尾形态要得到伴生关系我们要为这些字符串列表生成一个二元组集合对此我们可以使用集合工具包里的方法它返回的是一个查看一下数据中最常出现的伴生二元组将数据存入以上并未提供特别有用的信息最常见的伴生二元组与最常见的非常相关除此之外也没有提供什么额外的信息用来建立一个伴生网络实验的核心在于把伴生网络当作网络来分析把主题当作图的顶点把连接两个主题的引用记录看成两个相应顶点之间的边这样就可以计算以网络为中心的统计量构建与之上它继承了在可扩展性方面的所有特性这就意味着可以利用对规模极其庞大的图进行分析在数据上运行该散列函数可以得到一个以它为基础就可以得到伴生关系图的顶点集合用前一节中得到的伴生频率计数来生成图的边方法是使用函数将每个主题映射到相应的顶点把顶点和边都创建好后就可以创建实例了我们需要将缓存起来这样便于后续处理时使用理解网络结构连通组件最基本的属性之一就是是否是连通图如果图是非连通的那么可以将图划分成一组更小的子图这样就可以分别对每个子图进行研究连通性是图的基本属性通过调用的方法获取大连通组件的主题名称查看最初的主题分布是否有类似的主题度的分布为了更多了解图的结构信息我们需要知道每个顶点的度也就是每个顶点所属边的条数中我们可以通过在对象上调用方法得到每个顶点的度方法返回一个整数的其中每个整数代表一个顶点的度现在我们计算一下图的度然后可以查看到度数较高的主题并将数据存入过滤噪声边在当前的伴生关系中边的权重是基于一对概念同时出现在一篇论文中的频率来计算的这种简单的权重机制的问题在于它并没有对一对概念同时出现的原因加以区分有时一对概念同时出现是由于它们具有某种值得我们关注的语义关系但有时一对概念同时出现只是因为都频繁地出现在所有文档中同时出现只是碰巧而已因此需要对噪声边进行处理这里采用卡方准则处理计算卡方统计量需要组合顶点数据比如每个概念在一个文档中出现的次数和边数据比如两个概念同时出现在一个文档中的次数用该方法通过算子转换边的值算子返回一个新图这个图的边的属性就是每个伴生对的卡方统计量于是我们就可以大概知道该统计量在所有边上的分布情况使用作为阈值这样过滤后图中就只剩下那些置信度非常高的有意义的伴生关系我们将在图上利用方法进行过滤这个方法接受的一个布尔函数用以判断子图应该包含哪些边分析去掉噪声边的子图在过滤后的子图上运行连通性算法检查组件个数和组件大小发现连通组件总数发生改变且最大连通组件也被瓦解说明该数据集有较多的噪声干扰如果数据量较多将会对最大连通组件产生较小的影响检查一下过滤后的度分布看到过滤后平均值变小了主要主题也产生变化原因是数据集样本的噪声比较多我们看一下过滤之后概念和度的关系结果表明虽说这次卡方过滤准则不太理想问题在于使用数据集样本太小如果用原始数据集将会产生较好的结果但是它在清楚对应普遍概念的边的同时保留了代表概念之间有意义并且有值得注意的关系的那些边系和聚类系数如果每个顶点都存在一条边与其他任何节点都相连那这个图就是个完全图给定一个图可能有多个子图是完全图我们可以将这些子图称为系如果途中存在这种许多大型的系表示这个图具有某种局部稠密结构三角形是一个完成图顶点的三角计数就是包含该顶点的三角形个数三角计数度量了有多少个邻接点是相互连接的和定义了一个新的指标称为局部聚类系数它是一个顶点的实际三角计数与其邻接点可能的三角级数的比率对无向图来说有个邻接点和个三角计数的顶点其局部聚类系数为用来计算过滤后的概念图的每个节点的局部聚类系数有个内置方法它返回一个对象其中包含了每个顶点的三角计数然后对所有顶点局部聚类系数取平均值就得到网络平均聚类系数平均路径长度用求两个节点之间的最短路径这里我们会计算过滤之后的概念图中的大型连通组件节点的平均路径长度计算图中顶点之间的路径长度是一个迭代过程和我们之前寻找连通组件的迭代过程类似每个阶段每个顶点将保留它所接触过的顶点列表并记录到这些顶点的距离接着每个顶点都向其邻接点查询它对应的节点列表如果发现该列表中有新的顶点就用新节点更新自己的节点列表查询邻接点并更新自己节点列表的过程一直继续下去直到所有节点都没有发现有新节点需要添加为止确定了顶点状态和消息内容的数据结构后我们可以实现两个函数第一个函数是用于将新消息中的信息合并到顶点状态之中对我们讨论的问题来说顶点状态和消息都是类型的因此需要把两个中的内容合并在一起并将每个关联到两个中该对应两个条目的最小值最后编写代码来构建发送给每个顶点的消息依据是每次迭代是每个顶点从邻接点收到的消息在每个迭代过程中对内部的和顶点执行消息更新如果一次迭代中有任何顶点没收到消息算法认为该顶点的运算已经完成并不再把它放在后续处理中计算任意两个顶点之间的路径长度使用的方法对所有进行的不重复采样随机数生成器的随机种子采用计算样本路径长度直方图看到样本的平均路径长度为聚类系数为可视化展示登录查看中是否有相关数据库和表数据可视化展示结果展示使用框架搭建前端展示页面文件目录结构代码总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2025-01-18 15:05:49',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/Dekelkai" title="Github"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/github.ico" alt="Github"/><span class="back-menu-item-text">Github</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">Dekel'Blog</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/air-conditioner/"><i class="anzhiyufont anzhiyu-icon-fan faa-tada" style="font-size: 0.9em;"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Blog/" style="font-size: 1.05rem;">Blog<sup>1</sup></a><a href="/tags/Giscus/" style="font-size: 1.05rem;">Giscus<sup>1</sup></a><a href="/tags/LaTeX/" style="font-size: 1.05rem;">LaTeX<sup>2</sup></a><a href="/tags/PicGo/" style="font-size: 1.05rem;">PicGo<sup>1</sup></a><a href="/tags/Python/" style="font-size: 1.05rem;">Python<sup>1</sup></a><a href="/tags/RL/" style="font-size: 1.05rem;">RL<sup>2</sup></a><a href="/tags/Transformer/" style="font-size: 1.05rem;">Transformer<sup>1</sup></a><a href="/tags/Twikoo/" style="font-size: 1.05rem;">Twikoo<sup>2</sup></a><a href="/tags/Typora/" style="font-size: 1.05rem;">Typora<sup>1</sup></a><a href="/tags/Vision-Transformer/" style="font-size: 1.05rem;">Vision Transformer<sup>1</sup></a><a href="/tags/YOLO/" style="font-size: 1.05rem;">YOLO<sup>1</sup></a><a href="/tags/bigdata/" style="font-size: 1.05rem;">bigdata<sup>1</sup></a><a href="/tags/reinforce-learning/" style="font-size: 1.05rem;">reinforce learning<sup>2</sup></a><a href="/tags/%E4%B8%BB%E9%A2%98/" style="font-size: 1.05rem;">主题<sup>1</sup></a><a href="/tags/%E5%8A%9F%E8%83%BD/" style="font-size: 1.05rem;">功能<sup>1</sup></a><a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 1.05rem;">大学<sup>1</sup></a><a href="/tags/%E5%AD%97%E4%BD%93/" style="font-size: 1.05rem;">字体<sup>1</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 1.05rem;">学习<sup>3</sup></a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.05rem;">工具<sup>1</sup></a><a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 1.05rem;">教程<sup>2</sup></a><a href="/tags/%E6%97%A0%E4%BA%BA%E6%9C%BA/" style="font-size: 1.05rem;">无人机<sup>1</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.05rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E6%A0%87%E8%B7%9F%E8%B8%AA/" style="font-size: 1.05rem;">目标跟踪<sup>1</sup></a><a href="/tags/%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/" style="font-size: 1.05rem;">评论功能<sup>2</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">九月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">十二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/bigdata/" itemprop="url">bigdata</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/bigdata/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>bigdata</span></a></span></div></div><h1 class="post-title" itemprop="name headline">大数据系统实验课程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-06-24T02:13:28.000Z" title="发表于 2024-06-24 10:13:28">2024-06-24</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-01-18T07:05:49.356Z" title="更新于 2025-01-18 15:05:49">2025-01-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为长沙"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>长沙</span></div></div></div><article class="post-content" id="article-container" itemscope itemtype="https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/"><header><a class="post-meta-categories" href="/categories/bigdata/" itemprop="url">bigdata</a><a href="/tags/bigdata/" tabindex="-1" itemprop="url">bigdata</a><h1 id="CrawlerTitle" itemprop="name headline">大数据系统实验课程</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Tang Xiangkai</span><time itemprop="dateCreated datePublished" datetime="2024-06-24T02:13:28.000Z" title="发表于 2024-06-24 10:13:28">2024-06-24</time><time itemprop="dateCreated datePublished" datetime="2025-01-18T07:05:49.356Z" title="更新于 2025-01-18 15:05:49">2025-01-18</time></header><h2 id="一实验准备">一、实验准备</h2>
+<h3 id="导入虚拟机及开启大数据平台">1、导入虚拟机及开启大数据平台</h3>
+<ol type="1">
+<li><p>使用提供的<code>ovf</code>导入虚拟机镜像，用mobaXterm连接虚拟机，打开镜像中的大数据平台文件（<code>hadoop-docker-centos7</code>），在<code>docker-compose.yml</code>中添加端口映射“<code>5000:5000</code>”：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%88%9B%E5%BB%BA%E5%A5%BD%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9F%E6%9C%BA.png" alt="创建好第一个虚拟机"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/mobaxterm%E7%99%BB%E9%99%86.png" alt="mobaxterm登陆"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/docker%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84.png" alt="docker端口映射"></p></li>
+<li><p>执行<code>./start-hadoop-images.sh</code>启动大数据平台，主机名称变更为<code>hbase-master</code>。执行<code>yarn node –list</code>查看其他三个节点（<code>hbase-slave1</code>、<code>hbase-slave2</code>、
+<code>hbase-slave3</code>）：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%90%AF%E5%8A%A8docker.png" alt="启动docker"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%BB%E6%9C%BA%E5%90%8D%E6%94%B9%E5%8F%98.png" alt="主机名改变"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/3%E4%B8%AA%E8%8A%82%E7%82%B9.png" alt="3个节点"></p></li>
+<li><p>在容器<code>hbase-master</code>中执行<code>jps</code>发现无<code>HMaster</code>进行，然后再执行<code>start-hbase.sh</code>，有则不执行启动<code>hbase</code>的脚本：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%BB%E8%8A%82%E7%82%B9%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8HMaster.png" alt="主节点进程启动HMaster"></p></li>
+<li><p>退出大数据平台：退出大数据平台主节点，容器<code>hbase-master</code>中执行<code>exit</code>。</p></li>
+<li><p>关闭大数据平台：关闭大数据平台，虚拟机操作系统中执行.<code>/stop-hadoop-images.sh</code>。</p></li>
+<li><p>关闭虚拟机，虚拟机操作系统中执行<code>shutdown -h now</code></p></li>
+</ol>
+<h3 id="环境检测">2、环境检测</h3>
+<p>大数据平台目前包括的组件有：HDFS、MapRedcue、Yarn、Spark、Scala、HBase、Hive、Zookeeper、Sqoop、
+Phoenix、 Python3、 Azkaban、 Kafka、
+Sbt、JDK；用于存储元数据数据库为mysql，root账户密码为hadoop。</p>
+<p>其中软件版本为：Hadoop: 2.7.2、Spark: 2.1.0、Scala: 2.11.8、HBase:
+1.2.5、JDK: openjdk 1.8.0_111、Hive: 2.1.1、Zookeeper: 3.4.10、Sqoop:
+1.4.7、Phoenix: 4.14.1-HBase-1.2、Python3: 3.6.0、Azkaban: 3.24.0、Sbt:
+1.4.6、Kafka: 2.11-0.10.2.1、MySQL: 5.7。</p>
+<h4 id="hdfs">HDFS</h4>
+<p>进入大数据平台后再命令行输入jps，出现NameNode和SecondaryNameNode进程。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/HDFS%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F.png" alt="HDFS启动成功"></p>
+<p>使用命令<code>hdfs dfsadmin -report</code>查看各个节点的当前状态。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%8A%82%E7%82%B9%E6%8A%A5%E5%91%8A%EF%BC%88hdfs%20dfsadmin%20-report%EF%BC%89.png" alt="节点报告（hdfs dfsadmin -report）"></p>
+<h4 id="mapreduce">MapReduce</h4>
+<p>使用一个wordcount程序来进行单词计数，判断MapReduce运行是否正常。</p>
+<p>进入<code>/code/tests/mapreduce-test/</code>，创建一个<code>words.txt</code>，输入一些单词：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%88%9B%E5%BB%BAwords%E6%96%87%E6%A1%A3%E6%B5%8B%E8%AF%95MapReduce.png" alt="创建words文档测试MapReduce"></p>
+<p>使用<code>hdfs dfs -put words.txt /tmp/</code>上传至<code>hdfs</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%8A%E4%BC%A0words%E6%96%87%E6%A1%A3%E5%88%B0hdfs.png" alt="上传words文档到hdfs"></p>
+<p>使用<code>hadoop jar wordcount.jar /tmp/words.txt /tmp/wordcount</code>执行程序：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/mp%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B.png" alt="mp词频统计执行过程"></p>
+<p>结果被保存在<code>hdfs</code>中，使用<code>hdfs dfs -cat /tmp/wordcount/*</code>查询结果：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1%E7%BB%93%E6%9E%9C%E4%BD%8D%E7%BD%AE.png" alt="词频统计结果位置"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1%E7%BB%93%E6%9E%9C.png" alt="词频统计结果"></p>
+<h4 id="yarn">yarn</h4>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/yarn%E8%BF%90%E8%A1%8C%E7%8A%B6%E5%86%B5.png" alt="yarn运行状况"></p>
+<h4 id="hive">hive</h4>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/hive%E8%BF%90%E8%A1%8C%E6%83%85%E5%86%B5.png" alt="hive运行情况"></p>
+<blockquote>
+<p>注意：在执行 <code>hive</code>中表和表之间数据导入导出时，需要调用
+<code>MapReduce</code>者
+<code>Spark</code>，如果直接退出<code>hive</code>，有可能是设置<code>spark</code>计算引擎问题，请设置计算引擎为
+<code>MapReduce</code>：<code>set hive.execution.engine=mr</code>。</p>
+</blockquote>
+<h4 id="hbase">Hbase</h4>
+<p>使用<code>hbase shell</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/Hbase%E8%BF%90%E8%A1%8C%E6%83%85%E5%86%B5.png" alt="Hbase运行情况"></p>
+<h4 id="spark">spark</h4>
+<p>使用<code>spark-shell</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/spark%E8%BF%90%E8%A1%8C%E6%83%85%E5%86%B5.png" alt="spark运行情况"></p>
+<h4 id="zookeeper">zookeeper</h4>
+<p>查看<code>docker</code>中的所有容器：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/docker%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%AE%B9%E5%99%A8.png" alt="docker中的所有容器"></p>
+<p>进入<code>zoo1</code>节点,命令<code>docker-compose exec zoo1 bash</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%BF%9B%E5%85%A5zoo1%E5%AE%B9%E5%99%A8.png" alt="进入zoo1容器"></p>
+<p>查看Zookeeper服务状态，命令<code>zkServer.sh status</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%9F%A5%E7%9C%8Bzoo1%E5%AE%B9%E5%99%A8%E4%B8%AD%E7%9A%84zookeeper%E7%8A%B6%E6%80%81.png" alt="查看zoo1容器中的zookeeper状态"></p>
+<p>​ 节点是<code>follower</code>角色，正常启动。</p>
+<p>启动<code>Zookeeper</code>客户端，命令<code>zkCli.sh</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%90%AF%E5%8A%A8zk%E5%AE%A2%E6%88%B7%E7%AB%AF.png" alt="启动zk客户端"></p>
+<p>查询<code>hbase</code>在<code>zookeeper</code>服务中注册的<code>RegionServer</code>服务器信息，命令<code>ls2 /hbase/rs</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/hbase%E5%9C%A8zookeeper%E6%9C%8D%E5%8A%A1%E4%B8%AD%E6%B3%A8%E5%86%8C%E7%9A%84RegionServer%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BF%A1%E6%81%AF.png" alt="hbase在zookeeper服务中注册的RegionServer服务器信息"></p>
+<h4 id="sbt打包">sbt打包</h4>
+<p>使用sbt对编译好的scala程序进行打包，直接使用镜像中配置好的sbt进行打包，命令<code>/usr/local/sbt/sbt package</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%BD%BF%E7%94%A8sbt%E6%89%93%E5%8C%85%E7%BC%96%E8%AF%91%E5%A5%BD%E7%9A%84scala%E7%A8%8B%E5%BA%8F.png" alt="使用sbt打包编译好的scala程序"></p>
+<p>查看生成的目标文件，在<code>target/scala-&lt;version&gt;</code>中：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/sbt%E6%89%93%E5%8C%85%E5%90%8E%E7%94%9F%E6%88%90%E7%9A%84%E4%BD%8D%E7%BD%AE.png" alt="sbt打包后生成的位置"></p>
+<p>使用<code>spark</code>提交jar包，命令<code>spark-submit --class "SimpleApp" /root/sparkapp/target/scala-2.11/simple-project_2.11-1.0.jar</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/spark%E6%8F%90%E4%BA%A4jar%E5%8C%85%E6%B5%8B%E8%AF%95.png" alt="spark提交jar包测试"></p>
+<h4 id="azkaban">Azkaban</h4>
+<ol type="1">
+<li><p>启动</p>
+<p>进程中没有AzkabanSingleServer，先启动azkaban.</p>
+<p>进入<code>/root/azkaban-solo-server/</code>，执行<code>bin/azkaban-solo-start.sh</code>:</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\bigdata\snapiste\环境准备\azkaban启动目录.png" alt="azkaban启动目录"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/azkaban%E8%BF%9B%E7%A8%8B.png" alt="azkaban进程"></p></li>
+<li><p>在windows中访问azkaban图形化界面，<code>虚拟机ip:8081</code>，用户配置文件在<code>conf/azkaban-users.xml</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\bigdata\snapiste\环境准备\azkaban登陆角色配置文件.png" alt="azkaban登陆角色配置文件"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/azkaban%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2.png" alt="azkaban前端页面"></p></li>
+</ol>
+<h4 id="kafka">kafka</h4>
+<p>启动kafka，创建一个主题test，查看主题信息，利用kafka提供的命令行工具<code>kafka-console-producer.sh</code>，给kafka集群发送消息，利用<code>kafka-console-consumer.sh</code>接收消息。</p>
+<ol type="1">
+<li><p>kafka启动命令位置</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4.png" alt="kafka启动命令"></p></li>
+<li><p>启动kafka服务，命令<code>bin/kafka-server-start.sh config/server.properties</code>:</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E5%90%AF%E5%8A%A8.png" alt="kafka启动"></p></li>
+<li><p>hbase-master的kafka进程：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E8%BF%9B%E7%A8%8B%E6%9F%A5%E7%9C%8B.png" alt="kafka进程查看"></p></li>
+<li><p>四个节点的kafka的<code>config/server.properties</code>和<code>/tmp/kafka-logs/meta.properties</code>配置文件id：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E5%90%84%E8%8A%82%E7%82%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" alt="kafka各节点配置文件"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E7%9A%84meta.properties%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6id.png" alt="kafka的meta.properties配置文件id"></p></li>
+<li><p>启动各节点的kafka服务：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/4%E4%B8%AA%E8%8A%82%E7%82%B9%E5%90%AF%E5%8A%A8kafka%E5%90%8E%E8%BF%9B%E7%A8%8B%E5%B1%95%E7%A4%BA.png" alt="4个节点启动kafka后进程展示"></p></li>
+<li><p>创建test主题，命令<code>bin/kafka-topics.sh --zookeeper zoo1:2181 --create --replication-factor 4  --partitions 1 --topic testTxk</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E5%88%9B%E5%BB%BAtest%E4%B8%BB%E9%A2%98.png" alt="kafka创建test主题"></p>
+<p>当前实验在4个节点上都打开了，因此factor 数量为 4。</p></li>
+<li><p>测试发送消息，命令<code>bin/kafka-console-producer.sh --broker-list hbase-master:9092 --topic testTxk</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E7%94%A8master%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF.png" alt="kafka用master发送消息"></p></li>
+<li><p>测试接收消息，命令<code>bin/kafka-console-consumer.sh --bootsrap-server hbase-master:9092 --topic testTxk --from-beginning</code>:</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E7%94%A8slave1%E6%8E%A5%E6%94%B6master%E7%9A%84%E6%B6%88%E6%81%AF.png" alt="kafka用slave1接收master的消息"></p></li>
+</ol>
+<h4 id="phoenix-集成-hbase">Phoenix 集成 HBase</h4>
+<p>先启动<code>Master</code>，命令<code>start-hbase.sh</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%90%AF%E5%8A%A8Master.png" alt="启动Master"></p>
+<ol type="1">
+<li><p>sqlline.py位置：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/sqlline%E4%BD%8D%E7%BD%AE%E6%9F%A5%E6%89%BE.png" alt="sqlline位置查找"></p></li>
+<li><p>到目录下执行sqlline.py：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%89%A7%E8%A1%8Csqlline.png" alt="执行sqlline"></p>
+<ol start="3" type="1">
+<li><p>执行<code>!tables</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%89%A7%E8%A1%8C!tables.png" alt="执行!tables"></p></li>
+</ol></li>
+</ol>
+<h3 id="总结">3、总结</h3>
+<p>主要进行了虚拟机的导入安装，对后续需要使用到的工具进行了简单配置，检测和熟悉，为后续实验奠定了基础。</p>
+<h2 id="二大数据批处理系统">二、大数据批处理系统</h2>
+<h3 id="前言">0、前言</h3>
+<p>淘宝双11大数据批处理分析系统，对数据进行分析与预测，涉及数据预处理、存储、查询和可视化分析等数据处理流程及操作，包含Linux、Mysql、Hadoop、Hive、Sqoop、ECharts、Spark等软件的安装和使用方法。</p>
+<h3 id="数据准备">1、数据准备</h3>
+<ol type="1">
+<li>数据通过MobaXterm上传到原虚拟机</li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%95%B0%E6%8D%AE%E5%8F%91%E9%80%81%E5%88%B0%E5%8E%9F%E8%99%9A%E6%8B%9F%E6%9C%BA.png" alt="数据发送到原虚拟机"></p>
+<ol start="2" type="1">
+<li><p>上传到hbase-master中，命令<code>docker cp /tmp/dataset/user_log.csv hbase-master:/home/dbtaobao/dataset</code>；查看前十条数据<code>head -10 user_log.csv</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%9F%A5%E7%9C%8B%E5%89%8D10%E8%A1%8C%E6%95%B0%E6%8D%AE.png" alt="查看前10行数据"></p></li>
+</ol>
+<h3 id="数据预处理">2、数据预处理</h3>
+<ol type="1">
+<li><p>第一行都是字段名称，在导入Hive时不需要，将其删除：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%88%A0%E9%99%A4%E5%AD%97%E6%AE%B5%E5%90%8D%E7%A7%B0%E8%A1%8C.png" alt="删除字段名称行"></p></li>
+<li><p>数据集过大，取前20000条数据作为小数据集smalluserlog.csv。建立一个脚本完成截取任务：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%88%AA%E5%8F%96%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81.png" alt="截取数据代码"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20000%E8%A1%8C%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6.png" alt="20000行数据文件"></p></li>
+<li><p>导入Hive数据仓库，先在hdfs中创建一个存放数据的dataset文件夹，然后把small_user_log.csv数据上传hdfs。</p></li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%87%B3hdfs%E4%B8%AD.png" alt="文件上传至hdfs中"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%9F%A5%E7%9C%8Bhdfs%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9.png" alt="查看hdfs中的数据文件内容"></p>
+<h3 id="启动并配置mysql">3、启动并配置MySQL</h3>
+<ol type="1">
+<li>进入mysql镜像节点测试：</li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%B5%8B%E8%AF%95%E8%BF%9B%E5%85%A5mysql%E8%8A%82%E7%82%B9.png" alt="测试进入mysql节点"></p>
+<ol start="2" type="1">
+<li><p>修改mysql配置文件：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%A2%9E%E5%8A%A0mysql%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" alt="增加mysql配置文件"></p></li>
+</ol>
+<p>先停止docker容器<code>./stop-hadoop-image</code>，然后启动<code>./start-hadoop-image</code>，进入mysql<code>docker-compose exec mysql bash</code>，重启mysql服务<code>service mysql restart</code>，自动退出mysql，重启mysql容器<code>docker restart</code>
+mysql。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/mysql%E4%BF%AE%E6%94%B9%E4%B8%AD%E6%96%87%E7%BC%96%E7%A0%81.png" alt="mysql修改中文编码"></p>
+<h3 id="hive的简单使用">4、Hive的简单使用</h3>
+<p>内部表：也叫管理表表⽬录会创建在集群上的{hive.metastore.warehouse.dir}下的相应的库对应的⽬录中。默认创建的表就是内部表。</p>
+<p>外部表：外部表需要使⽤关键字"external"，外部表会根据创建表时LOCATION指定的路径来创建⽬录，
+如果没有指定LOCATION，则位置跟内部表相同,⼀般使⽤的是第三⽅提供的或者公⽤的数据。建表语法（必须指定关键字external）
+create external table tableName(id int,name string) [location
+'path'];</p>
+<ol type="1">
+<li><p>建立dbtaobao数据库：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/hive%E5%88%9B%E5%BB%BAdbtaobao%E8%A1%A8.png" alt="hive创建dbtaobao表"></p></li>
+<li><p>创建外部表user_log，查询结果：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%9F%A5%E8%AF%A2user_log%E7%BB%93%E6%9E%9C.png" alt="查询user_log结果"></p></li>
+<li><p>操作hive</p>
+<p>执行如下命令：</p></li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/hive%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4.png" alt="hive操作命令"></p>
+<p>结果如下：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%BB%BA%E8%A1%A8%E4%BF%A1%E6%81%AF%E5%B1%95%E7%A4%BA.png" alt="建表信息展示"></p>
+<ol start="4" type="1">
+<li><p>利用Hive进行数据分析与处理</p>
+<p>简单查询分析：</p></li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4.png" alt="简单操作命令"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/select%E7%AE%80%E5%8D%95%E6%95%B0%E6%8D%AE.png" alt="select简单数据"></p>
+<p>​ 查询条数统计分析：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%89%A7%E8%A1%8C%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0count%E7%BB%93%E6%9E%9C.png" alt="执行聚合函数count结果"></p>
+<p>​ 不重复数据查询：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%BD%BF%E7%94%A8count+distinct%E5%8E%BB%E9%87%8D.png" alt="使用count+distinct去重"></p>
+<h3 id="hive的数据处理和分析">5、Hive的数据处理和分析</h3>
+<ol type="1">
+<li><p>男女买家交易对比</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E7%94%B7%E5%A5%B3%E4%B9%B0%E5%AE%B6%E4%BA%A4%E6%98%93%E5%AF%B9%E6%AF%94.png" alt="男女买家交易对比"></p>
+<p>男女买家各个年龄段交易对比：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E7%94%B7%E5%A5%B3%E4%B9%B0%E5%AE%B6%E4%BA%A4%E6%98%93%E5%B9%B4%E9%BE%84%E5%AF%B9%E6%AF%94.png" alt="男女买家交易年龄对比"></p>
+<p>获取销量前五的商品类别：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E9%94%80%E9%87%8F%E5%89%8D%E4%BA%94%E5%95%86%E5%93%81%E7%B1%BB%E5%88%AB.png" alt="销量前五商品类别"></p>
+<p>各个省份的的总成交量对比：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%90%84%E4%B8%AA%E7%9C%81%E4%BB%BD%E7%9A%84%E7%9A%84%E6%80%BB%E6%88%90%E4%BA%A4%E9%87%8F%E5%AF%B9%E6%AF%94.png" alt="各个省份的的总成交量对比"></p></li>
+</ol>
+<h3 id="从hive导入数据到mysql">6、从hive导入数据到mysql</h3>
+<p>在mysql中创建5个新表，设置编码为utf-8：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `dbtaobao`.`result1` (`action` varchar(6),`num` varchar(20)) </span><br><span class="line">ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br><span class="line"></span><br><span class="line">CREATE TABLE `dbtaobao`.`result2` (`gender` varchar(6),`num` varchar(20)) </span><br><span class="line">ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br><span class="line"></span><br><span class="line">CREATE TABLE `dbtaobao`.`result3` (`gender` varchar(6),`age_range` </span><br><span class="line">varchar(20),`num` varchar(20)) ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br><span class="line"></span><br><span class="line">CREATE TABLE `dbtaobao`.`result4` (`cat_id` varchar(20),`num` varchar(20)) </span><br><span class="line">ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br><span class="line"></span><br><span class="line">CREATE TABLE `dbtaobao`.`result5` (`province` varchar(10),`num` varchar(20)) </span><br><span class="line">ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%88%9B%E5%BB%BAmysql%E7%9A%84%E8%A1%A8.png" alt="创建mysql的表"></p>
+<p>进入master节点中使用sqoop将hive中相关数据导入mysql，5条语句分别对应5个表格：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sqoop export --connect jdbc:mysql://mysql:3306/dbtaobao --username root --password hadoop --table result1 --export-dir '/user/hive/warehouse/dbtaobao.db/result1' --fields-terminated-by ','</span><br><span class="line"></span><br><span class="line">sqoop export --connect jdbc:mysql://mysql:3306/dbtaobao --username root --password hadoop --table result2 --export-dir '/user/hive/warehouse/dbtaobao.db/result2' --fields-terminated-by ','</span><br><span class="line"></span><br><span class="line">sqoop export --connect jdbc:mysql://mysql:3306/dbtaobao --username root --password hadoop --table result3 --export-dir '/user/hive/warehouse/dbtaobao.db/result3' --fields-terminated-by ','</span><br><span class="line"></span><br><span class="line">sqoop export --connect jdbc:mysql://mysql:3306/dbtaobao --username root --password hadoop --table result4 --export-dir '/user/hive/warehouse/dbtaobao.db/result4' --fields-terminated-by ','</span><br><span class="line"></span><br><span class="line">sqoop export --connect jdbc:mysql://mysql:3306/dbtaobao --username root --password hadoop --table result5 --export-dir '/user/hive/warehouse/dbtaobao.db/result5' --fields-terminated-by ',</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/hive%E5%AF%BC%E5%85%A5%E5%88%B0result%E7%BB%93%E6%9E%9C.png" alt="hive导入到result结果"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/hive%E5%AF%BC%E5%85%A5mysql%E5%B1%95%E7%A4%BA1.png" alt="hive导入mysql展示1"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/hive%E5%AF%BC%E5%85%A5mysql%E5%B1%95%E7%A4%BA2.png" alt="hive导入mysql展示2"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/hive%E5%AF%BC%E5%85%A5mysql%E5%B1%95%E7%A4%BA3.png" alt="hive导入mysql展示3"></p>
+<h3 id="ideatomcatecharts展示数据">7、idea+Tomcat+ECharts展示数据</h3>
+<ol type="1">
+<li><p>创建webapp项目然后导入mysql依赖</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%88%9B%E5%BB%BAwebapp%E5%90%8E%E5%AF%BC%E5%85%A5mysql%E4%BE%9D%E8%B5%96.png" alt="创建webapp后导入mysql依赖"></p></li>
+<li><p>配置tomcat服务</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E9%85%8D%E7%BD%AEtomcat.png" alt="配置tomcat"></p></li>
+<li><p>修改mysql的IP地址，添加相应的jsp，js和css代码</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/echarts%E5%B1%95%E7%A4%BA%E4%BB%A3%E7%A0%81.png" alt="echarts展示代码"></p></li>
+<li><p>运行效果展示</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/echarts%E5%B1%95%E7%A4%BA.png" alt="echarts展示"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/echats%E5%B1%95%E7%A4%BA2.png" alt="echats展示2"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/echats%E5%B1%95%E7%A4%BA3.png" alt="echats展示3"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/ecahts%E5%B1%95%E7%A4%BA4.png" alt="ecahts展示4"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/echats%E5%B1%95%E7%A4%BA5.png" alt="echats展示5"></p></li>
+</ol>
+<h3 id="总结-1">8、总结</h3>
+<p>主要是在mysql配置utf8时遇到容器崩溃，mysql节点被破环进入不了，最后将docker全部格式化，重新处理数据和配置其他环境。</p>
+<p>hive中，在需要调用MapReduce或spark的任务中，需要设置引擎：set
+hive.execution.engine=mr；</p>
+<h2 id="三大数据查询分析计算系统">三、大数据查询分析计算系统</h2>
+<h3 id="前言-1">0、前言</h3>
+<p>NBA 统计大数据查询分析计算系统，涉及虚拟机镜像的导入、linux
+系统的使用、hbase 的使用、phoenix</p>
+<p>的使用，以及 python 调用 hbase 的 api、scala 调用 spark 的 api，搭建
+flask 程序。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B.png" alt="项目流程"></p>
+<h3 id="hbase创建表">1、HBase创建表</h3>
+<p>进入 hbabse shell
+执行<code>create 'team_season','cf1'</code>创建表，设置表名和列族名：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/hbase%E5%88%9B%E5%BB%BA%E8%A1%A81.png" alt="hbase创建表1"></p>
+<h3 id="编写python脚本批量导入数据至hbase中">2、编写python脚本批量导入数据至hbase中</h3>
+<ol type="1">
+<li>退出hbase后，新建文件夹/home/NBA/，在里面新建python文件<code>tohbase.py</code>：</li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/python%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE.png" alt="python文件位置"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E7%9A%84python.png" alt="导入数据的python"></p>
+<ol start="2" type="1">
+<li><p>将数据集<code>team_season.csv</code>数据上传到虚拟机中：</p>
+<p>传输命令：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%95%B0%E6%8D%AE%E5%8F%91%E9%80%81%E5%88%B0master%E8%8A%82%E7%82%B9%E4%B8%AD.png" alt="数据发送到master节点中"></p>
+<p>数据展示：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/master%E8%8A%82%E7%82%B9%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%B1%95%E7%A4%BA.png" alt="master节点中的数据展示"></p></li>
+<li><p>执行 hbase-daemon.sh start thrift 让程序能够连接到
+hbase，并检查9090端口是否可用：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%89%A7%E8%A1%8Cthrift%E8%AE%A9%E7%A8%8B%E5%BA%8F%E8%83%BD%E5%A4%9F%E8%BF%9E%E6%8E%A5Hbase.png" alt="执行thrift让程序能够连接Hbase"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/9090%E7%AB%AF%E5%8F%A3%E6%A3%80%E6%B5%8B.png" alt="9090端口检测"></p></li>
+<li><p>安装 happybase和pandas：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">由于要用到 happybase，pandas 包。需要安装</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要安装 happybase</span></span><br><span class="line">pip3 install happybase</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装 pandas</span></span><br><span class="line">pip3 install pandas</span><br></pre></td></tr></table></figure></li>
+<li><p>执行之前编写的 python
+脚本文件,导入数据，<code>python3 tohbase.py</code> 执行.py 文件：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%89%A7%E8%A1%8Cpython%E4%BB%A3%E7%A0%81.png" alt="执行python代码"></p></li>
+<li><p>进入 hbase shell，用 scan 扫描表显示：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/scan%E6%89%AB%E6%8F%8F%E8%A1%A8.png" alt="scan扫描表"></p></li>
+</ol>
+<h3 id="phoenix-建立与-hbase-相映射的表">3、<strong>phoenix</strong>
+<strong>建立与</strong> <strong>hbase</strong>
+<strong>相映射的表</strong></h3>
+<ol type="1">
+<li><p>执行 sqlline.py 启动
+phoenix，使用<code>!tables</code>命令查看表：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%89%A7%E8%A1%8Csqlline%E7%A8%8B%E5%BA%8F%E5%90%AF%E5%8A%A8phoenix.png" alt="执行sqlline程序启动phoenix"></p></li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/tables%E6%9C%89%E5%A4%9A%E5%B0%91%E8%A1%A8.png" alt="tables有多少表"></p>
+<ol start="2" type="1">
+<li><p>在phoenix中创建映射的表，再用<code>!tables</code>查看表：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/phoenix%E4%B8%AD%E5%88%9B%E5%BB%BA%E8%A1%A8.png" alt="phoenix中创建表"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%90%8E%E5%86%8D%E4%BD%BF%E7%94%A8!tables%E6%9F%A5%E7%9C%8B.png" alt="创建表后再使用!tables查看"></p>
+<p>然后就可以使用sql语句进行，Phoenix 是一个 SQL 层，用于与 HBase
+进行交互，提供了 JDBC 驱动程序和兼容 ANSI SQL
+的查询接口。它使得开发者可以用熟悉的 SQL 语言来查询 HBase 中的数据：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/phoenix%E4%BD%BF%E7%94%A8sql%E8%AF%AD%E5%8F%A5.png" alt="phoenix使用sql语句"></p></li>
+</ol>
+<h3 id="搭建flask">4、搭建Flask</h3>
+<ol type="1">
+<li><p>安装virtualenv，创建一个独立的python环境myapp：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install virtualenv</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%8D%E7%94%A8%E6%A0%A1%E5%9B%AD%E7%BD%91%E4%B8%8B%E8%BD%BDvirtualenv.png" alt="不用校园网下载virtualenv"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%9A%84%E7%8E%AF%E5%A2%83myapp.png" alt="创建虚拟的环境myapp"></p></li>
+<li><p>进入虚拟环境，安装flask：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd myapp/bin</span><br><span class="line">source activate</span><br><span class="line">pip install flask</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%BF%9B%E5%85%A5%E8%99%9A%E6%8B%9F%E7%9A%84%E7%8E%AF%E5%A2%83.png" alt="进入虚拟的环境"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%9C%A8%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85flask.png" alt="在虚拟环境安装flask"></p></li>
+<li><p>测试flask：</p></li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/flask%E6%B5%8B%E8%AF%95.png" alt="flask测试"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%AE%BF%E9%97%AE%E6%B5%8B%E8%AF%95%E6%95%88%E6%9E%9C.png" alt="访问测试效果"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/flask%E9%A1%B5%E9%9D%A2%E6%B5%8B%E8%AF%95.png" alt="flask页面测试"></p>
+<ol start="4" type="1">
+<li><p>在 myapp 虚拟环境下安装 phoenixdb</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install phoenixdb==0.7</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%9C%A8%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85phoenixdb.png" alt="在虚拟环境安装phoenixdb"></p></li>
+<li><p>启动queryserver服务</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%90%AF%E5%8A%A8queryserver%E6%9C%8D%E5%8A%A1.png" alt="启动queryserver服务"></p></li>
+<li><p>在虚拟环境myapp中测试phoenixdb 连接是否正常</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> phoenixdb</span><br><span class="line"><span class="keyword">import</span> phoenixdb.cursor</span><br><span class="line">database_url = <span class="string">'http://localhost:8765/'</span></span><br><span class="line">conn = phoenixdb.connect(database_url, autocommit=<span class="literal">True</span>)</span><br><span class="line">cursor = conn.cursor() cursor.execute(<span class="string">'SELECT * FROM "team_season" limit 10'</span>)</span><br><span class="line"><span class="built_in">print</span> (cursor.fetchall())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/phoenixdb%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C.png" alt="phoenixdb测试结果"></p></li>
+</ol>
+<h3 id="编写程序分析和展示数据">5、编写程序分析和展示数据</h3>
+<p>使用flask框架展示数据：</p>
+<ol type="1">
+<li><p>创建一个python文件main.py：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/python%E4%BB%A3%E7%A0%81%E8%B0%83%E7%94%A8%E6%95%B0%E6%8D%AE.png" alt="python代码调用数据"></p></li>
+<li><p>在同级目录下创建 templates 文件夹，编写存放 myindex.html：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/templates%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE.png" alt="templates文件夹位置"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/myindex%E6%96%87%E4%BB%B6.png" alt="myindex文件"></p></li>
+<li><p>运行结果：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE.png" alt="展示数据"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%95%B0%E6%8D%AE%E5%B1%95%E7%A4%BA2.png" alt="数据展示2"></p></li>
+</ol>
+<h3 id="总结-2">6、总结</h3>
+<p>flask版本问题、安装virtualenv超时，HMaster进程</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/bug1%E5%AE%89%E8%A3%85virtualenv%E8%B6%85%E6%97%B6.png" alt="bug1安装virtualenv超时"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%AE%BF%E9%97%AE%E7%AB%AF%E5%8F%A3%E5%87%BA%E9%94%99.png" alt="访问端口出错"></p>
+<h2 id="四-大数据流计算系统">四、 大数据流计算系统</h2>
+<h3 id="前言-2">0、前言</h3>
+<blockquote>
+<p>涉及数据预处理、消息队列发送和接收消息、数据实时处理、数据实时推送和实时展示等数据
+处理全流程所涉及的各种典型操作， 涵盖 Linux 、Spark 、Kafka 、Flask
+、Flask-SocketIO 、Highcharts.js、sockert.io.js、PyCharm
+等系统和软件的安装和使用方法。</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B.png" alt="操作流程"></p>
+<h3 id="数据处理">1、数据处理</h3>
+<ol type="1">
+<li><p>数据预处理</p>
+<p>上传数据到虚拟机中：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%8A%E4%BC%A0%E6%95%B0%E6%8D%AE%E5%88%B0%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD.png" alt="上传数据到虚拟机中"></p></li>
+<li><p>安装相应的python库：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%AE%89%E8%A3%85%E7%9B%B8%E5%BA%94%E7%9A%84python%E5%BA%93.png" alt="安装相应的python库"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka_spark%E5%BA%93.png" alt="kafka_spark库"></p></li>
+<li><p>编写kafka代码测试生产者和消费者：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%B5%8B%E8%AF%95%E6%B6%88%E8%B4%B9%E5%92%8C%E7%94%9F%E4%BA%A7%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%8D%E7%BD%AE.png" alt="测试消费和生产的代码位置"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E6%B5%8B%E8%AF%95%E5%8F%91%E9%80%81%E6%80%A7%E5%88%AB%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81producer.png" alt="kafka测试发送性别数据代码producer"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E6%B5%8B%E8%AF%95%E6%8E%A5%E6%94%B6%E6%80%A7%E5%88%AB%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81consumer.png" alt="kafka测试接收性别数据代码consumer"></p></li>
+<li><p>测试结果：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/kafka%E6%B5%8B%E8%AF%95%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8.png" alt="kafka测试服务启动"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/producer%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95.png" alt="producer运行测试"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/consumer%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95.png" alt="consumer运行测试"></p></li>
+</ol>
+<h3 id="scala编程实现实时数据处理">2、scala编程实现实时数据处理</h3>
+<ol type="1">
+<li><p>下载spark-streaming-kafka的jar包，并配置环境jar的位置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://search.maven.org/maven2/org/apache/spark/spark-streaming-kafka-0-8_2.11/2.1.0/spark-streaming-kafka-0-8_2.11-2.1.0.jar</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%8B%E8%BD%BDspark-streaming-kafka.png" alt="下载spark-streaming-kafka"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/spark-streaming-kafka%E7%A7%BB%E5%8A%A8%E5%88%B0spark%E7%9A%84jars%E9%87%8C.png" alt="spark-streaming-kafka移动到spark的jars里"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%8A%8Akafka%E7%9A%84libs%E7%A7%BB%E5%8A%A8%E5%88%B0spark%E7%9A%84jars%E7%9A%84kafka%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B.png" alt="把kafka的libs移动到spark的jars的kafka文件夹下"></p></li>
+<li><p>在文件夹 kafka_spark_code中建立文件夹 kafka,进入 kafka
+文件夹依次建立 src/main/scala 文件存放目录以及 scala
+工程文件，项目工程主文件 KafkaTest.scala，设置日志文件为
+StreamingExamples.scala：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%88%9B%E5%BB%BAscala%E6%96%87%E4%BB%B6%E5%A4%B9%E7%94%A8%E4%BA%8E%E5%AD%98%E6%94%BE%E4%BB%A3%E7%A0%81.png" alt="创建scala文件夹用于存放代码"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%88%9B%E5%BB%BA%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%92%8C%E5%B7%A5%E7%A8%8B%E6%96%87%E4%BB%B6.png" alt="创建日志文件和工程文件"></p></li>
+<li><p>StreamingExamples.scala代码：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/StreamingExamples%E6%97%A5%E5%BF%97%E7%A8%8B%E5%BA%8Fscala%E4%BB%A3%E7%A0%81.png" alt="StreamingExamples日志程序scala代码"></p></li>
+<li><p>KafkaWordCount.scala程序代码</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%AF%8D%E9%A2%91KafkaWordCount%E7%BB%9F%E8%AE%A1scala.png" alt="词频KafkaWordCount统计scala"></p></li>
+<li><p>编写打包配置文件<code>simple.sbt</code>：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/sbt.png" alt="sbt"></p></li>
+</ol>
+<h3 id="运行kafka项目">3、运行kafka项目</h3>
+<ol type="1">
+<li><p>编译打包程序：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/sbt/sbt package</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/sbt%E6%89%93%E5%8C%85%E8%BF%87%E7%A8%8B.png" alt="sbt打包过程"></p></li>
+<li><p>编写运行脚本，编写运行脚本，在/usr/local/spark/mycode/kafka
+目录下新建 startup.sh
+文件，输入以下内容，是一行，并给予脚本执行权限：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/root/spark/bin/spark-submit --driver-class-path /root/spark/jars/*:/root/spark/jars/kafka/* --class <span class="string">"org.apache.spark.examples.streaming.KafkaWordCount"</span> /home/charpter03/kafka_spark_code/kafka/target/scala-2.11/simple-project_2.11-1.0.jar zoo1:2181 1 sex 1</span><br></pre></td></tr></table></figure>
+<p>修改获得运行权限：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90.png" alt="修改权限"></p></li>
+<li><p>测试程序</p>
+<p>修改consumer.py文件的主题：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%BF%AE%E6%94%B9consumer%E6%96%87%E4%BB%B6.png" alt="修改consumer文件"></p>
+<p>启动kafka服务，然后分别运行startup.sh、producer.py、consumer.py文件，查看结果：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%90%AF%E5%8A%A8kafka%E6%9C%8D%E5%8A%A1.png" alt="启动kafka服务"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%90%AF%E5%8A%A8startup.png" alt="启动startup"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%90%AF%E5%8A%A8producer%E5%8F%91%E9%80%81.png" alt="启动producer发送"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/consumer%E4%BD%BF%E7%94%A8result%E4%B8%BB%E9%A2%98%E6%8E%A5%E6%94%B6.png" alt="consumer使用result主题接收"></p></li>
+</ol>
+<h3 id="数据展示处理">4、数据展示处理</h3>
+<p>利用 Flask 创建 web 程序，利用 Flask-SocketIO 实现实时推送数据，利用
+socket.io.js 实现 实时接收数据，hightlights.js 展现数据。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">环境版本：</span><br><span class="line">pip3 install Flask-SocketIO==4.3.1</span><br><span class="line">pip3 install python-engineio==3.13.2</span><br><span class="line">pip3 install python-socketio==4.6.0</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/pip3%E7%9A%84ls.png" alt="pip3的ls"></p>
+<ol type="1">
+<li><p><strong><code>Flask-SocketIO</code>实时推送数据</strong></p>
+<blockquote>
+<p>Spark Streaming 实时接收 Kafka 中 topic 为“sex”发送的日志数据，然后
+Spark Streaming
+进行实时处理，统计好每秒中男女生购物人数之后，将结果发送至 Kafka，topic
+为“result”。下面是项目文件层级：</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E5%B1%82%E7%BA%A7.png" alt="项目文件层级"></p>
+<blockquote>
+<p>app.py：作为一个简易的服务器，处理连接请求，以 及处理从kafka
+接收的数据，并实时推送到浏览器。</p>
+<p>background_thread 函数，该函数从 Kafka
+接收消息，并进行处理，获得男女生每秒钟人数，然后将结果通过函数
+socketio.emit实时推送至浏览器。</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/app%E4%BB%A31.png" alt="app代1"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/app%E4%BB%A32.png" alt="app代2"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/app%E4%BB%A3%E7%A0%813.png" alt="app代码3"></p></li>
+<li><p><strong>浏览器获取数据并展示</strong></p>
+<blockquote>
+<p>在app.py路径下创建templates/index.html，其负责获取数据并展示效果。</p>
+<p>该部分就是使用 socket.io.js
+库来实时地接收服务端发送过来的消息，并将消息数据实时地设置在 html
+标签内，交给 highcharts.js
+进行实时获取和展示。如果出现引擎版本不匹配的错误，可以固定下 python
+几个包的版本：</p>
+<p>pip3 install Flask-SocketIO==4.3.1</p>
+<p>pip3 install python-engineio==3.13.2</p>
+<p>pip3 install python-socketio==4.6.0</p>
+<p>js依赖：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">crossorigin</span>=<span class="string">"anonymous"</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">     <span class="attr">integrity</span>=<span class="string">"sha512-TFZqlmDYmi29UdRJTJblfxNrsSgtabj2vxvIqAvsAO2I8//OaBTMfxa8ghzuHQ58hViU5k125Cp00vh9GVgWIg=="</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">     <span class="attr">src</span>=<span class="string">"https://lib.baomitu.com/socket.io/2.5.0/socket.io.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&gt;<span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&gt;<span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://code.highcharts.com/highcharts.src.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&gt;<span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://code.highcharts.com/modules/exporting.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>代码如下</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A31.png" alt="index代1"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A32.png" alt="index代2"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A33.png" alt="index代3"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A34.png" alt="index代4"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A35.png" alt="index代5"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A36.png" alt="index代6"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/index%E4%BB%A37.png" alt="index代7"></p></li>
+<li><p><strong>效果展示</strong></p>
+<blockquote>
+<p>启动步骤:</p>
+<ol type="1">
+<li><p>确保 kafka 开启（jps 观察进程是否启动）；</p></li>
+<li><p>开启 producer.py 模拟数据流（python3 producer.py）;</p></li>
+<li><p>启动 Spark Streaming 实时处理数据（scala 版运行
+stratup.sh）。</p></li>
+<li><p>启动 app.py</p></li>
+</ol>
+</blockquote></li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%90%AF%E5%8A%A8%E7%9A%84%E6%9C%8D%E5%8A%A1.png" alt="启动的服务"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%BF%90%E8%A1%8C%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE.png" alt="运行接收数据"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%B1%95%E7%A4%BA%E7%BB%93%E6%9E%9C1.png" alt="展示结果1"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%B1%95%E7%A4%BA%E7%BB%93%E6%9E%9C2.png" alt="展示结果2"></p>
+<h3 id="总结-3">5、总结</h3>
+<p>1、主题列表：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%BB%E9%A2%98%E5%88%9B%E5%BB%BA%E5%A5%BD%E4%BA%86.png" alt="主题创建好了"></p>
+<p>2、整个数据的传输过程：</p>
+<p>3、socket.io.js，exporting.js版本问题包</p>
+<p>4、并发问题</p>
+<h2 id="五大数据图计算系统">五、大数据图计算系统</h2>
+<h3 id="前言-3">0、前言</h3>
+<blockquote>
+<p>用 GraphX
+分析网络结构，涉及获取数据、解析数据、分析主要主题以及伴生关系、建立伴生网络、理解网络结构、过滤噪声边、计算聚类系数和平均路径长度等数据处理过程，涵盖
+Linux、MySQL、Hadoop、HDFS、Spark、Scala、Flask、Python、Echarts
+等系统和软件的应用。</p>
+</blockquote>
+<h3 id="获取实验数据">1、获取实验数据</h3>
+<blockquote>
+<p>注：原始数据量较多，但由于本实验镜像虚拟的分布式集群内存只有
+7.5G,启动Hadoop
+平台就要占用大量内存资源，该实验最后一部分计算节点之间的平均路径需要消耗非常多的内存资源，不足以计算出结果，考虑到单机现有的内存条件，所以本实验采取相对合适节点数量的数据集，数据量为
+480，足以完成整个实验流程及学习内容的要求。</p>
+</blockquote>
+<p>1、先将数据通过MobaXterm上传到虚拟机中，然后通过命令<code>docker cp /tmp/dataset/chapter04/. hbase-master:/home/chapter04/dataset/</code>上传到hbase-master节点上：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%8A%E4%BC%A0%E6%95%B0%E6%8D%AE%E5%91%BD%E4%BB%A4.png" alt="上传数据命令"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%8A%E4%BC%A0%E6%95%B0%E6%8D%AE.png" alt="上传数据"></p>
+<p>2、创建数据库 graph，为后面可视化展示做准备：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%88%9B%E5%BB%BAgraph%E6%95%B0%E6%8D%AE%E5%BA%93.png" alt="创建graph数据库"></p>
+<p>3、查看 namenode，datanode 是否正常启动，HRegionServer 跟 hbase
+相关，没有的话直接启动：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E5%B1%95%E7%A4%BA.png" alt="进程启动展示"></p>
+<p>4、在hdfs创建medline文件夹，并将<code>medsamp2016a.xml</code>加载到该文件夹下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -mkdir /medline</span><br><span class="line">hdfs dfs -put medsamp2016a.xml /medline/</span><br><span class="line">hdfs dfs -put ch07-graph-2.0.0-jar-with-dependencies.jar /medline/</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/hdfs%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9.png" alt="hdfs创建文件夹"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%B8%8A%E4%BC%A0xml%E5%88%B0hdfs.png" alt="上传xml到hdfs"></p>
+<p>5、<code>spark-shell --jars ch07-graph-2.0.0-jar-with-dependencies.jar</code>启动spark：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%B0%86jar%E5%8C%85%E5%8A%A0%E8%BD%BD%E5%B9%B6%E5%90%AF%E5%8A%A8.png" alt="将jar包加载并启动"></p>
+<p>6、把 xml 格式的 medline 数据读到 Spark shell 中：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%BD%BD%E5%85%A5%E6%95%B0%E6%8D%AE.png" alt="载入数据"></p>
+<p>7、用 Scala XML 工具解析 XML 文档，变量elem 是scala.xml.Elem
+类的实例，Scala 用scala.xml.Elem 类表示XML
+文档中的一个节点，该类内置了查询节点信息和节点内容的函数。Cache函将解析结果缓存起来：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%BD%BF%E7%94%A8xml%E5%B7%A5%E5%85%B7%E8%A7%A3%E6%9E%90.png" alt="使用xml工具解析"></p>
+<h3 id="分析网络主要主题及其伴生关系">2、分析网络主要主题及其伴生关系</h3>
+<p>FlatMap
+获取数据集标签后，我们需要知道数据集中标签的总体分布情况，为此我们需要使用
+SparkSQL
+计算一些基本统计量，比如记录条数和主要主题出现频率的直方图，并将统计结果保存到
+mysql，用于可视化展示：</p>
+<p>记录下登录时的 ip：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/image-20240701210030323.png" alt="image-20240701210030323"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE11.png" alt="展示数据11"></p>
+<p>上面的数据给出了一个大致的描述，包括一共有多少个主题，最频繁的主题等。可以看到，我们的数据一共有
+480 个文档，最频繁出现的 topic（Disease）只占了很少一部分（25/480=
+5%）。对此，我们猜测包含某个主题的文档的个数的总体分布可能为长尾形态：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%87%BA%E7%8E%B0%E7%9B%B8%E5%90%8C%E6%AC%A1%E6%95%B0%E7%BB%9F%E8%AE%A1.png" alt="出现相同次数统计"></p>
+<p>要得到伴生关系，我们要为这些字符串列表生成一个二元组集合。对此我们可以使用
+Scala 集合工具包里的 combinations 方法，它返回的是一个 Iterator：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%8E%B7%E5%8F%96%E4%BA%8C%E5%85%83%E7%BB%84%E5%88%97%E8%A1%A8%E9%9B%86%E5%90%88.png" alt="获取二元组列表集合"></p>
+<p>查看一下数据中最常出现的伴生二元组，将数据存入 mysql：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%98%BE%E7%A4%BA%E6%9C%80%E5%B8%B8%E5%87%BA%E7%8E%B0%E7%9A%84%E4%BC%B4%E7%94%9F%E4%BA%8C%E5%85%83%E7%BB%84.png" alt="显示最常出现的伴生二元组"></p>
+<p>以上并未提供特别有用的信息，最常见的伴生二元组与最常见的topic非常相关。除此之外，也没有提供什么额外的信息。</p>
+<h3 id="用-graphx-来建立一个伴生网络">3、用 GraphX
+来建立一个伴生网络</h3>
+<p>实验的核心在于把伴生网络当作网络来分析：把主题当作图的顶点，把连接两个主题的引用记录看成两个相应顶点之间的边。这样就可以计算以网络为中心的统计量。GraphX
+构建与 Spark 之上，它继承了 Spark
+在可扩展性方面的所有特性，这就意味着可以利用 GraphX
+对规模极其庞大的图进行分析。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E7%94%A8graphX%E5%BB%BA%E7%AB%8B%E4%BC%B4%E7%94%9F%E7%BD%91%E7%BB%9C.png" alt="用graphX建立伴生网络"></p>
+<p>在Medline数据上运行该散列函数可以得到一个DataFrame，以它为基础就可以得到伴生关系图的顶点集合：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E9%A1%B6%E7%82%B9%E9%9B%86%E5%90%88.png" alt="顶点集合"></p>
+<p>用前一节中得到的伴生频率计数来生成图的边，方法是使用hash
+函数将每个主题映射到相应的顶点ID：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E4%BC%B4%E7%94%9F%E5%85%B3%E7%B3%BB%E5%9B%BE%E7%9A%84%E8%BE%B9%E9%9B%86%E5%90%88.png" alt="伴生关系图的边集合"></p>
+<p>把顶点和边都创建好后，就可以创建Graph 实例了。我们需要将Graph
+缓存起来，这样便于后续处理时使用：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%88%9B%E5%BB%BAGraph%E7%A4%BA%E4%BE%8B.png" alt="创建Graph示例"></p>
+<h3 id="理解网络结构">4、理解网络结构</h3>
+<p>1、连通组件</p>
+<p>最基本的属性之一就是是否是连通图。如果图是非连通的，那么可以将图划分成一组更小的子图，这样就可以分别对每个子图进行研究。连通性是图的基本属性，通过调用
+GraphX 的 connectedComponents 方法获取：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%9F%A5%E7%9C%8B%E6%9C%80%E5%A4%A7%E8%BF%9E%E9%80%9A%E7%BB%84%E4%BB%B6.png" alt="查看最大连通组件"></p>
+<p>大连通组件的主题名称：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%BF%9E%E9%80%9A%E7%BB%84%E4%BB%B6%E5%90%8D%E7%A7%B0.png" alt="第二大连通组件名称"></p>
+<p>查看最初的主题分布，是否有类似 Visual 的主题：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/visual%E4%B8%BB%E9%A2%98.png" alt="visual主题"></p>
+<p>2、度的分布</p>
+<p>为了更多了解图的结构信息，我们需要知道每个顶点的度，也就是每个顶点所属边的条数。GraphX
+中我们可以通过在 Graph 对象上调用 degrees 方法得到每个顶点的度。degrees
+方法返回一个整数的
+VertexRDD，其中每个整数代表一个顶点的度。现在我们计算一下图的度，然后可以查看到度数较高的主题，并将数据存入
+mysql：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%BA%A6%E7%9A%84%E5%88%86%E5%B8%83%E6%83%85%E5%86%B5.png" alt="度的分布情况"></p>
+<h3 id="过滤噪声边">5、过滤噪声边</h3>
+<p>在当前的伴生关系中，边的权重是基于一对概念同时出现在一篇论文中的频率来计算的。这种简单的权重机制的问题在于：它并没有对一对概念同时出现的原因加以区分，有时一对概念同时出现是由于它们具有某种值得我们关注的语义关系，但有时一对概念同时出现只是因为都频繁地出现在所有文档中，同时出现只是碰巧而已，因此需要对噪声边进行处理，这里采用卡方准则。</p>
+<p>1、处理 EdgeTriplet</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%BF%87%E6%BB%A4%E5%99%AA%E5%A3%B0%E8%BE%B9.png" alt="过滤噪声边"></p>
+<p>计算卡方统计量，需要组合顶点数据（比如每个概念在一个文档中出现的次数）和边数据（比如两个概念同时出现在一个文档中的次数）：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%8D%A1%E6%96%B9%E7%BB%9F%E8%AE%A1%E9%87%8F.png" alt="卡方统计量"></p>
+<p>用该方法通过 mapTriplets 算子转换边的值。mapTriplets
+算子返回一个新图，这个图的边的属性就是每个伴生对的卡方统计量。于是我们就可以大概知道该统计量在所有边上的分布情况：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E7%BB%9F%E8%AE%A1%E9%87%8F%E5%9C%A8%E6%89%80%E6%9C%89%E8%BE%B9%E4%B8%8A%E7%9A%84%E5%88%86%E5%B8%83%E6%83%85%E5%86%B5.png" alt="统计量在所有边上的分布情况"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E7%BB%9F%E8%AE%A1%E9%87%8F%E5%9C%A8%E6%89%80%E6%9C%89%E8%BE%B9%E4%B8%8A%E7%9A%84%E5%88%86%E5%B8%83%E6%83%85%E5%86%B5result.png" alt="统计量在所有边上的分布情况result"></p>
+<p>使用 19.5
+作为阈值，这样过滤后图中就只剩下那些置信度非常高的有意义的伴生关系。我们将在图上利用
+subgraph 方法进行过滤，这个方法接受 EdgeTriplet
+的一个布尔函数，用以判断子图应该包含哪些边：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E7%94%A8%E9%98%88%E5%80%BC%E8%BF%87%E6%BB%A4%E6%B2%A1%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E4%BC%B4%E7%94%9F%E6%A6%82%E7%8E%87%E5%AF%B9.png" alt="用阈值过滤没有意义的伴生概率对"></p>
+<p>2、分析去掉噪声边的子图</p>
+<p>在过滤后的子图上运行连通性算法，检查组件个数和组件大小：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%8E%BB%E6%8E%89%E5%99%AA%E5%A3%B0%E8%BE%B9%E7%9A%84%E5%AD%90%E5%9B%BE%EF%BC%8C%E6%9F%A5%E7%9C%8B%E4%B8%AA%E6%95%B0%E5%92%8C%E5%A4%A7%E5%B0%8F.png" alt="去掉噪声边的子图，查看个数和大小"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%8E%BB%E6%8E%89%E5%99%AA%E5%A3%B0%E8%BE%B9%E7%9A%84%E5%AD%90%E5%9B%BE%EF%BC%8C%E6%9F%A5%E7%9C%8B%E4%B8%AA%E6%95%B0%E5%92%8C%E5%A4%A7%E5%B0%8Fresult.png" alt="去掉噪声边的子图，查看个数和大小result"></p>
+<p>发现连通组件总数发生改变，且最大连通组件也被瓦解，说明该数据集有较多的噪声干扰。如果数据量较多，将会对最大连通组件产生较小的影响。检查一下过滤后的度分布：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%BF%87%E6%BB%A4%E5%90%8E%E5%BA%A6%E7%9A%84%E5%88%86%E5%B8%83.png" alt="过滤后度的分布"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%BF%87%E6%BB%A4%E5%90%8E%E5%BA%A6%E7%9A%84%E5%88%86%E5%B8%83result.png" alt="过滤后度的分布result"></p>
+<p>看到过滤后平均值变小了，主要主题也产生变化，原因是数据集样本的噪声比较多。我们看一下过滤之后概念和度的关系：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%BF%87%E6%BB%A4%E5%90%8E%E4%B8%BB%E9%A2%98%E5%92%8C%E5%BA%A6%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%8C%E5%AD%98%E5%85%A5mysql%E7%94%A8%E4%BA%8E%E5%8F%AF%E8%A7%86%E5%8C%96.png" alt="过滤后主题和度的关系，存入mysql用于可视化"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%BF%87%E6%BB%A4%E5%90%8E%E4%B8%BB%E9%A2%98%E5%92%8C%E5%BA%A6%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%8C%E5%AD%98%E5%85%A5mysql%E7%94%A8%E4%BA%8E%E5%8F%AF%E8%A7%86%E5%8C%96result.png" alt="过滤后主题和度的关系，存入mysql用于可视化result"></p>
+<p>结果表明虽说这次卡方过滤准则不太理想，问题在于使用数据集样本太小，如果用原始数据集，将会产生较好的结果；但是它在清楚对应普遍概念的边的同时，保留了代表概念之间有意义并且有值得注意的关系的那些边。</p>
+<h3 id="系和聚类系数">6、系和聚类系数</h3>
+<p>如果每个顶点都存在一条边与其他任何节点都相连，那这个图就是个完全图。给定一个图，可能有多个子图是完全图，我们可以将这些子图称为系，如果途中存在这种许多大型的系，表示这个图具有某种局部稠密结构。</p>
+<p>三角形是一个完成图，顶点 V
+的三角计数就是包含该顶点的三角形个数。三角计数度量了 V
+有多少个邻接点是相互连接的。Watts 和 Strogatz
+定义了一个新的指标，称为局部聚类系数，它是一个顶点的实际三角计数与其邻接点可能的三角级数的比率。对无向图来说，有
+k 个邻接点和 t 个三角计数的顶点，其局部聚类系数 C 为：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%B1%80%E9%83%A8%E8%81%9A%E7%B1%BB%E7%B3%BB%E6%95%B0.png" alt="局部聚类系数"></p>
+<p>用GraphX 来计算过滤后的概念图的每个节点的局部聚类系数。GraphX
+有个内置方法triangleCount，它返回一个Graph 对象，其中VertexRDD
+包含了每个顶点的三角计数。然后对所有顶点局部聚类系数取平均值，就得到网络平均聚类系数：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%81%9A%E7%B1%BB%E7%B3%BB%E6%95%B0.png" alt="聚类系数"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%81%9A%E7%B1%BB%E7%B3%BB%E6%95%B0result.png" alt="聚类系数result"></p>
+<h3 id="平均路径长度">7、平均路径长度</h3>
+<p>用Pregel求两个节点之间的最短路径，这里我们会计算过滤之后的概念图中的大型连通组件节点的平均路径长度。计算图中顶点之间的路径长度是一个迭代过程，和我们之前寻找连通组件的迭代过程类似：每个阶段，每个顶点将保留它所接触过的顶点列表并记录到这些顶点的距离。接着每个顶点都向其邻接点查询它对应的节点列表，如果发现该列表中有新的顶点，就用新节点更新自己的节点列表；查询邻接点并更新自己节点列表的过程一直继续下去，直到所有节点都没有发现有新节点需要添加为止。</p>
+<p>确定了顶点状态和消息内容的数据结构后，我们可以实现两个函数。第一个函数是
+mergeMaps，用于将新消息中的信息合并到顶点状态之中。对我们讨论的问题来说，顶点状态和消息都是
+Map[VertexId, Int] 类型的，因此需要把两个 map 中的内容合并在一起并将每个
+VertexId 关联到两个 map 中该 VertexId 对应两个条目的最小值。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%B9%B3%E5%9D%87%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A61.png" alt="平均路径长度1"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%B9%B3%E5%9D%87%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A61result.png" alt="平均路径长度1result"></p>
+<p>最后编写代码来构建发送给每个顶点的消息，依据是每次迭代是每个顶点从邻接点收到的消息：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%9E%84%E5%BB%BA%E5%8F%91%E9%80%81%E7%BB%99%E6%AF%8F%E4%B8%AA%E9%A1%B6%E7%82%B9%E7%9A%84%E6%B6%88%E6%81%AF%E4%BB%A3%E7%A0%81.png" alt="构建发送给每个顶点的消息代码"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E6%9E%84%E5%BB%BA%E5%8F%91%E9%80%81%E7%BB%99%E6%AF%8F%E4%B8%AA%E9%A1%B6%E7%82%B9%E7%9A%84%E6%B6%88%E6%81%AF%E4%BB%A3%E7%A0%81result.png" alt="构建发送给每个顶点的消息代码result"></p>
+<p>在每个Pregel迭代过程中，对EdgeTriplet内部的src和dst顶点执行消息更新：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E5%AF%B9%E9%A1%B6%E7%82%B9%E6%89%A7%E8%A1%8C%E6%B6%88%E6%81%AF%E6%9B%B4%E6%96%B0.png" alt="对顶点执行消息更新"></p>
+<p>如果一次迭代中有任何顶点没收到消息，pregel’算法认为该顶点的运算已经完成并不再把它放在后续处理中。计算任意两个顶点之间的路径长度，使用
+RDD 的sample 方法对所有 Vertexid 进行
+2%的不重复采样，随机数生成器的随机种子采用 1729L：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/pregel%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E4%B8%A4%E4%B8%AA%E9%A1%B6%E7%82%B91%E4%B9%8B%E9%97%B4%E7%9A%84%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6%E4%BB%A3%E7%A0%81.png" alt="pregel方法计算两个顶点1之间的路径长度代码"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/pregel%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E4%B8%A4%E4%B8%AA%E9%A1%B6%E7%82%B91%E4%B9%8B%E9%97%B4%E7%9A%84%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6%E4%BB%A3%E7%A0%81result.png" alt="pregel方法计算两个顶点1之间的路径长度代码result"></p>
+<p>计算样本路径长度直方图：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%AE%A1%E7%AE%97%E7%9B%B4%E6%96%B9%E5%9B%BE%E4%BB%A3%E7%A0%81.png" alt="计算直方图代码"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%AE%A1%E7%AE%97%E7%9B%B4%E6%96%B9%E5%9B%BEresult.png" alt="计算直方图result"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E8%AE%A1%E7%AE%97%E7%9B%B4%E6%96%B9%E5%9B%BEresult2.png" alt="计算直方图result2"></p>
+<p>看到，样本的平均路径长度为 15.7，聚类系数为 0.625。</p>
+<h3 id="echarts可视化展示">8、Echarts可视化展示</h3>
+<p>1、登录MySQL，查看mysql中是否有相关数据库和表：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/mysql%E4%B8%AD%E7%9A%84%E8%A1%A8.png" alt="mysql中的表"></p>
+<p>2、数据可视化展示</p>
+<p>结果展示：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%B1%95%E7%A4%BA.png" alt="直方图展示"></p>
+<p>使用flask框架搭建前端展示页面，文件目录结构：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png" alt="目录结构"></p>
+<p>app.py：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/app%E4%BB%A3%E7%A0%81.png" alt="app代码"></p>
+<p>mysql.py：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/mysql%E4%BB%A3%E7%A0%810.png" alt="mysql代码0"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/mysql%E4%BB%A3%E7%A0%811.png" alt="mysql代码1"></p>
+<p>echarts.html代码：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/echarts%E4%BB%A3%E7%A0%811.png" alt="echarts代码1"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/echarts%E4%BB%A3%E7%A0%812.png" alt="echarts代码2"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/echarts%E4%BB%A3%E7%A0%813.png" alt="echarts代码3"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/echarts%E4%BB%A3%E7%A0%814.png" alt="echarts代码4"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/echarts%E4%BB%A3%E7%A0%815.png" alt="echarts代码5"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/echarts%E4%BB%A3%E7%A0%816.png" alt="echarts代码6"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/echarts%E4%BB%A3%E7%A0%817.png" alt="echarts代码7"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/echarts%E4%BB%A3%E7%A0%818.png" alt="echarts代码8"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/echarts%E4%BB%A3%E7%A0%819.png" alt="echarts代码9"></p>
+<h3 id="总结-4">9、总结</h3>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">Tang Xiangkai</div><div class="post-copyright__author_desc">在吗？</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/')">大数据系统实验课程</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=undefined&amp;url=https://dekelkai.github.io/2024/06/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B/&amp;pic=undefined" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Dekelkai.github.io" target="_blank">Dekel'Blog</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/bigdata/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>bigdata<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="/img/default_cover.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/06/Volantis%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E8%AF%84%E8%AE%BA%E5%8C%BA%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">🙃Volantis主题配置评论区遇到的问题🙃</div></div></a></div><div class="next-post pull-right"><a href="/2024/07/23/Hexo%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD%E5%92%8C%E6%81%A2%E5%A4%8D/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hexo博客备份和恢复</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Tang Xiangkai</h1><div class="author-info__desc">在吗？</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/Dekelkai" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/323056340" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客鸭~</div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%AE%9E%E9%AA%8C%E5%87%86%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text">一、实验准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%8F%8A%E5%BC%80%E5%90%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0"><span class="toc-number">1.1.</span> <span class="toc-text">1、导入虚拟机及开启大数据平台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E6%A3%80%E6%B5%8B"><span class="toc-number">1.2.</span> <span class="toc-text">2、环境检测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hdfs"><span class="toc-number">1.2.1.</span> <span class="toc-text">HDFS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mapreduce"><span class="toc-number">1.2.2.</span> <span class="toc-text">MapReduce</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#yarn"><span class="toc-number">1.2.3.</span> <span class="toc-text">yarn</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hive"><span class="toc-number">1.2.4.</span> <span class="toc-text">hive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hbase"><span class="toc-number">1.2.5.</span> <span class="toc-text">Hbase</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#spark"><span class="toc-number">1.2.6.</span> <span class="toc-text">spark</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zookeeper"><span class="toc-number">1.2.7.</span> <span class="toc-text">zookeeper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sbt%E6%89%93%E5%8C%85"><span class="toc-number">1.2.8.</span> <span class="toc-text">sbt打包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#azkaban"><span class="toc-number">1.2.9.</span> <span class="toc-text">Azkaban</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#kafka"><span class="toc-number">1.2.10.</span> <span class="toc-text">kafka</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#phoenix-%E9%9B%86%E6%88%90-hbase"><span class="toc-number">1.2.11.</span> <span class="toc-text">Phoenix 集成 HBase</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.3.</span> <span class="toc-text">3、总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.</span> <span class="toc-text">二、大数据批处理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">2.1.</span> <span class="toc-text">0、前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-number">2.2.</span> <span class="toc-text">1、数据准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">2.3.</span> <span class="toc-text">2、数据预处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%B9%B6%E9%85%8D%E7%BD%AEmysql"><span class="toc-number">2.4.</span> <span class="toc-text">3、启动并配置MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hive%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-number">2.5.</span> <span class="toc-text">4、Hive的简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hive%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%92%8C%E5%88%86%E6%9E%90"><span class="toc-number">2.6.</span> <span class="toc-text">5、Hive的数据处理和分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8Ehive%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E5%88%B0mysql"><span class="toc-number">2.7.</span> <span class="toc-text">6、从hive导入数据到mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ideatomcatecharts%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE"><span class="toc-number">2.8.</span> <span class="toc-text">7、idea+Tomcat+ECharts展示数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">2.9.</span> <span class="toc-text">8、总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2%E5%88%86%E6%9E%90%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.</span> <span class="toc-text">三、大数据查询分析计算系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80-1"><span class="toc-number">3.1.</span> <span class="toc-text">0、前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hbase%E5%88%9B%E5%BB%BA%E8%A1%A8"><span class="toc-number">3.2.</span> <span class="toc-text">1、HBase创建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99python%E8%84%9A%E6%9C%AC%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E8%87%B3hbase%E4%B8%AD"><span class="toc-number">3.3.</span> <span class="toc-text">2、编写python脚本批量导入数据至hbase中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#phoenix-%E5%BB%BA%E7%AB%8B%E4%B8%8E-hbase-%E7%9B%B8%E6%98%A0%E5%B0%84%E7%9A%84%E8%A1%A8"><span class="toc-number">3.4.</span> <span class="toc-text">3、phoenix
+建立与 hbase
+相映射的表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAflask"><span class="toc-number">3.5.</span> <span class="toc-text">4、搭建Flask</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90%E5%92%8C%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE"><span class="toc-number">3.6.</span> <span class="toc-text">5、编写程序分析和展示数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-number">3.7.</span> <span class="toc-text">6、总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%B5%81%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.</span> <span class="toc-text">四、 大数据流计算系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80-2"><span class="toc-number">4.1.</span> <span class="toc-text">0、前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-number">4.2.</span> <span class="toc-text">1、数据处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scala%E7%BC%96%E7%A8%8B%E5%AE%9E%E7%8E%B0%E5%AE%9E%E6%97%B6%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-number">4.3.</span> <span class="toc-text">2、scala编程实现实时数据处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8Ckafka%E9%A1%B9%E7%9B%AE"><span class="toc-number">4.4.</span> <span class="toc-text">3、运行kafka项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%B1%95%E7%A4%BA%E5%A4%84%E7%90%86"><span class="toc-number">4.5.</span> <span class="toc-text">4、数据展示处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-3"><span class="toc-number">4.6.</span> <span class="toc-text">5、总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%9B%BE%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.</span> <span class="toc-text">五、大数据图计算系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80-3"><span class="toc-number">5.1.</span> <span class="toc-text">0、前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%AE%9E%E9%AA%8C%E6%95%B0%E6%8D%AE"><span class="toc-number">5.2.</span> <span class="toc-text">1、获取实验数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E7%BD%91%E7%BB%9C%E4%B8%BB%E8%A6%81%E4%B8%BB%E9%A2%98%E5%8F%8A%E5%85%B6%E4%BC%B4%E7%94%9F%E5%85%B3%E7%B3%BB"><span class="toc-number">5.3.</span> <span class="toc-text">2、分析网络主要主题及其伴生关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8-graphx-%E6%9D%A5%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AA%E4%BC%B4%E7%94%9F%E7%BD%91%E7%BB%9C"><span class="toc-number">5.4.</span> <span class="toc-text">3、用 GraphX
+来建立一个伴生网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="toc-number">5.5.</span> <span class="toc-text">4、理解网络结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%AA%E5%A3%B0%E8%BE%B9"><span class="toc-number">5.6.</span> <span class="toc-text">5、过滤噪声边</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E5%92%8C%E8%81%9A%E7%B1%BB%E7%B3%BB%E6%95%B0"><span class="toc-number">5.7.</span> <span class="toc-text">6、系和聚类系数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6"><span class="toc-number">5.8.</span> <span class="toc-text">7、平均路径长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#echarts%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B1%95%E7%A4%BA"><span class="toc-number">5.9.</span> <span class="toc-text">8、Echarts可视化展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-4"><span class="toc-number">5.10.</span> <span class="toc-text">9、总结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/09/17/%E8%AE%BA%E6%96%87-Strong-Baseline-Multi-UAV-Tracking-via-YOLOv12-with-BoT-SORT-ReID/" title="论文-Strong Baseline: Multi-UAV Tracking via YOLOv12 with BoT-SORT-ReID"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文-Strong Baseline: Multi-UAV Tracking via YOLOv12 with BoT-SORT-ReID"/></a><div class="content"><a class="title" href="/2025/09/17/%E8%AE%BA%E6%96%87-Strong-Baseline-Multi-UAV-Tracking-via-YOLOv12-with-BoT-SORT-ReID/" title="论文-Strong Baseline: Multi-UAV Tracking via YOLOv12 with BoT-SORT-ReID">论文-Strong Baseline: Multi-UAV Tracking via YOLOv12 with BoT-SORT-ReID</a><time datetime="2025-09-17T08:51:13.000Z" title="发表于 2025-09-17 16:51:13">2025-09-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/09/10/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89-1%EF%BC%89%E8%B4%9D%E5%B0%94%E6%9B%BC%E6%9C%80%E4%BC%98%E7%AD%96%E7%95%A5%E5%92%8C%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" title="强化学习（三.1）贝尔曼最优策略和公式推导"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="强化学习（三.1）贝尔曼最优策略和公式推导"/></a><div class="content"><a class="title" href="/2025/09/10/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89-1%EF%BC%89%E8%B4%9D%E5%B0%94%E6%9B%BC%E6%9C%80%E4%BC%98%E7%AD%96%E7%95%A5%E5%92%8C%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" title="强化学习（三.1）贝尔曼最优策略和公式推导">强化学习（三.1）贝尔曼最优策略和公式推导</a><time datetime="2025-09-10T14:55:37.000Z" title="发表于 2025-09-10 22:55:37">2025-09-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/09/09/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E7%8A%B6%E6%80%81%E5%80%BC%E4%B8%8E%E8%B4%9D%E5%B0%94%E6%9B%BC%E6%96%B9%E7%A8%8B/" title="强化学习（二）状态值与贝尔曼方程"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/normal-pic.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="强化学习（二）状态值与贝尔曼方程"/></a><div class="content"><a class="title" href="/2025/09/09/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E7%8A%B6%E6%80%81%E5%80%BC%E4%B8%8E%E8%B4%9D%E5%B0%94%E6%9B%BC%E6%96%B9%E7%A8%8B/" title="强化学习（二）状态值与贝尔曼方程">强化学习（二）状态值与贝尔曼方程</a><time datetime="2025-09-09T07:59:00.000Z" title="发表于 2025-09-09 15:59:00">2025-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/09/05/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89Basic%20Concepts/" title="强化学习（一）Basic Concepts"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="强化学习（一）Basic Concepts"/></a><div class="content"><a class="title" href="/2025/09/05/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89Basic%20Concepts/" title="强化学习（一）Basic Concepts">强化学习（一）Basic Concepts</a><time datetime="2025-09-04T16:07:41.000Z" title="发表于 2025-09-05 00:07:41">2025-09-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/20/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1-%E8%87%AA%E9%80%82%E5%BA%94%E5%92%8C%E4%BA%92%E4%BF%A1%E6%81%AF%E6%9C%80%E5%A4%A7%E5%8C%96%E6%97%A0%E4%BA%BA%E6%9C%BA%E5%AE%9E%E6%97%B6%E8%BF%BD%E8%B8%AA%E8%92%B8%E9%A6%8F%E6%A8%A1%E5%9E%8B/" title="毕业设计-自适应和互信息最大化无人机实时追踪蒸馏模型"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="毕业设计-自适应和互信息最大化无人机实时追踪蒸馏模型"/></a><div class="content"><a class="title" href="/2025/02/20/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1-%E8%87%AA%E9%80%82%E5%BA%94%E5%92%8C%E4%BA%92%E4%BF%A1%E6%81%AF%E6%9C%80%E5%A4%A7%E5%8C%96%E6%97%A0%E4%BA%BA%E6%9C%BA%E5%AE%9E%E6%97%B6%E8%BF%BD%E8%B8%AA%E8%92%B8%E9%A6%8F%E6%A8%A1%E5%9E%8B/" title="毕业设计-自适应和互信息最大化无人机实时追踪蒸馏模型">毕业设计-自适应和互信息最大化无人机实时追踪蒸馏模型</a><time datetime="2025-02-20T11:31:12.000Z" title="发表于 2025-02-20 19:31:12">2025-02-20</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2025 By <a class="footer-bar-link" href="/" title="Tang Xiangkai" target="_blank">Tang Xiangkai</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">13</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/Dekelkai" title="Github"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/github.ico" alt="Github"/><span class="back-menu-item-text">Github</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/air-conditioner/"><i class="anzhiyufont anzhiyu-icon-fan faa-tada" style="font-size: 0.9em;"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Blog/" style="font-size: 0.88rem;">Blog<sup>1</sup></a><a href="/tags/Giscus/" style="font-size: 0.88rem;">Giscus<sup>1</sup></a><a href="/tags/LaTeX/" style="font-size: 0.88rem;">LaTeX<sup>2</sup></a><a href="/tags/PicGo/" style="font-size: 0.88rem;">PicGo<sup>1</sup></a><a href="/tags/Python/" style="font-size: 0.88rem;">Python<sup>1</sup></a><a href="/tags/RL/" style="font-size: 0.88rem;">RL<sup>2</sup></a><a href="/tags/Transformer/" style="font-size: 0.88rem;">Transformer<sup>1</sup></a><a href="/tags/Twikoo/" style="font-size: 0.88rem;">Twikoo<sup>2</sup></a><a href="/tags/Typora/" style="font-size: 0.88rem;">Typora<sup>1</sup></a><a href="/tags/Vision-Transformer/" style="font-size: 0.88rem;">Vision Transformer<sup>1</sup></a><a href="/tags/YOLO/" style="font-size: 0.88rem;">YOLO<sup>1</sup></a><a href="/tags/bigdata/" style="font-size: 0.88rem;">bigdata<sup>1</sup></a><a href="/tags/reinforce-learning/" style="font-size: 0.88rem;">reinforce learning<sup>2</sup></a><a href="/tags/%E4%B8%BB%E9%A2%98/" style="font-size: 0.88rem;">主题<sup>1</sup></a><a href="/tags/%E5%8A%9F%E8%83%BD/" style="font-size: 0.88rem;">功能<sup>1</sup></a><a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 0.88rem;">大学<sup>1</sup></a><a href="/tags/%E5%AD%97%E4%BD%93/" style="font-size: 0.88rem;">字体<sup>1</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 0.88rem;">学习<sup>3</sup></a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 0.88rem;">工具<sup>1</sup></a><a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 0.88rem;">教程<sup>2</sup></a><a href="/tags/%E6%97%A0%E4%BA%BA%E6%9C%BA/" style="font-size: 0.88rem;">无人机<sup>1</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 0.88rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E6%A0%87%E8%B7%9F%E8%B8%AA/" style="font-size: 0.88rem;">目标跟踪<sup>1</sup></a><a href="/tags/%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/" style="font-size: 0.88rem;">评论功能<sup>2</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.6.14",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Tang Xiangkai 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
