@@ -1,0 +1,594 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>火星无人机绝对定位-On-board Absolute Localization Based on Orbital Imagery for a Future Mars Science Helicopter | Dekel'Blog</title><meta name="author" content="Dekel,tangxk666@outlook.com"><meta name="copyright" content="Dekel"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="火星无人直升机绝对定位-地图匹配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="火星无人机绝对定位-On-board Absolute Localization Based on Orbital Imagery for a Future Mars Science Helicopter">
+<meta property="og:url" content="https://dekelkai.github.io/2025/10/18/%E7%81%AB%E6%98%9F%E6%97%A0%E4%BA%BA%E6%9C%BA%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D-On-board-Absolute-Localization-Based-on-Orbital-Imagery-for-a-Future-Mars-Science-Helicopter/index.html">
+<meta property="og:site_name" content="Dekel&#39;Blog">
+<meta property="og:description" content="火星无人直升机绝对定位-地图匹配">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018205030458.png">
+<meta property="article:published_time" content="2025-10-18T12:43:27.000Z">
+<meta property="article:modified_time" content="2025-10-18T12:51:25.594Z">
+<meta property="article:author" content="Dekel">
+<meta property="article:tag" content="Mars">
+<meta property="article:tag" content="CV">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018205030458.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "火星无人机绝对定位-On-board Absolute Localization Based on Orbital Imagery for a Future Mars Science Helicopter",
+  "url": "https://dekelkai.github.io/2025/10/18/%E7%81%AB%E6%98%9F%E6%97%A0%E4%BA%BA%E6%9C%BA%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D-On-board-Absolute-Localization-Based-on-Orbital-Imagery-for-a-Future-Mars-Science-Helicopter/",
+  "image": "https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018205030458.png",
+  "datePublished": "2025-10-18T12:43:27.000Z",
+  "dateModified": "2025-10-18T12:51:25.594Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Dekel",
+      "url": "https://tangxk.cn/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20250930202811272.jpg"><link rel="canonical" href="https://dekelkai.github.io/2025/10/18/%E7%81%AB%E6%98%9F%E6%97%A0%E4%BA%BA%E6%9C%BA%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D-On-board-Absolute-Localization-Based-on-Orbital-Imagery-for-a-Future-Mars-Science-Helicopter/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '火星无人机绝对定位-On-board Absolute Localization Based on Orbital Imagery for a Future Mars Science Helicopter',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div id="web_bg" style="background-image: url(https://i.loli.net/2019/09/09/5oDRkWVKctx2b6A.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20250930204459119.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-video"></i><span> 说说</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018205030458.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20250930204459119.png" alt="Logo"><span class="site-name">Dekel'Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">火星无人机绝对定位-On-board Absolute Localization Based on Orbital Imagery for a Future Mars Science Helicopter</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-video"></i><span> 说说</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">火星无人机绝对定位-On-board Absolute Localization Based on Orbital Imagery for a Future Mars Science Helicopter</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-18T12:43:27.000Z" title="发表于 2025-10-18 20:43:27">2025-10-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-18T12:51:25.594Z" title="更新于 2025-10-18 20:51:25">2025-10-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/mars/">mars</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2025-10-18 20:51:25&quot;}" hidden></div><p>要在火星上进行更长距离的飞行（10km），更高的地形差。</p>
+<h1 id="无gps的自主导航">1、无GPS的自主导航</h1>
+<ul>
+<li>相对定位：实时可靠估计飞行器自身位置（Position）姿态（attitude）。</li>
+<li>绝对定位：将相对位姿与全局坐标系关联计算。</li>
+</ul>
+<p>利用环绕火星的轨道飞行器的相机拍摄的高分辨率图像作为全局参照。</p>
+<h1 id="图像匹配技术路线">2、图像匹配技术路线</h1>
+<h2 id="全图像对其">全图像对其</h2>
+<ul>
+<li>将小照片放在大照片上移动比较，进行打分，得分高的就是匹配位置。</li>
+<li>优点：利用了所有像素信息，在平坦地形上能较好工作，计算简单。</li>
+<li>缺点：复杂地形下不可用。</li>
+</ul>
+<h2 id="光度特征描述符">光度特征描述符</h2>
+<ul>
+<li><p>先找出两个图像中的特征点，分析特征点周围的像素信息，编码为描述符。对比描述符的相似性。</p></li>
+<li><p>SIFT，尺度不变特征变换。</p></li>
+<li><p>优点：适用于3D地形，视觉尺度变化不敏感，计算成本适中。</p>
+<p>假设特征点周围是平的，不受地形影响。</p>
+<p>尺度和视觉变化不敏感。</p>
+<p>计算成本适中。</p></li>
+<li><p>缺点：光照敏感，依赖纹理</p>
+<p>像素的亮度信息计算描述符，当光照剧烈变化时，同一地点的特征描述会受到影响。</p>
+<p>在纹理稀疏的区域无法找到足够特征点。</p></li>
+</ul>
+<h2 id="几何特征描述符">几何特征描述符</h2>
+<ul>
+<li><p>关注特征点与周围其他特征点的位置关系（几何信息）。</p></li>
+<li><p>优点：对光照有鲁棒性</p>
+<p>忽略了亮度信息，只看几何结构。</p></li>
+<li><p>缺点：依赖路标点的可重复性</p>
+<p>要求查询图像和地图图像中都能稳定检测到相同的特征点集合。</p></li>
+</ul>
+<h2 id="基于学习的方法">基于学习的方法</h2>
+<ul>
+<li>利用深度学习提取特征</li>
+<li>优点：利用全局信息</li>
+<li>缺点：当时性能未超越SIFT、需要大量数据</li>
+</ul>
+<h1 id="需求视觉定位与地图匹配">3、需求：视觉定位与地图匹配</h1>
+<p>两种预先制作好的地图：</p>
+<ul>
+<li><strong>正射影像</strong>（geo-referenced
+ortho-image，一张无畸变的、带有精确地理坐标的“照片地图”）</li>
+<li><strong>数字高程图</strong>（DEM，一张包含地形高度信息的“3D地图”）</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018205100185.png" alt="a，数字高程图；b，正射地图" style="zoom:50%;"></p>
+<p>a，数字高程图；b，正射地图</p>
+<h3 id="流程">流程</h3>
+<p>飞行器使用机载相机拍摄实时图像。通过<strong>基于特征的配准过程</strong>处理图像<strong>。</strong>寻找<strong>实时图像</strong>点与<strong>预制图</strong>特征点的对应关系。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018205030458.png" alt="image-20251018205030380"></p>
+<h3 id="实时图与预制图">实时图与预制图</h3>
+<p>尺度、视角、光照、地形变化</p>
+<p>找到一种<strong>不变性描述符，</strong>能在上述剧烈变化下保持稳定，从而让算法能够识别特征点。</p>
+<h3 id="匹配技术2d-2d-与-3d-3d">匹配技术：<strong>2D-2D</strong> 与
+3D-3D</h3>
+<ul>
+<li><strong>2D-2D</strong>
+匹配：直接将一张二维的实时图像与一张二维地图图像进行匹配。<strong>普适性强</strong>，在完全平坦、缺乏立体特征的区域（例如平原）也能工作。</li>
+<li><strong>3D-3D</strong>匹配：飞行器通过传感器实时构建局部三维地图模型，与预存的全局三维图进行匹配。依赖地形起伏，在平坦地区会失效。</li>
+</ul>
+<p>选择<strong>2D-2D。</strong></p>
+<h1 id="系统架构">4、系统架构</h1>
+<h2 id="地图创建-地面工作">地图创建-地面工作</h2>
+<ul>
+<li>输入：正射影像（精确二维地图），数字高程图（DEM，包含地形的三维图）</li>
+<li>处理：在正射图像上识别出特征点。对每一个特征点，计算描述符；通过二维图上的坐标确定DEM上对应点的高度，计算精确三维位置。</li>
+<li>输出：地图数据库，记录了每个地标描述符和精确的三维坐标，配备在直升机上。</li>
+</ul>
+<h2 id="地图匹配-实时工作">地图匹配-实时工作</h2>
+<ol type="1">
+<li>直升机拍摄实时地图-查询地图（query image）</li>
+<li>状态估计器，初步位置猜测，缩小搜索范围。</li>
+<li>提取query image的特征，与地图库中进行比对，获取多个候选点。</li>
+<li>异常匹配值剔除。（RANSAC）</li>
+<li>perspective-n-points (PnP)算法 精确定位。</li>
+<li>输出绝对位姿。可以用来校正 Range-VIO
+的累积误差，确保长时间飞行的导航精度。</li>
+</ol>
+<ul>
+<li><p>机载状态估计器（Range-VIO）</p>
+<p>独立导航系统，相对定位。</p>
+<ul>
+<li>视觉：连续图像特征点估算运动</li>
+<li>惯性：IMU提供加速度和角速度</li>
+<li>测距：高度计测量离地距离</li>
+</ul>
+<p>作用：提供高频连续的姿位估计，会漂移。额外提供了“位姿先验”，辅助绝对定位。</p></li>
+</ul>
+<h1 id="地图数据库创建">5、地图数据库创建</h1>
+<p>从巨大的正射图中提取有用不冗余的特征点构成数据库。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018204639013.png" alt="image.png"></p>
+<h3 id="分块处理">1. 分块处理</h3>
+<ul>
+<li>无法一次性加载整个正射地图。</li>
+<li>将地图切割为多块小的瓦片（tiles）。</li>
+<li>四周重叠切割，保证边界的特征点被提取。</li>
+</ul>
+<h3 id="独立提取特征">2. 独立提取特征</h3>
+<p>特征提取算法对每个瓦片中提取预定数量特征点。</p>
+<h3 id="特征筛选">3. 特征筛选</h3>
+<ul>
+<li>问题：可能出现特征点扎堆。</li>
+<li>方案：在提取后的特征点上覆盖一层更精细的网络。强制规定小网格中只保留N个最好的特征点。</li>
+</ul>
+<h3 id="聚合与存储">4. 聚合与存储</h3>
+<ul>
+<li>去重：合并重复提取的特征点。（边界重叠）</li>
+<li>存储两个信息：描述符，三维坐标。</li>
+</ul>
+<h1 id="地图匹配">6、地图匹配</h1>
+<h2 id="流程-1">流程</h2>
+<ul>
+<li>机载相机拍摄图像，特征检测得到特征描述符。</li>
+<li>（image-to-map），拍摄图像依次在大地图上按顺序匹配。</li>
+<li>map-to-image：利用机载状态估计器（Range-VIO）得到先验位姿。在大地图中得到一个粗略位置小范围，在这个小范围里面找无人机位置。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018204641782.png" alt="image.png" style="zoom:33%;"></p>
+<ol type="1">
+<li><p><strong>获取先验：</strong>从状态估计器获取姿态 { R, t
+}（朝向，位置） ，姿态+协方差。</p></li>
+<li><p><strong>重投影：姿态先验 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="5.802ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2564.7 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g><g data-mml-node="mo" transform="translate(1259,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(1703.7,0)"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g><g data-mml-node="mo" transform="translate(2064.7,0)"><path data-c="7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></g></g></g></svg></mjx-container></span>+姿态不确定性 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.355ex;" xmlns="http://www.w3.org/2000/svg" width="2.572ex" height="1.901ex" role="img" focusable="false" viewBox="0 -683 1136.6 840.1"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="3A3" d="M666 247Q664 244 652 126T638 4V0H351Q131 0 95 0T57 5V6Q54 12 57 17L73 36Q89 54 121 90T182 159L305 299L56 644L55 658Q55 677 60 681Q63 683 351 683H638V679Q640 674 652 564T666 447V443H626V447Q618 505 604 543T559 605Q529 626 478 631T333 637H294H189L293 494Q314 465 345 422Q400 346 400 340Q400 338 399 337L154 57Q407 57 428 58Q476 60 508 68T551 83T575 103Q595 125 608 162T624 225L626 251H666V247Z"></path></g><g data-mml-node="TeXAtom" transform="translate(755,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path></g></g></g></g></g></svg></mjx-container></span>⇒地图库关键点 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="1.699ex" height="1.545ex" role="img" focusable="false" viewBox="0 -683 751 683"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g></g></g></svg></mjx-container></span>。</strong>将可能的地图关键点投影到实时地图2D地图
+<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="1.244ex" height="2.059ex" role="img" focusable="false" viewBox="0 -705 550 910"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g></g></g></svg></mjx-container></span>上。投影函数：</p></li>
+</ol>
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="17.791ex" height="2.583ex" role="img" focusable="false" viewBox="0 -891.7 7863.8 1141.7"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mo" transform="translate(827.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(1883.6,0)"><path data-c="3A0" d="M128 619Q121 626 117 628T101 631T58 634H25V680H724V634H691Q651 633 640 631T622 619V61Q628 51 639 49T691 46H724V0H713Q692 3 569 3Q434 3 425 0H414V46H447Q489 47 498 49T517 61V634H232V348L233 61Q239 51 250 49T302 46H335V0H324Q303 3 180 3Q45 3 36 0H25V46H58Q100 47 109 49T128 61V619Z"></path></g><g data-mml-node="mo" transform="translate(2633.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="msup" transform="translate(3022.6,0)"><g data-mml-node="mi"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g><g data-mml-node="mi" transform="translate(792,413) scale(0.707)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g></g><g data-mml-node="mo" transform="translate(4362.4,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(4751.4,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(5724.6,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(6724.8,0)"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g><g data-mml-node="mo" transform="translate(7085.8,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(7474.8,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></span></p>
+<ol type="1">
+<li><strong>重投影不确定性：</strong>姿态先验不确定性通过一阶误差传播得到2D平面点重投影的不确定性
+<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.8ex;" xmlns="http://www.w3.org/2000/svg" width="5.557ex" height="2.345ex" role="img" focusable="false" viewBox="0 -683 2456.1 1036.5"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="3A3" d="M666 247Q664 244 652 126T638 4V0H351Q131 0 95 0T57 5V6Q54 12 57 17L73 36Q89 54 121 90T182 159L305 299L56 644L55 658Q55 677 60 681Q63 683 351 683H638V679Q640 674 652 564T666 447V443H626V447Q618 505 604 543T559 605Q529 626 478 631T333 637H294H189L293 494Q314 465 345 422Q400 346 400 340Q400 338 399 337L154 57Q407 57 428 58Q476 60 508 68T551 83T575 103Q595 125 608 162T624 225L626 251H666V247Z"></path></g><g data-mml-node="TeXAtom" transform="translate(755,-176.7) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D462" d="M21 287Q21 295 30 318T55 370T99 420T158 442Q204 442 227 417T250 358Q250 340 216 246T182 105Q182 62 196 45T238 27T291 44T328 78L339 95Q341 99 377 247Q407 367 413 387T427 416Q444 431 463 431Q480 431 488 421T496 402L420 84Q419 79 419 68Q419 43 426 35T447 26Q469 29 482 57T512 145Q514 153 532 153Q551 153 551 144Q550 139 549 130T540 98T523 55T498 17T462 -8Q454 -10 438 -10Q372 -10 347 46Q345 45 336 36T318 21T296 6T267 -6T233 -11Q189 -11 155 7Q103 38 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1072,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(1350,0)"><path data-c="1D463" d="M173 380Q173 405 154 405Q130 405 104 376T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Q21 294 29 316T53 368T97 419T160 441Q202 441 225 417T249 361Q249 344 246 335Q246 329 231 291T200 202T182 113Q182 86 187 69Q200 26 250 26Q287 26 319 60T369 139T398 222T409 277Q409 300 401 317T383 343T365 361T357 383Q357 405 376 424T417 443Q436 443 451 425T467 367Q467 340 455 284T418 159T347 40T241 -11Q177 -11 139 22Q102 54 102 117Q102 148 110 181T151 298Q173 362 173 380Z"></path></g><g data-mml-node="mo" transform="translate(1835,0)"><path data-c="7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></g></g></g></g></g></svg></mjx-container></span>：</li>
+</ol>
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -1.575ex;" xmlns="http://www.w3.org/2000/svg" width="87.433ex" height="5.177ex" role="img" focusable="false" viewBox="0 -1592.4 38645.3 2288.4"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="3A3" d="M666 247Q664 244 652 126T638 4V0H351Q131 0 95 0T57 5V6Q54 12 57 17L73 36Q89 54 121 90T182 159L305 299L56 644L55 658Q55 677 60 681Q63 683 351 683H638V679Q640 674 652 564T666 447V443H626V447Q618 505 604 543T559 605Q529 626 478 631T333 637H294H189L293 494Q314 465 345 422Q400 346 400 340Q400 338 399 337L154 57Q407 57 428 58Q476 60 508 68T551 83T575 103Q595 125 608 162T624 225L626 251H666V247Z"></path></g><g data-mml-node="TeXAtom" transform="translate(755,-176.7) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D462" d="M21 287Q21 295 30 318T55 370T99 420T158 442Q204 442 227 417T250 358Q250 340 216 246T182 105Q182 62 196 45T238 27T291 44T328 78L339 95Q341 99 377 247Q407 367 413 387T427 416Q444 431 463 431Q480 431 488 421T496 402L420 84Q419 79 419 68Q419 43 426 35T447 26Q469 29 482 57T512 145Q514 153 532 153Q551 153 551 144Q550 139 549 130T540 98T523 55T498 17T462 -8Q454 -10 438 -10Q372 -10 347 46Q345 45 336 36T318 21T296 6T267 -6T233 -11Q189 -11 155 7Q103 38 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1072,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(1350,0)"><path data-c="1D463" d="M173 380Q173 405 154 405Q130 405 104 376T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Q21 294 29 316T53 368T97 419T160 441Q202 441 225 417T249 361Q249 344 246 335Q246 329 231 291T200 202T182 113Q182 86 187 69Q200 26 250 26Q287 26 319 60T369 139T398 222T409 277Q409 300 401 317T383 343T365 361T357 383Q357 405 376 424T417 443Q436 443 451 425T467 367Q467 340 455 284T418 159T347 40T241 -11Q177 -11 139 22Q102 54 102 117Q102 148 110 181T151 298Q173 362 173 380Z"></path></g><g data-mml-node="mo" transform="translate(1835,0)"><path data-c="7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></g></g></g><g data-mml-node="mo" transform="translate(2733.9,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(3789.6,0)"><g data-mml-node="mrow" transform="translate(220,676)"><g data-mml-node="mi"><path data-c="1D6FF" d="M195 609Q195 656 227 686T302 717Q319 716 351 709T407 697T433 690Q451 682 451 662Q451 644 438 628T403 612Q382 612 348 641T288 671T249 657T235 628Q235 584 334 463Q401 379 401 292Q401 169 340 80T205 -10H198Q127 -10 83 36T36 153Q36 286 151 382Q191 413 252 434Q252 435 245 449T230 481T214 521T201 566T195 609ZM112 130Q112 83 136 55T204 27Q233 27 256 51T291 111T309 178T316 232Q316 267 309 298T295 344T269 400L259 396Q215 381 183 342T137 256T118 179T112 130Z"></path></g><g data-mml-node="mi" transform="translate(444,0)"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g></g><g data-mml-node="mrow" transform="translate(260.5,-686)"><g data-mml-node="mi"><path data-c="1D6FF" d="M195 609Q195 656 227 686T302 717Q319 716 351 709T407 697T433 690Q451 682 451 662Q451 644 438 628T403 612Q382 612 348 641T288 671T249 657T235 628Q235 584 334 463Q401 379 401 292Q401 169 340 80T205 -10H198Q127 -10 83 36T36 153Q36 286 151 382Q191 413 252 434Q252 435 245 449T230 481T214 521T201 566T195 609ZM112 130Q112 83 136 55T204 27Q233 27 256 51T291 111T309 178T316 232Q316 267 309 298T295 344T269 400L259 396Q215 381 183 342T137 256T118 179T112 130Z"></path></g><g data-mml-node="mi" transform="translate(444,0)"><path data-c="1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path></g></g><rect width="1194" height="60" x="120" y="220"></rect></g><g data-mml-node="msub" transform="translate(5223.6,0)"><g data-mml-node="mi"><path data-c="3A3" d="M666 247Q664 244 652 126T638 4V0H351Q131 0 95 0T57 5V6Q54 12 57 17L73 36Q89 54 121 90T182 159L305 299L56 644L55 658Q55 677 60 681Q63 683 351 683H638V679Q640 674 652 564T666 447V443H626V447Q618 505 604 543T559 605Q529 626 478 631T333 637H294H189L293 494Q314 465 345 422Q400 346 400 340Q400 338 399 337L154 57Q407 57 428 58Q476 60 508 68T551 83T575 103Q595 125 608 162T624 225L626 251H666V247Z"></path></g><g data-mml-node="TeXAtom" transform="translate(755,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path></g></g></g><g data-mml-node="msup" transform="translate(6360.3,0)"><g data-mml-node="mfrac"><g data-mml-node="mrow" transform="translate(220,676)"><g data-mml-node="mi"><path data-c="1D6FF" d="M195 609Q195 656 227 686T302 717Q319 716 351 709T407 697T433 690Q451 682 451 662Q451 644 438 628T403 612Q382 612 348 641T288 671T249 657T235 628Q235 584 334 463Q401 379 401 292Q401 169 340 80T205 -10H198Q127 -10 83 36T36 153Q36 286 151 382Q191 413 252 434Q252 435 245 449T230 481T214 521T201 566T195 609ZM112 130Q112 83 136 55T204 27Q233 27 256 51T291 111T309 178T316 232Q316 267 309 298T295 344T269 400L259 396Q215 381 183 342T137 256T118 179T112 130Z"></path></g><g data-mml-node="mi" transform="translate(444,0)"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g></g><g data-mml-node="mrow" transform="translate(260.5,-686)"><g data-mml-node="mi"><path data-c="1D6FF" d="M195 609Q195 656 227 686T302 717Q319 716 351 709T407 697T433 690Q451 682 451 662Q451 644 438 628T403 612Q382 612 348 641T288 671T249 657T235 628Q235 584 334 463Q401 379 401 292Q401 169 340 80T205 -10H198Q127 -10 83 36T36 153Q36 286 151 382Q191 413 252 434Q252 435 245 449T230 481T214 521T201 566T195 609ZM112 130Q112 83 136 55T204 27Q233 27 256 51T291 111T309 178T316 232Q316 267 309 298T295 344T269 400L259 396Q215 381 183 342T137 256T118 179T112 130Z"></path></g><g data-mml-node="mi" transform="translate(444,0)"><path data-c="1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path></g></g><rect width="1194" height="60" x="120" y="220"></rect></g><g data-mml-node="TeXAtom" transform="translate(1467,1120.1) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="22A4" d="M55 642T55 648T59 659T66 666T71 668H708Q723 660 723 648T708 628H409V15Q402 2 391 0Q387 0 384 1T379 3T375 6T373 9T371 13T369 16V628H71Q70 628 67 630T59 637Z"></path></g></g></g><g data-mml-node="mo" transform="translate(8427.4,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mstyle" transform="translate(8705.4,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="mi" transform="translate(9872.1,0)"><path data-c="1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path></g><g data-mml-node="mo" transform="translate(10618.9,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mo" transform="translate(11674.6,0)"><path data-c="7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path></g><g data-mml-node="mi" transform="translate(12174.6,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(12925.6,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(13370.3,0)"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g><g data-mml-node="mo" transform="translate(13731.3,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(14176,0)"><path data-c="1D719" d="M409 688Q413 694 421 694H429H442Q448 688 448 686Q448 679 418 563Q411 535 404 504T392 458L388 442Q388 441 397 441T429 435T477 418Q521 397 550 357T579 260T548 151T471 65T374 11T279 -10H275L251 -105Q245 -128 238 -160Q230 -192 227 -198T215 -205H209Q189 -205 189 -198Q189 -193 211 -103L234 -11Q234 -10 226 -10Q221 -10 206 -8T161 6T107 36T62 89T43 171Q43 231 76 284T157 370T254 422T342 441Q347 441 348 445L378 567Q409 686 409 688ZM122 150Q122 116 134 91T167 53T203 35T237 27H244L337 404Q333 404 326 403T297 395T255 379T211 350T170 304Q152 276 137 237Q122 191 122 150ZM500 282Q500 320 484 347T444 385T405 400T381 404H378L332 217L284 29Q284 27 285 27Q293 27 317 33T357 47Q400 66 431 100T475 170T494 234T500 282Z"></path></g><g data-mml-node="mo" transform="translate(14772,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(15216.6,0)"><path data-c="1D712" d="M576 -125Q576 -147 547 -175T487 -204H476Q394 -204 363 -157Q334 -114 293 26L284 59Q283 58 248 19T170 -66T92 -151T53 -191Q49 -194 43 -194Q36 -194 31 -189T25 -177T38 -154T151 -30L272 102L265 131Q189 405 135 405Q104 405 87 358Q86 351 68 351Q48 351 48 361Q48 369 56 386T89 423T148 442Q224 442 258 400Q276 375 297 320T330 222L341 180Q344 180 455 303T573 429Q579 431 582 431Q600 431 600 414Q600 407 587 392T477 270Q356 138 353 134L362 102Q392 -10 428 -89T490 -168Q504 -168 517 -156T536 -126Q539 -116 543 -115T557 -114T571 -115Q576 -118 576 -125Z"></path></g><g data-mml-node="mo" transform="translate(15842.6,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(16287.3,0)"><path data-c="1D713" d="M161 441Q202 441 226 417T250 358Q250 338 218 252T187 127Q190 85 214 61Q235 43 257 37Q275 29 288 29H289L371 360Q455 691 456 692Q459 694 472 694Q492 694 492 687Q492 678 411 356Q329 28 329 27T335 26Q421 26 498 114T576 278Q576 302 568 319T550 343T532 361T524 384Q524 405 541 424T583 443Q602 443 618 425T634 366Q634 337 623 288T605 220Q573 125 492 57T329 -11H319L296 -104Q272 -198 272 -199Q270 -205 252 -205H239Q233 -199 233 -197Q233 -192 256 -102T279 -9Q272 -8 265 -8Q106 14 106 139Q106 174 139 264T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Q21 299 34 333T82 404T161 441Z"></path></g><g data-mml-node="mo" transform="translate(16938.3,0)"><path data-c="7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></g><g data-mml-node="mo" transform="translate(17438.3,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mspace" transform="translate(17716.3,0)"></g><g data-mml-node="mi" transform="translate(17883,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">其</text></g><g data-mml-node="mi" transform="translate(18883,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">中</text></g><g data-mml-node="mo" transform="translate(19883,0)"><path data-c="7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path></g><g data-mml-node="mi" transform="translate(20383,0)"><path data-c="1D719" d="M409 688Q413 694 421 694H429H442Q448 688 448 686Q448 679 418 563Q411 535 404 504T392 458L388 442Q388 441 397 441T429 435T477 418Q521 397 550 357T579 260T548 151T471 65T374 11T279 -10H275L251 -105Q245 -128 238 -160Q230 -192 227 -198T215 -205H209Q189 -205 189 -198Q189 -193 211 -103L234 -11Q234 -10 226 -10Q221 -10 206 -8T161 6T107 36T62 89T43 171Q43 231 76 284T157 370T254 422T342 441Q347 441 348 445L378 567Q409 686 409 688ZM122 150Q122 116 134 91T167 53T203 35T237 27H244L337 404Q333 404 326 403T297 395T255 379T211 350T170 304Q152 276 137 237Q122 191 122 150ZM500 282Q500 320 484 347T444 385T405 400T381 404H378L332 217L284 29Q284 27 285 27Q293 27 317 33T357 47Q400 66 431 100T475 170T494 234T500 282Z"></path></g><g data-mml-node="mo" transform="translate(20979,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(21423.6,0)"><path data-c="1D712" d="M576 -125Q576 -147 547 -175T487 -204H476Q394 -204 363 -157Q334 -114 293 26L284 59Q283 58 248 19T170 -66T92 -151T53 -191Q49 -194 43 -194Q36 -194 31 -189T25 -177T38 -154T151 -30L272 102L265 131Q189 405 135 405Q104 405 87 358Q86 351 68 351Q48 351 48 361Q48 369 56 386T89 423T148 442Q224 442 258 400Q276 375 297 320T330 222L341 180Q344 180 455 303T573 429Q579 431 582 431Q600 431 600 414Q600 407 587 392T477 270Q356 138 353 134L362 102Q392 -10 428 -89T490 -168Q504 -168 517 -156T536 -126Q539 -116 543 -115T557 -114T571 -115Q576 -118 576 -125Z"></path></g><g data-mml-node="mo" transform="translate(22049.6,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(22494.3,0)"><path data-c="1D713" d="M161 441Q202 441 226 417T250 358Q250 338 218 252T187 127Q190 85 214 61Q235 43 257 37Q275 29 288 29H289L371 360Q455 691 456 692Q459 694 472 694Q492 694 492 687Q492 678 411 356Q329 28 329 27T335 26Q421 26 498 114T576 278Q576 302 568 319T550 343T532 361T524 384Q524 405 541 424T583 443Q602 443 618 425T634 366Q634 337 623 288T605 220Q573 125 492 57T329 -11H319L296 -104Q272 -198 272 -199Q270 -205 252 -205H239Q233 -199 233 -197Q233 -192 256 -102T279 -9Q272 -8 265 -8Q106 14 106 139Q106 174 139 264T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Q21 299 34 333T82 404T161 441Z"></path></g><g data-mml-node="mo" transform="translate(23145.3,0)"><path data-c="7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></g><g data-mml-node="mi" transform="translate(23645.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">分</text></g><g data-mml-node="mi" transform="translate(24645.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">别</text></g><g data-mml-node="mi" transform="translate(25645.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">表</text></g><g data-mml-node="mi" transform="translate(26645.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">示</text></g><g data-mml-node="mi" transform="translate(27645.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">俯</text></g><g data-mml-node="mi" transform="translate(28645.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">仰</text></g><g data-mml-node="mi" transform="translate(29645.3,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">，</text></g><g data-mml-node="mi" transform="translate(30645.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">偏</text></g><g data-mml-node="mi" transform="translate(31645.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">航</text></g><g data-mml-node="mi" transform="translate(32645.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">和</text></g><g data-mml-node="mi" transform="translate(33645.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">横</text></g><g data-mml-node="mi" transform="translate(34645.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">滚</text></g><g data-mml-node="mi" transform="translate(35645.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">方</text></g><g data-mml-node="mi" transform="translate(36645.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">向</text></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(37645.3,0)"><g data-mml-node="mo"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">。</text></g></g></g></g></svg></mjx-container></span></p>
+<ol type="1">
+<li><strong>搜索窗口：</strong>对可见关键点，根据重投影不确定性 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.8ex;" xmlns="http://www.w3.org/2000/svg" width="5.557ex" height="2.345ex" role="img" focusable="false" viewBox="0 -683 2456.1 1036.5"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="3A3" d="M666 247Q664 244 652 126T638 4V0H351Q131 0 95 0T57 5V6Q54 12 57 17L73 36Q89 54 121 90T182 159L305 299L56 644L55 658Q55 677 60 681Q63 683 351 683H638V679Q640 674 652 564T666 447V443H626V447Q618 505 604 543T559 605Q529 626 478 631T333 637H294H189L293 494Q314 465 345 422Q400 346 400 340Q400 338 399 337L154 57Q407 57 428 58Q476 60 508 68T551 83T575 103Q595 125 608 162T624 225L626 251H666V247Z"></path></g><g data-mml-node="TeXAtom" transform="translate(755,-176.7) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D462" d="M21 287Q21 295 30 318T55 370T99 420T158 442Q204 442 227 417T250 358Q250 340 216 246T182 105Q182 62 196 45T238 27T291 44T328 78L339 95Q341 99 377 247Q407 367 413 387T427 416Q444 431 463 431Q480 431 488 421T496 402L420 84Q419 79 419 68Q419 43 426 35T447 26Q469 29 482 57T512 145Q514 153 532 153Q551 153 551 144Q550 139 549 130T540 98T523 55T498 17T462 -8Q454 -10 438 -10Q372 -10 347 46Q345 45 336 36T318 21T296 6T267 -6T233 -11Q189 -11 155 7Q103 38 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1072,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(1350,0)"><path data-c="1D463" d="M173 380Q173 405 154 405Q130 405 104 376T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Q21 294 29 316T53 368T97 419T160 441Q202 441 225 417T249 361Q249 344 246 335Q246 329 231 291T200 202T182 113Q182 86 187 69Q200 26 250 26Q287 26 319 60T369 139T398 222T409 277Q409 300 401 317T383 343T365 361T357 383Q357 405 376 424T417 443Q436 443 451 425T467 367Q467 340 455 284T418 159T347 40T241 -11Q177 -11 139 22Q102 54 102 117Q102 148 110 181T151 298Q173 362 173 380Z"></path></g><g data-mml-node="mo" transform="translate(1835,0)"><path data-c="7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></g></g></g></g></g></svg></mjx-container></span>在query
+map定义一个搜索窗口。</li>
+<li><strong>特征匹配，每个特征窗口执行描述符匹配</strong></li>
+</ol>
+<ul>
+<li>SIFT提取实时图像的特征。</li>
+<li>地图关键点A对应搜索窗口内， <strong>K-D
+树找出所有在窗口的图像特征点，与地图关键点计算距离</strong>。</li>
+<li>选择最佳匹配项，描述符距离最小的作为匹配项。</li>
+</ul>
+<ol type="1">
+<li><strong>剔除外点：</strong></li>
+</ol>
+<ul>
+<li>比率测试（地图关键点A，窗口匹配最佳B，次佳C），最佳与次佳比值
+如果很大（两个点接近，匹配点不唯一），则这个匹配点就不可靠。如果窗口内特征点少于10，从紧邻外部区域借一些特征。保留比值最低的前200个匹配。</li>
+<li>RANSAC+PnP，3D-2D点的几何空间匹配，选取几个匹配得到一个变换，其他匹配对这个变换进行测试（投票），迭代取的样本，得分最高的一组被选择。</li>
+<li>非线性优化，理由RANSAC找到的内点进行精调，放入非线性最小二乘优化器，使总投影误差最小。
+<ul>
+<li>输出一个校准的高精度全局位姿。</li>
+</ul></li>
+</ul>
+<ol type="1">
+<li>点数少于10就匹配失败。</li>
+</ol>
+<p><strong>优化：查找表，</strong>区域关键点首次计算窗口后，存储结果一个，后续落入该区域的相似计算直接读取该窗口结果。</p>
+<h1 id="实验定位成功率">7、实验（<strong>定位成功率</strong>）</h1>
+<p>定位成功率=估计位置误差小于给定误差边界的帧数所占的百分比</p>
+<h2 id="合成数据集">合成数据集</h2>
+<p>AirSim生成，虚幻引擎4作为渲染后端，两种地图源：</p>
+<ul>
+<li><strong>杰泽罗，</strong>毅力号着陆点，裁剪过的高分辨率成像设备正射影像和对应的数字高程图DEM。</li>
+<li><strong>峡谷，</strong>虚幻引擎市场中的带纹理三维模型，使用正射投影模型进行渲染。</li>
+</ul>
+<p>尺寸：<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="11.815ex" height="1.581ex" role="img" focusable="false" viewBox="0 -677 5222.4 699"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path><path data-c="39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z" transform="translate(1000,0)"></path><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(2222.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mn" transform="translate(3222.4,0)"><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path><path data-c="39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z" transform="translate(1000,0)"></path><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(1500,0)"></path></g></g></g></svg></mjx-container></span></p>
+<p>杰泽罗地图（正射影像和DEM）像素分辨率：1m/像素</p>
+<p>峡谷地图：0.3m/像素</p>
+<p>分别1000张查询图像，尺寸512 * 512 像素。视场角90°。</p>
+<h2 id="不同视角变换的鲁棒性每个地图有3个不同数据集"><strong>不同视角变换的鲁棒性，每个地图有3个不同数据集</strong></h2>
+<p>飞机高度，相机视角，机头方向</p>
+<table>
+<thead>
+<tr>
+<th>数据集</th>
+<th>变量</th>
+<th>验证能力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据集1</td>
+<td>飞行高度</td>
+<td>特征描述符的尺度不变性</td>
+</tr>
+<tr>
+<td>数据集2</td>
+<td>俯仰角[-45°，+45°]</td>
+<td>视角不变性</td>
+</tr>
+<tr>
+<td>数据集3</td>
+<td>相机偏航角（飞机打转）</td>
+<td>旋转不变性</td>
+</tr>
+</tbody>
+</table>
+<h2 id="特征提取模型测试">特征提取模型测试</h2>
+<p>在两种场景，各三个数据集上进行了测试。</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SIFT</td>
+</tr>
+<tr>
+<td>SURF</td>
+</tr>
+<tr>
+<td>ORB</td>
+</tr>
+<tr>
+<td>SuperPoint（CVPR2018）</td>
+</tr>
+</tbody>
+</table>
+<p>superpoint不具备尺度不变性。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018204655797.png" alt="image.png" style="zoom: 33%;"></p>
+<p>SuperPoint的找特征点的能力好，但是没有尺度不变性。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018204652730.png" alt="image.png" style="zoom: 33%;"></p>
+<h2 id="光照变化测试">光照变化测试</h2>
+<p>由于风向等因素，早晨飞行环境最佳，但1HIRISE图像在下午拍摄</p>
+<ul>
+<li>同一视点在不同太阳视角下的图像。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018204702888.png" alt="image.png" style="zoom:50%;"></p>
+<ul>
+<li>不同太阳视角下累计定位成功率。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018204706423.png" alt="image.png" style="zoom: 33%;"></p>
+<ul>
+<li>穷举与先验对比</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018204716936.png" alt="image.png" style="zoom: 33%;"></p>
+<h2 id="实际场景实验">实际场景实验</h2>
+<h3 id="实验场地"><strong>实验场地</strong></h3>
+<p>JPL附近一个公园，在12-100米的不同高度进行地图数据采集，得到25cm/像素的正射图和DEM。</p>
+<p>区域范围600*500m，下午3:37拍摄，以此创建了地图数据库。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018204721107.png" alt="image.png" style="zoom: 33%;"></p>
+<h3 id="实验无人机">实验无人机</h3>
+<ul>
+<li>机载导航相机——该相机与“机智号”火星直升机所使用的型号相同。</li>
+<li>真值系统，打在了RTK-GPS模块，提供精确定位。</li>
+</ul>
+<h3 id="实验设计"><strong>实验设计</strong></h3>
+<ul>
+<li>多高度飞行，12m到100米多个高度测试，尺度变化</li>
+<li>多时段飞行，中午12:49到下午4:11（地图制作时间3:37），光照角度变化。</li>
+</ul>
+<h3 id="引导系统位姿先验">！引导系统（位姿先验）</h3>
+<p>Range-VIO算法，<strong>相对定位（VIO）+
+绝对定位（地图匹配）</strong></p>
+<h3 id="坐标转换">！坐标转换</h3>
+<ul>
+<li>地图坐标系（数据库）</li>
+<li>GPS坐标系</li>
+<li>xVIO坐标系</li>
+</ul>
+<ol type="1">
+<li>GPS→Map：通过地理信息系统GIS变换（UTM）</li>
+<li>xVIO→Map：无人机先飞，记录GPS轨迹与xVIO轨迹，对齐反推旋转角度。</li>
+</ol>
+<h3 id="lrf限制">LRF限制</h3>
+<p>测高仪LRF有效量程20m。xVIO依赖这个高度。</p>
+<p>位姿先验会受损，在高空（35,50,100m）无法使用引导式匹配（ <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.292ex" height="1ex" role="img" focusable="false" viewBox="0 -431 571 442"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70E" d="M184 -11Q116 -11 74 34T31 147Q31 247 104 333T274 430Q275 431 414 431H552Q553 430 555 429T559 427T562 425T565 422T567 420T569 416T570 412T571 407T572 401Q572 357 507 357Q500 357 490 357T476 358H416L421 348Q439 310 439 263Q439 153 359 71T184 -11ZM361 278Q361 358 276 358Q152 358 115 184Q114 180 114 178Q106 141 106 117Q106 67 131 47T188 26Q242 26 287 73Q316 103 334 153T356 233T361 278Z"></path></g></g></g></svg></mjx-container></span>有界搜索）。</p>
+<h3 id="基于限制的评估方案">基于限制的评估方案</h3>
+<ul>
+<li>所有高度都不引导，统一使用最困难的穷举匹配。</li>
+<li>在12米和20米，进行一次额外引导实验。位姿引导有多大提升。</li>
+</ul>
+<p>左：成功/总拍摄帧</p>
+<p>右：成功/返回了结果的</p>
+<h3 id="性能指标工程可实现性">！！！性能指标（工程可实现性）</h3>
+<p>在Intel i7-9700k单核上，单张查询图像的定位平均耗时0.3秒。</p>
+<p>可以在snapdragon 855处理器上部署。</p>
+<p>！！！•
+在80米这个高度，无人机实时拍摄的照片，其地面分辨率（每个像素代表多大的地面面积）与预先制作的地图的分辨率<strong>完全相同</strong>（都是25厘米/像素）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018204731750.png" alt="image.png" style="zoom:50%;"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018204730058.png" alt="image.png" style="zoom:50%;"></p>
+<h3 id="尺度变化极限">尺度变化极限</h3>
+<ul>
+<li><strong>参考基准</strong>——在<strong>80米</strong>高空飞行时，无人机拍下的照片分辨率（25厘米/像素）与地图的分辨率完全一样。这是<strong>最理想</strong>的1:1尺度，匹配效果最好。</li>
+<li>边界——1）12米超低空，无人机拍摄细节丰富，地图（25cm/像素）相比模糊，尺度差别大，超过了SIFT极限；2）20米高度，4倍尺度差异，识别率不稳定；3）20米以上，进入了舒适区，2m误差精度极高</li>
+</ul>
+<h3 id="位姿先验真实用处"><strong>位姿先验真实用处</strong></h3>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018204733589.png" alt="带先验和穷举搜索对比"></p>
+<p>带先验和穷举搜索对比</p>
+<ul>
+<li>在20m位置，能够提升成功率，位姿先验使算法在困难情况下提高精度</li>
+</ul>
+<h3 id="火星着陆测试">火星着陆测试</h3>
+<p>“毅力号”火星车（Mars 2020
+mission）在“七分钟”着陆过程中，其着陆器相机（Lander Vision System
+Camera, LCAM）向下拍摄的一系列连续图像。</p>
+<p>图1是什么</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018204741314.png" alt="image.png" style="zoom:50%;"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018204743398.png" alt="image.png" style="zoom:50%;"></p>
+<ul>
+<li>没有位姿先验</li>
+<li>使用穷举匹配</li>
+<li>只在着陆附近区域搜索。</li>
+<li>成功高度范围：7KM — 110米，巨大尺度不变性</li>
+<li>高空定位能力</li>
+</ul>
+<h1 id="未来">未来</h1>
+<ul>
+<li>在低空飞行和高差地形上光照变化情况下的匹配方法</li>
+<li>将全局参考直接整合到状态估计器</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://tangxk.cn/">Dekel</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://dekelkai.github.io/2025/10/18/%E7%81%AB%E6%98%9F%E6%97%A0%E4%BA%BA%E6%9C%BA%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D-On-board-Absolute-Localization-Based-on-Orbital-Imagery-for-a-Future-Mars-Science-Helicopter/">https://dekelkai.github.io/2025/10/18/%E7%81%AB%E6%98%9F%E6%97%A0%E4%BA%BA%E6%9C%BA%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D-On-board-Absolute-Localization-Based-on-Orbital-Imagery-for-a-Future-Mars-Science-Helicopter/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://Dekelkai.github.io" target="_blank">Dekel'Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Mars/">Mars</a><a class="post-meta__tags" href="/tags/CV/">CV</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251018205030458.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://txkimg.oss-cn-beijing.aliyuncs.com/blog/wechat-pay.JPG" target="_blank"><img class="post-qr-code-img" src="https://txkimg.oss-cn-beijing.aliyuncs.com/blog/wechat-pay.JPG" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://txkimg.oss-cn-beijing.aliyuncs.com/blog/ali-pay.JPG" target="_blank"><img class="post-qr-code-img" src="https://txkimg.oss-cn-beijing.aliyuncs.com/blog/ali-pay.JPG" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/10/17/%E6%9C%BA%E6%99%BA%E5%8F%B7-Vision-Based-Navigation-for-the-NASA-Mars-Helicopt/" title="机智号 Vision-Based Navigation for the NASA Mars Helicopt"><img class="cover" src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20251017173809481.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">机智号 Vision-Based Navigation for the NASA Mars Helicopt</div></div><div class="info-2"><div class="info-item-1">机智号直升机的架构和使用的定位算法</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0gps%E7%9A%84%E8%87%AA%E4%B8%BB%E5%AF%BC%E8%88%AA"><span class="toc-number">1.</span> <span class="toc-text">1、无GPS的自主导航</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%8C%B9%E9%85%8D%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF"><span class="toc-number">2.</span> <span class="toc-text">2、图像匹配技术路线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%9B%BE%E5%83%8F%E5%AF%B9%E5%85%B6"><span class="toc-number">2.1.</span> <span class="toc-text">全图像对其</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E5%BA%A6%E7%89%B9%E5%BE%81%E6%8F%8F%E8%BF%B0%E7%AC%A6"><span class="toc-number">2.2.</span> <span class="toc-text">光度特征描述符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E7%89%B9%E5%BE%81%E6%8F%8F%E8%BF%B0%E7%AC%A6"><span class="toc-number">2.3.</span> <span class="toc-text">几何特征描述符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">2.4.</span> <span class="toc-text">基于学习的方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E8%A7%86%E8%A7%89%E5%AE%9A%E4%BD%8D%E4%B8%8E%E5%9C%B0%E5%9B%BE%E5%8C%B9%E9%85%8D"><span class="toc-number">3.</span> <span class="toc-text">3、需求：视觉定位与地图匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-number">3.0.1.</span> <span class="toc-text">流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E6%97%B6%E5%9B%BE%E4%B8%8E%E9%A2%84%E5%88%B6%E5%9B%BE"><span class="toc-number">3.0.2.</span> <span class="toc-text">实时图与预制图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%B9%E9%85%8D%E6%8A%80%E6%9C%AF2d-2d-%E4%B8%8E-3d-3d"><span class="toc-number">3.0.3.</span> <span class="toc-text">匹配技术：2D-2D 与
+3D-3D</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">4、系统架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA-%E5%9C%B0%E9%9D%A2%E5%B7%A5%E4%BD%9C"><span class="toc-number">4.1.</span> <span class="toc-text">地图创建-地面工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE%E5%8C%B9%E9%85%8D-%E5%AE%9E%E6%97%B6%E5%B7%A5%E4%BD%9C"><span class="toc-number">4.2.</span> <span class="toc-text">地图匹配-实时工作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9B%E5%BB%BA"><span class="toc-number">5.</span> <span class="toc-text">5、地图数据库创建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%9D%97%E5%A4%84%E7%90%86"><span class="toc-number">5.0.1.</span> <span class="toc-text">1. 分块处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E6%8F%90%E5%8F%96%E7%89%B9%E5%BE%81"><span class="toc-number">5.0.2.</span> <span class="toc-text">2. 独立提取特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E7%AD%9B%E9%80%89"><span class="toc-number">5.0.3.</span> <span class="toc-text">3. 特征筛选</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E5%90%88%E4%B8%8E%E5%AD%98%E5%82%A8"><span class="toc-number">5.0.4.</span> <span class="toc-text">4. 聚合与存储</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE%E5%8C%B9%E9%85%8D"><span class="toc-number">6.</span> <span class="toc-text">6、地图匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B-1"><span class="toc-number">6.1.</span> <span class="toc-text">流程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%AE%9A%E4%BD%8D%E6%88%90%E5%8A%9F%E7%8E%87"><span class="toc-number">7.</span> <span class="toc-text">7、实验（定位成功率）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E6%88%90%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">7.1.</span> <span class="toc-text">合成数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E8%A7%86%E8%A7%92%E5%8F%98%E6%8D%A2%E7%9A%84%E9%B2%81%E6%A3%92%E6%80%A7%E6%AF%8F%E4%B8%AA%E5%9C%B0%E5%9B%BE%E6%9C%893%E4%B8%AA%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">7.2.</span> <span class="toc-text">不同视角变换的鲁棒性，每个地图有3个不同数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%95"><span class="toc-number">7.3.</span> <span class="toc-text">特征提取模型测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E7%85%A7%E5%8F%98%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="toc-number">7.4.</span> <span class="toc-text">光照变化测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%9C%BA%E6%99%AF%E5%AE%9E%E9%AA%8C"><span class="toc-number">7.5.</span> <span class="toc-text">实际场景实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%9C%BA%E5%9C%B0"><span class="toc-number">7.5.1.</span> <span class="toc-text">实验场地</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%97%A0%E4%BA%BA%E6%9C%BA"><span class="toc-number">7.5.2.</span> <span class="toc-text">实验无人机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">7.5.3.</span> <span class="toc-text">实验设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%AF%BC%E7%B3%BB%E7%BB%9F%E4%BD%8D%E5%A7%BF%E5%85%88%E9%AA%8C"><span class="toc-number">7.5.4.</span> <span class="toc-text">！引导系统（位姿先验）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2"><span class="toc-number">7.5.5.</span> <span class="toc-text">！坐标转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lrf%E9%99%90%E5%88%B6"><span class="toc-number">7.5.6.</span> <span class="toc-text">LRF限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E9%99%90%E5%88%B6%E7%9A%84%E8%AF%84%E4%BC%B0%E6%96%B9%E6%A1%88"><span class="toc-number">7.5.7.</span> <span class="toc-text">基于限制的评估方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87%E5%B7%A5%E7%A8%8B%E5%8F%AF%E5%AE%9E%E7%8E%B0%E6%80%A7"><span class="toc-number">7.5.8.</span> <span class="toc-text">！！！性能指标（工程可实现性）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%BA%E5%BA%A6%E5%8F%98%E5%8C%96%E6%9E%81%E9%99%90"><span class="toc-number">7.5.9.</span> <span class="toc-text">尺度变化极限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8D%E5%A7%BF%E5%85%88%E9%AA%8C%E7%9C%9F%E5%AE%9E%E7%94%A8%E5%A4%84"><span class="toc-number">7.5.10.</span> <span class="toc-text">位姿先验真实用处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%81%AB%E6%98%9F%E7%9D%80%E9%99%86%E6%B5%8B%E8%AF%95"><span class="toc-number">7.5.11.</span> <span class="toc-text">火星着陆测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5"><span class="toc-number">8.</span> <span class="toc-text">未来</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background: transparent;"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2023 - 2025 By Dekel</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://tangxk.cn/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
