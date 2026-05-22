@@ -1,0 +1,417 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Windows 使用 SSHFS 远程挂载服务器目录教程 | Dekel'Blog</title><meta name="author" content="Dekel,tangxk666@outlook.com"><meta name="copyright" content="Dekel"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在多人共享服务器环境下，如何使用本地 Windows 配置，通过 SSHFS 挂载远程目录，实现本地编辑、远程执行的开发工作流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 使用 SSHFS 远程挂载服务器目录教程">
+<meta property="og:url" content="https://tangxk.cn/2026/05/22/Windows-SSHFS%E8%BF%9C%E7%A8%8B%E6%8C%82%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%AE%E5%BD%95%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Dekel&#39;Blog">
+<meta property="og:description" content="在多人共享服务器环境下，如何使用本地 Windows 配置，通过 SSHFS 挂载远程目录，实现本地编辑、远程执行的开发工作流">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/default-back.png">
+<meta property="article:published_time" content="2026-05-22T10:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-22T09:57:42.154Z">
+<meta property="article:author" content="Dekel">
+<meta property="article:tag" content="SSH">
+<meta property="article:tag" content="SSHFS">
+<meta property="article:tag" content="远程开发">
+<meta property="article:tag" content="VS Code">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/default-back.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Windows 使用 SSHFS 远程挂载服务器目录教程",
+  "url": "https://tangxk.cn/2026/05/22/Windows-SSHFS%E8%BF%9C%E7%A8%8B%E6%8C%82%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%AE%E5%BD%95%E6%95%99%E7%A8%8B/",
+  "image": "https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/default-back.png",
+  "datePublished": "2026-05-22T10:00:00.000Z",
+  "dateModified": "2026-05-22T09:57:42.154Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Dekel",
+      "url": "https://tangxk.cn/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20250930202811272.jpg"><link rel="canonical" href="https://tangxk.cn/2026/05/22/Windows-SSHFS%E8%BF%9C%E7%A8%8B%E6%8C%82%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%AE%E5%BD%95%E6%95%99%E7%A8%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Windows 使用 SSHFS 远程挂载服务器目录教程',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div id="web_bg" style="background-image: url(https://i.loli.net/2019/09/09/5oDRkWVKctx2b6A.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20250930204459119.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-video"></i><span> 说说</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/default-back.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20250930204459119.png" alt="Logo"><span class="site-name">Dekel'Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Windows 使用 SSHFS 远程挂载服务器目录教程</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-video"></i><span> 说说</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Windows 使用 SSHFS 远程挂载服务器目录教程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-05-22T10:00:00.000Z" title="发表于 2026-05-22 18:00:00">2026-05-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-05-22T09:57:42.154Z" title="更新于 2026-05-22 17:57:42">2026-05-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2026-05-22 17:57:42&quot;}" hidden></div><h2 id="背景">背景</h2>
+<p>在多人共享的服务器环境中开发时，经常会遇到这样的问题：</p>
+<ul>
+<li>不想和其他用户的配置混在一起</li>
+<li>希望使用本地的开发工具配置（如 Claude Code、VS Code 插件等）</li>
+<li>需要编辑服务器上的文件，但又想保持本地的开发体验</li>
+</ul>
+<p>本文介绍如何使用 SSHFS-Win 在 Windows
+上挂载远程服务器目录，实现"本地配置 + 远程文件"的开发模式。</p>
+<h2 id="方案对比">方案对比</h2>
+<h3 id="方案-avs-code-remote-ssh">方案 A：VS Code Remote-SSH</h3>
+<p><strong>工作原理</strong>：VS Code 在远程服务器上安装 VS Code
+Server，扩展和命令在远程执行。</p>
+<p><strong>优点</strong>：<br>
+- 文件操作自然流畅<br>
+- 终端命令直接在服务器执行</p>
+<p><strong>缺点</strong>：<br>
+-
+使用的是服务器上的配置（<code>~/.claude</code>、<code>~/.vscode-server</code>
+等）<br>
+- 多人共享服务器时容易配置冲突</p>
+<h3 id="方案-bsshfs-挂载本文推荐">方案 B：SSHFS 挂载（本文推荐）</h3>
+<p><strong>工作原理</strong>：将服务器目录映射为 Windows 本地盘符，VS
+Code 和开发工具在本地运行。</p>
+<p><strong>优点</strong>：<br>
+- 使用本地 Windows 配置<br>
+- 不会和服务器其他用户冲突<br>
+- 可以同时挂载多个服务器目录</p>
+<p><strong>缺点</strong>：<br>
+- 大项目可能有延迟<br>
+- 命令需要通过 SSH 手动执行</p>
+<h2 id="安装步骤">安装步骤</h2>
+<h3 id="安装依赖">1. 安装依赖</h3>
+<p>打开 PowerShell，执行：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">winget install WinFsp.WinFsp</span><br><span class="line">winget install SSHFS<span class="literal">-Win</span>.SSHFS<span class="literal">-Win</span></span><br></pre></td></tr></table></figure>
+<p>安装完成后<strong>建议重启
+Windows</strong>，确保网络驱动器服务正常加载。</p>
+<h3 id="测试-ssh-连接">2. 测试 SSH 连接</h3>
+<p>在挂载前，先确认能正常 SSH 登录：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh 用户名<span class="selector-tag">@</span>服务器IP</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh user@<span class="number">192.168</span>.<span class="number">1.100</span></span><br></pre></td></tr></table></figure>
+<p>登录成功后，确认要挂载的目录路径：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+<h3 id="挂载远程目录">3. 挂载远程目录</h3>
+<h4 id="方式一挂载用户家目录下的路径">方式一：挂载用户家目录下的路径</h4>
+<p>如果远程目录在用户家目录下（如
+<code>/home/user/project</code>），使用：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net use X: <span class="string">"\\sshfs\用户名@服务器IP\project"</span></span><br></pre></td></tr></table></figure>
+<h4 id="方式二挂载绝对路径推荐">方式二：挂载绝对路径（推荐）</h4>
+<p>如果要挂载任意绝对路径（如 <code>/data/project</code>），使用：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net use X: <span class="string">"\\sshfs.r\用户名@服务器IP\data\project"</span></span><br></pre></td></tr></table></figure>
+<p>注意这里是 <code>sshfs.r</code>，表示从根目录开始解析路径。</p>
+<h4 id="非标准-ssh-端口">非标准 SSH 端口</h4>
+<p>如果 SSH 端口不是 22，使用 <code>!端口号</code> 语法：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net use X: <span class="string">"\\sshfs.r\用户名@服务器IP!2222\data\project"</span></span><br></pre></td></tr></table></figure>
+<h4 id="使用-ssh-密钥认证">使用 SSH 密钥认证</h4>
+<p>如果使用密钥登录，先配置 SSH config：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">notepad <span class="variable">$env:USERPROFILE</span>\.ssh\config</span><br></pre></td></tr></table></figure>
+<p>添加配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host myserver</span><br><span class="line">    HostName 192.168.1.100</span><br><span class="line">    User username</span><br><span class="line">    IdentityFile C:\Users\YourName\.ssh\id_rsa</span><br><span class="line">    IdentitiesOnly yes</span><br></pre></td></tr></table></figure>
+<p>测试连接：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh myserver</span><br></pre></td></tr></table></figure>
+<p>然后挂载：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net use X: <span class="string">"\\sshfs.kr\username@myserver\data\project"</span></span><br></pre></td></tr></table></figure>
+<p>注意这里是 <code>sshfs.kr</code>（k 表示使用密钥，r
+表示根目录）。</p>
+<h3 id="在-vs-code-中使用">4. 在 VS Code 中使用</h3>
+<p>挂载成功后，Windows 会出现 X: 盘符，直接用 VS Code 打开：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code X:\</span><br></pre></td></tr></table></figure>
+<p>或在 VS Code 中：<code>File -&gt; Open Folder -&gt; X:\</code></p>
+<p>此时：<br>
+- <strong>配置来源</strong>：Windows
+本地（<code>C:\Users\YourName\.claude</code> 等）<br>
+- <strong>文件位置</strong>：服务器远程目录<br>
+- <strong>命令执行</strong>：默认在 Windows 本地</p>
+<h3 id="执行远程命令">5. 执行远程命令</h3>
+<p>由于 SSHFS 只负责文件读写，如果需要在服务器上执行命令（如运行 Python
+脚本），需要通过 SSH：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh 用户名<span class="selector-tag">@</span>服务器IP <span class="string">"cd /data/project &amp;&amp; python train.py"</span></span><br></pre></td></tr></table></figure>
+<p>如果需要激活 conda 环境：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh 用户名<span class="selector-tag">@</span>服务器IP <span class="string">"cd /data/project &amp;&amp; source ~/miniconda3/etc/profile.d/conda.sh &amp;&amp; conda activate myenv &amp;&amp; python train.py"</span></span><br></pre></td></tr></table></figure>
+<p><strong>建议</strong>：在 SSH config 中配置别名，简化命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh myserver <span class="string">"cd /data/project &amp;&amp; conda activate myenv &amp;&amp; python train.py"</span></span><br></pre></td></tr></table></figure>
+<h2 id="性能优化">性能优化</h2>
+<h3 id="vs-code-排除大目录">VS Code 排除大目录</h3>
+<p>在 VS Code 的 <code>settings.json</code> 中添加：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"files.watcherExclude"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"**/.git/**"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"**/node_modules/**"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"**/__pycache__/**"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"**/runs/**"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"**/outputs/**"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"**/checkpoints/**"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"search.exclude"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"**/.git"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"**/node_modules"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"**/__pycache__"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"**/runs"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"**/outputs"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"**/checkpoints"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></table></figure>
+<p>这样可以避免 VS Code 索引大量不必要的文件，提升响应速度。</p>
+<h2 id="常见问题">常见问题</h2>
+<h3 id="报错system-error-67-找不到网络名">1. 报错：System error 67 /
+找不到网络名</h3>
+<p><strong>原因</strong>：WinFsp 或 SSHFS-Win 未正确安装，或未重启。</p>
+<p><strong>解决</strong>：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">winget list WinFsp</span><br><span class="line">winget list SSHFS<span class="literal">-Win</span></span><br></pre></td></tr></table></figure>
+<p>确认安装后重启 Windows。</p>
+<h3 id="密码错误">2. 密码错误</h3>
+<p>先确认普通 SSH 能否登录：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh 用户名<span class="selector-tag">@</span>服务器IP</span><br></pre></td></tr></table></figure>
+<p>如果 SSH 都连不上，检查用户名、密码或密钥配置。</p>
+<h3 id="权限不够">3. 权限不够</h3>
+<p>在服务器上检查目录权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -ld /data/project</span><br><span class="line"><span class="built_in">whoami</span></span><br></pre></td></tr></table></figure>
+<p>确保登录用户对该目录有读写权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> -R u+rwX /data/project</span><br></pre></td></tr></table></figure>
+<h3 id="windows-缓存了错误密码">4. Windows 缓存了错误密码</h3>
+<p>查看并删除缓存的凭据：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmdkey /list</span><br><span class="line">cmdkey /delete:sshfs.r</span><br></pre></td></tr></table></figure>
+<p>然后重新挂载。</p>
+<h3 id="断开挂载">5. 断开挂载</h3>
+<p>不使用时可以断开：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net use X: /delete</span><br></pre></td></tr></table></figure>
+<p>查看当前所有挂载：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net use</span><br></pre></td></tr></table></figure>
+<h2 id="完整示例">完整示例</h2>
+<p>假设要挂载服务器 <code>192.168.1.100</code> 上的
+<code>/data/myproject</code> 目录：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 测试连接</span></span><br><span class="line">ssh user@<span class="number">192.168</span>.<span class="number">1.100</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 挂载目录</span></span><br><span class="line">net use X: <span class="string">"\\sshfs.r\user@192.168.1.100\data\myproject"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 打开 VS Code</span></span><br><span class="line">code X:\</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 执行远程命令</span></span><br><span class="line">ssh user@<span class="number">192.168</span>.<span class="number">1.100</span> <span class="string">"cd /data/myproject &amp;&amp; python main.py"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 使用完毕后断开</span></span><br><span class="line">net use X: /delete</span><br></pre></td></tr></table></figure>
+<h2 id="总结">总结</h2>
+<p>SSHFS-Win 方案适合以下场景：</p>
+<ul>
+<li>多人共享服务器，不想配置冲突</li>
+<li>需要使用本地开发工具配置</li>
+<li>主要进行文件编辑，命令执行频率不高</li>
+</ul>
+<p>如果你的工作流是频繁执行服务器命令、需要实时查看日志，建议使用 VS
+Code Remote-SSH 或配合 1Shell 等工具使用。</p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/winfsp/sshfs-win">SSHFS-Win
+GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://winfsp.dev/">WinFsp 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/remote/remote-overview">VS Code
+Remote Development</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tangxk.cn/">Dekel</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tangxk.cn/2026/05/22/Windows-SSHFS%E8%BF%9C%E7%A8%8B%E6%8C%82%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%AE%E5%BD%95%E6%95%99%E7%A8%8B/">https://tangxk.cn/2026/05/22/Windows-SSHFS%E8%BF%9C%E7%A8%8B%E6%8C%82%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%AE%E5%BD%95%E6%95%99%E7%A8%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://tangxk.cn" target="_blank">Dekel'Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/SSH/">SSH</a><a class="post-meta__tags" href="/tags/SSHFS/">SSHFS</a><a class="post-meta__tags" href="/tags/%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91/">远程开发</a><a class="post-meta__tags" href="/tags/VS-Code/">VS Code</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/default-back.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://txkimg.oss-cn-beijing.aliyuncs.com/blog/wechat-pay.JPG" target="_blank"><img class="post-qr-code-img" src="https://txkimg.oss-cn-beijing.aliyuncs.com/blog/wechat-pay.JPG" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://txkimg.oss-cn-beijing.aliyuncs.com/blog/ali-pay.JPG" target="_blank"><img class="post-qr-code-img" src="https://txkimg.oss-cn-beijing.aliyuncs.com/blog/ali-pay.JPG" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/04/05/DO-%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%87%AA%E5%BB%BAAI%E6%9C%8D%E5%8A%A1%EF%BC%88%E5%88%92%E6%B0%B4%EF%BC%89%EF%BC%9A%E4%BB%8E-DigitalOcean-New-API-Open-WebUI-CLIProxyAPI/" title="DO 服务器自建AI服务（划水）：从 DigitalOcean+New API+Open WebUI+CLIProxyAPI"><img class="cover" src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/ASCII%20-animal.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">DO 服务器自建AI服务（划水）：从 DigitalOcean+New API+Open WebUI+CLIProxyAPI</div></div><div class="info-2"><div class="info-item-1"> 本文记录了从零开始，在 DigitalOcean 服务器上部署一套完整 AI 自用服务的全过程，包括服务器购买与初始化、1Panel 面板安装、New API 部署、Open WebUI 部署、CLIProxyAPI 部署，以及关键的踩坑与修复记录。  一、为什么选择 DigitalOcean 起因是发现自己手头有 GitHub 学生包，其中包含 DigitalOcean 的 $200 美元额度（有效期 1 年）。算了一下：  $18/月 的 2 vCPU + 2GB 内存 + 60GB SSD 套餐 个月198，基本榨干额度 比 $12/月 的 1 核机器多了一个 CPU 核心，对 Docker 多服务并发更友好   ⚠️ 注意：DigitalOcean 即使关机也收费，不用的实例一定要 Destroy（彻底销毁），否则仍然计费。  关联 GitHub 学生包  前往 GitHub Education 找到 DigitalOcean 福利 在 DigitalOcean 的 Billing → Promo Code 页面输入优惠码...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%A1%88%E5%AF%B9%E6%AF%94"><span class="toc-number">2.</span> <span class="toc-text">方案对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%A1%88-avs-code-remote-ssh"><span class="toc-number">2.1.</span> <span class="toc-text">方案 A：VS Code Remote-SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%A1%88-bsshfs-%E6%8C%82%E8%BD%BD%E6%9C%AC%E6%96%87%E6%8E%A8%E8%8D%90"><span class="toc-number">2.2.</span> <span class="toc-text">方案 B：SSHFS 挂载（本文推荐）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.</span> <span class="toc-text">安装步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="toc-number">3.1.</span> <span class="toc-text">1. 安装依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95-ssh-%E8%BF%9E%E6%8E%A5"><span class="toc-number">3.2.</span> <span class="toc-text">2. 测试 SSH 连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%82%E8%BD%BD%E8%BF%9C%E7%A8%8B%E7%9B%AE%E5%BD%95"><span class="toc-number">3.3.</span> <span class="toc-text">3. 挂载远程目录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80%E6%8C%82%E8%BD%BD%E7%94%A8%E6%88%B7%E5%AE%B6%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="toc-number">3.3.1.</span> <span class="toc-text">方式一：挂载用户家目录下的路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%8C%82%E8%BD%BD%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84%E6%8E%A8%E8%8D%90"><span class="toc-number">3.3.2.</span> <span class="toc-text">方式二：挂载绝对路径（推荐）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E6%A0%87%E5%87%86-ssh-%E7%AB%AF%E5%8F%A3"><span class="toc-number">3.3.3.</span> <span class="toc-text">非标准 SSH 端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-ssh-%E5%AF%86%E9%92%A5%E8%AE%A4%E8%AF%81"><span class="toc-number">3.3.4.</span> <span class="toc-text">使用 SSH 密钥认证</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-vs-code-%E4%B8%AD%E4%BD%BF%E7%94%A8"><span class="toc-number">3.4.</span> <span class="toc-text">4. 在 VS Code 中使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4"><span class="toc-number">3.5.</span> <span class="toc-text">5. 执行远程命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vs-code-%E6%8E%92%E9%99%A4%E5%A4%A7%E7%9B%AE%E5%BD%95"><span class="toc-number">4.1.</span> <span class="toc-text">VS Code 排除大目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%A5%E9%94%99system-error-67-%E6%89%BE%E4%B8%8D%E5%88%B0%E7%BD%91%E7%BB%9C%E5%90%8D"><span class="toc-number">5.1.</span> <span class="toc-text">1. 报错：System error 67 &#x2F;
+找不到网络名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF"><span class="toc-number">5.2.</span> <span class="toc-text">2. 密码错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E4%B8%8D%E5%A4%9F"><span class="toc-number">5.3.</span> <span class="toc-text">3. 权限不够</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windows-%E7%BC%93%E5%AD%98%E4%BA%86%E9%94%99%E8%AF%AF%E5%AF%86%E7%A0%81"><span class="toc-number">5.4.</span> <span class="toc-text">4. Windows 缓存了错误密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%AD%E5%BC%80%E6%8C%82%E8%BD%BD"><span class="toc-number">5.5.</span> <span class="toc-text">5. 断开挂载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%A4%BA%E4%BE%8B"><span class="toc-number">6.</span> <span class="toc-text">完整示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">8.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background: transparent;"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2023 - 2026 By Dekel</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div><div class="footer_custom_text">Hi, welcome to my <a href="https://tangxk.cn/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
