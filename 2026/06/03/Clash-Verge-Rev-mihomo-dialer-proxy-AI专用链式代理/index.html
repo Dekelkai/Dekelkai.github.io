@@ -1,0 +1,441 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Clash Verge Rev 和 mihomo 使用 dialer-proxy 给 AI 服务配置专用链式代理 | Dekel'Blog</title><meta name="author" content="Dekel,tangxk666@outlook.com"><meta name="copyright" content="Dekel"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="记录一次在 Clash Verge Rev &#x2F; mihomo 中用 dialer-proxy 实现 AI 服务专用链式代理的配置过程，重点解决 AI 流量走 ldc 出口、普通网站走普通节点、同时不再使用已移除的 relay 类型。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clash Verge Rev 和 mihomo 使用 dialer-proxy 给 AI 服务配置专用链式代理">
+<meta property="og:url" content="https://tangxk.cn/2026/06/03/Clash-Verge-Rev-mihomo-dialer-proxy-AI%E4%B8%93%E7%94%A8%E9%93%BE%E5%BC%8F%E4%BB%A3%E7%90%86/index.html">
+<meta property="og:site_name" content="Dekel&#39;Blog">
+<meta property="og:description" content="记录一次在 Clash Verge Rev &#x2F; mihomo 中用 dialer-proxy 实现 AI 服务专用链式代理的配置过程，重点解决 AI 流量走 ldc 出口、普通网站走普通节点、同时不再使用已移除的 relay 类型。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tangxk.cn/img/theme-covers/gettyimages-2204180308-612x612.jpg">
+<meta property="article:published_time" content="2026-06-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-03T12:50:39.544Z">
+<meta property="article:author" content="Dekel">
+<meta property="article:tag" content="Clash Verge Rev">
+<meta property="article:tag" content="mihomo">
+<meta property="article:tag" content="dialer-proxy">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="代理">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tangxk.cn/img/theme-covers/gettyimages-2204180308-612x612.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Clash Verge Rev 和 mihomo 使用 dialer-proxy 给 AI 服务配置专用链式代理",
+  "url": "https://tangxk.cn/2026/06/03/Clash-Verge-Rev-mihomo-dialer-proxy-AI%E4%B8%93%E7%94%A8%E9%93%BE%E5%BC%8F%E4%BB%A3%E7%90%86/",
+  "image": "https://tangxk.cn/img/theme-covers/gettyimages-2204180308-612x612.jpg",
+  "datePublished": "2026-06-02T16:00:00.000Z",
+  "dateModified": "2026-06-03T12:50:39.544Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Dekel",
+      "url": "https://tangxk.cn/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20250930202811272.jpg"><link rel="canonical" href="https://tangxk.cn/2026/06/03/Clash-Verge-Rev-mihomo-dialer-proxy-AI%E4%B8%93%E7%94%A8%E9%93%BE%E5%BC%8F%E4%BB%A3%E7%90%86/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.7.0/style.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Clash Verge Rev 和 mihomo 使用 dialer-proxy 给 AI 服务配置专用链式代理',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.7.0/style.css"><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20250930204459119.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">56</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/theme-covers/gettyimages-2204180308-612x612.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/Dekelkai/bucket@img/imgs/20250930204459119.png" alt="Logo" loading='lazy'><span class="site-name">Dekel'Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Clash Verge Rev 和 mihomo 使用 dialer-proxy 给 AI 服务配置专用链式代理</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Clash Verge Rev 和 mihomo 使用 dialer-proxy 给 AI 服务配置专用链式代理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-02T16:00:00.000Z" title="发表于 2026-06-03 00:00:00">2026-06-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-03T12:50:39.544Z" title="更新于 2026-06-03 20:50:39">2026-06-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;距离本文最后更新已经过去&quot;,&quot;messageNext&quot;:&quot;天，部分配置可能已经变化，请以官方文档为准。&quot;,&quot;postUpdate&quot;:&quot;2026-06-03 20:50:39&quot;}" hidden></div><p>事情是这样的。</p>
+<p>最近我在折腾 Clash Verge Rev 和 mihomo
+的时候，遇到了一个挺具体的问题。</p>
+<p>我希望 ChatGPT、Claude、Gemini 这些 AI 服务，单独走一个比较干净的 ldc
+出口。</p>
+<p>但是普通网站，比如
+linux.do、GitHub、各种日常网页，又不想跟着一起走这个 ldc。</p>
+<p>原因也很简单。</p>
+<p>这类节点一般不是拿来随便消耗的。</p>
+<p>更麻烦的是，我一开始还想着用老办法做链式代理，结果 mihomo
+直接给我报了一句非常干脆的话。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unsupported type: The group with relay type was removed, please using dialer-proxy instead</span><br></pre></td></tr></table></figure>
+<p>不是哥们。</p>
+<p><code>relay</code> 没了。</p>
+<p>所以这篇文章记录一下我最后跑通的方案，用 <code>dialer-proxy</code>
+做链式代理，让 AI 服务走专用出口，普通网站走普通节点。</p>
+<p>先把最终目标讲清楚。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AI 服务流量 -&gt; AI专用 -&gt; 家宽ip配置 -&gt; 前置节点 -&gt; ldc 美国出口</span><br><span class="line">普通网站流量 -&gt; 普通节点</span><br></pre></td></tr></table></figure>
+<p>也就是说，ChatGPT、Claude、Gemini 这类域名会命中
+<code>AI专用</code>。</p>
+<p><code>AI专用</code> 里选择 <code>家宽ip配置</code>。</p>
+<p>而 <code>家宽ip配置</code> 这个节点自己再通过
+<code>dialer-proxy</code> 借一个前置节点去连接。</p>
+<p>普通网站则全部落到 <code>普通节点</code>，不去消耗 ldc。</p>
+<p>这块最容易绕晕的地方在于，链式代理不是放在代理组里做的。</p>
+<p>它是放在节点自己身上做的。</p>
+<h2 id="核心逻辑">核心逻辑</h2>
+<p>这次不用 <code>relay</code>。</p>
+<p>真正起作用的是节点里的这个字段。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">dialer-proxy:</span> <span class="string">'&lt;前置节点真实名称&gt;'</span></span><br></pre></td></tr></table></figure>
+<p>它的意思是，连接当前节点的时候，不是本机直接连，而是先通过指定的前置节点去连。</p>
+<p>链路大概是这样。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">浏览器</span><br><span class="line">  ↓</span><br><span class="line">AI专用</span><br><span class="line">  ↓</span><br><span class="line">家宽ip配置</span><br><span class="line">  ↓ dialer-proxy</span><br><span class="line">前置节点</span><br><span class="line">  ↓</span><br><span class="line">ldc 美国出口</span><br><span class="line">  ↓</span><br><span class="line">目标网站</span><br></pre></td></tr></table></figure>
+<p>这里一定要注意一个点。</p>
+<p>前置节点只是用来连接 <code>ldc</code> 节点的跳板，不是最终出口。</p>
+<p>最终出口看什么？</p>
+<p>看 IP 查询网站显示的结果。</p>
+<p>如果最终显示的是 ldc 对应的美国出口，那才说明链式代理真的生效了。</p>
+<h2 id="ldc-节点配置">ldc 节点配置</h2>
+<p><code>ldc</code> 节点本身是一个 SS 节点。</p>
+<p>博客里不要直接暴露服务器地址、端口、加密方式、密码、订阅链接这些东西。</p>
+<p>所以示例里统一用占位符。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">'家宽ip配置'</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">ss</span></span><br><span class="line">  <span class="attr">server:</span> <span class="string">'&lt;ldc-server&gt;'</span></span><br><span class="line">  <span class="attr">port:</span> <span class="string">&lt;ldc-port&gt;</span></span><br><span class="line">  <span class="attr">cipher:</span> <span class="string">'&lt;cipher&gt;'</span></span><br><span class="line">  <span class="attr">password:</span> <span class="string">'&lt;password&gt;'</span></span><br><span class="line">  <span class="attr">udp:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">dialer-proxy:</span> <span class="string">'&lt;前置节点真实名称&gt;'</span></span><br></pre></td></tr></table></figure>
+<p>最关键的就是最后一行。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">dialer-proxy:</span> <span class="string">'&lt;前置节点真实名称&gt;'</span></span><br></pre></td></tr></table></figure>
+<p>这里的名称必须和 Clash Verge Rev 最终配置里的节点名完全一致。</p>
+<p>包括 emoji、空格、竖线、大小写。</p>
+<p>比如你的前置节点叫这个。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">dialer-proxy:</span> <span class="string">'&lt;前置节点真实名称&gt;'</span></span><br></pre></td></tr></table></figure>
+<p>那就必须一字不差。</p>
+<p>愚钝如我，一开始就很容易在这个地方怀疑人生。</p>
+<p>因为它看起来只是一个名字，但只要少一个空格，或者 emoji
+不一致，整个链路就对不上。</p>
+<h2 id="代理组配置">代理组配置</h2>
+<p>这套配置里主要需要两个自定义代理组。</p>
+<p>一个给 AI 用。</p>
+<p>一个给普通网站用。</p>
+<h3 id="ai-专用组">AI 专用组</h3>
+<p><code>AI专用</code> 只放 <code>ldc</code> 节点和
+<code>DIRECT</code>。</p>
+<p>不要把普通选择组也塞进去。</p>
+<p>否则流量很容易绕回原来的订阅组，最后你自己都看不懂它到底走哪了。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">prepend:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">'select'</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">'AI专用'</span></span><br><span class="line">    <span class="attr">proxies:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">'家宽ip配置'</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">'DIRECT'</span></span><br></pre></td></tr></table></figure>
+<p>使用时，在代理面板里选择。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AI专用 -&gt; 家宽ip配置</span><br></pre></td></tr></table></figure>
+<p>这样 AI 流量会先进入 <code>AI专用</code>，再使用
+<code>家宽ip配置</code>，最后由 <code>家宽ip配置</code> 通过
+<code>dialer-proxy</code> 去找前置节点。</p>
+<p>说真的，这个地方想通以后，整个配置就顺了。</p>
+<h2 id="普通节点组">普通节点组</h2>
+<p>为了避免非 AI 流量消耗 <code>ldc</code>，我单独建了一个
+<code>普通节点</code> 组。</p>
+<p>这个组只放普通代理节点。</p>
+<p>不要放 <code>家宽ip配置</code>。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">prepend:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">'select'</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">'普通节点'</span></span><br><span class="line">    <span class="attr">proxies:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">'&lt;普通节点 1&gt;'</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">'&lt;普通节点 2&gt;'</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">'&lt;普通节点 3&gt;'</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">'&lt;普通节点 4&gt;'</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">'DIRECT'</span></span><br><span class="line"></span><br><span class="line"><span class="attr">append:</span> []</span><br><span class="line"><span class="attr">delete:</span> []</span><br></pre></td></tr></table></figure>
+<p>这里的设计很朴素。</p>
+<p>AI 走 AI。</p>
+<p>普通网站走普通网站。</p>
+<p>不要让两个组互相引用，不然后面排查连接的时候会非常痛苦。</p>
+<h2 id="ai-分流规则">AI 分流规则</h2>
+<p>规则这里建议用 <code>prepend</code>。</p>
+<p>原因是要让 AI 规则优先于订阅原有规则匹配。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">prepend:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN-SUFFIX,anthropic.com,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN-SUFFIX,claude.ai,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN-SUFFIX,claude.com,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN-SUFFIX,claudeusercontent.com,AI专用'</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN-SUFFIX,openai.com,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN-SUFFIX,chatgpt.com,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN-SUFFIX,oaistatic.com,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN-SUFFIX,oaiusercontent.com,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN,api.openai.com,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN,chat.openai.com,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN,ws.chatgpt.com,AI专用'</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN,gemini.google.com,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN,aistudio.google.com,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN,generativelanguage.googleapis.com,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN,aiplatform.googleapis.com,AI专用'</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN-SUFFIX,statsigapi.net,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN-SUFFIX,sentry.io,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN-SUFFIX,datadoghq.com,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN-SUFFIX,intercom.io,AI专用'</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'DOMAIN-SUFFIX,intercomcdn.com,AI专用'</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">'MATCH,普通节点'</span></span><br><span class="line"></span><br><span class="line"><span class="attr">append:</span> []</span><br><span class="line"><span class="attr">delete:</span> []</span><br></pre></td></tr></table></figure>
+<p>最后这条很重要。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">'MATCH,普通节点'</span></span><br></pre></td></tr></table></figure>
+<p>它表示，没有命中前面 AI 规则的所有流量，都走
+<code>普通节点</code>。</p>
+<p>如果不加这条，或者最后仍然落回原订阅里的某个默认组，就可能出现普通网站也误走
+<code>ldc</code> 的情况。</p>
+<p>这种问题表面上看不出来。</p>
+<p>只有你打开连接面板，或者看出口 IP 的时候，才会发现不对劲。</p>
+<h2 id="为什么不用-relay">为什么不用 relay</h2>
+<p>因为当前 mihomo 内核已经移除了 <code>relay</code> 类型。</p>
+<p>如果继续写这种配置。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">type:</span> <span class="string">relay</span></span><br></pre></td></tr></table></figure>
+<p>就会报错。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unsupported type: The group with relay type was removed, please using dialer-proxy instead</span><br></pre></td></tr></table></figure>
+<p>所以这次的思路要改一下。</p>
+<p>不要通过代理组做链式代理。</p>
+<p>而是通过节点自身的 <code>dialer-proxy</code> 完成。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">dialer-proxy:</span> <span class="string">'&lt;前置节点&gt;'</span></span><br></pre></td></tr></table></figure>
+<p>这就是这篇文章最核心的点。</p>
+<h2 id="怎么验证">怎么验证</h2>
+<p>配置写完以后，不要只看感觉。</p>
+<p>一定要验证。</p>
+<h3 id="测试-chatgpt">测试 ChatGPT</h3>
+<p>访问。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://chatgpt.com</span><br></pre></td></tr></table></figure>
+<p>然后打开 Clash Verge Rev 的连接面板，应该看到类似这样的记录。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chatgpt.com:443</span><br><span class="line">AI专用 / 家宽ip配置</span><br><span class="line">DomainSuffix(chatgpt.com)</span><br></pre></td></tr></table></figure>
+<p>这说明 <code>chatgpt.com</code> 命中了 AI 规则。</p>
+<p>流量进入了 <code>AI专用</code>。</p>
+<p>并且使用了 <code>家宽ip配置</code>。</p>
+<h3 id="测试非-ai-网站">测试非 AI 网站</h3>
+<p>再访问一个普通网站。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://linux.do</span><br></pre></td></tr></table></figure>
+<p>连接面板里应该显示。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">普通节点 / 某个普通代理节点</span><br></pre></td></tr></table></figure>
+<p>不应该显示。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择节点 / 家宽ip配置</span><br></pre></td></tr></table></figure>
+<p>也不应该显示。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">普通节点 / 家宽ip配置</span><br></pre></td></tr></table></figure>
+<p>只要普通网站没有落到 <code>家宽ip配置</code>，就说明普通流量没有消耗
+<code>ldc</code>。</p>
+<h3 id="测试最终出口">测试最终出口</h3>
+<p>最后再访问 IP 查询网站。</p>
+<p>如果 <code>AI专用</code> 当前选择的是
+<code>家宽ip配置</code>，出口应该显示为 <code>ldc</code>
+对应的出口地区。</p>
+<p>我这次最终看到的是美国出口。</p>
+<p>到这一步，链式代理才算真的跑通。</p>
+<h2 id="最后再提醒几个坑">最后再提醒几个坑</h2>
+<ol type="1">
+<li>不要在博客里暴露 SS
+链接、服务器地址、端口、密码、UUID、订阅链接。</li>
+<li><code>dialer-proxy</code>
+后面的节点名必须和最终配置里的节点名完全一致。</li>
+<li><code>普通节点</code> 组里不要放
+<code>家宽ip配置</code>，否则普通网站仍然可能走 <code>ldc</code>。</li>
+<li><code>AI专用</code>
+组里不要引用普通选择组，避免流量绕回原订阅组。</li>
+<li>不要手动修改
+<code>clash-verge-check.yaml</code>，这个文件是自动生成的，刷新订阅后会被覆盖。</li>
+<li>当前方案不要再用 <code>relay</code>，直接用
+<code>dialer-proxy</code>。</li>
+</ol>
+<p>坦率的讲，这个配置最烦人的地方不是 YAML 本身。</p>
+<p>而是你得同时想清楚三件事。</p>
+<p>规则命中谁。</p>
+<p>代理组选择谁。</p>
+<p>节点自己又通过谁去拨出去。</p>
+<p>这三层只要有一层绕错，连接面板看起来就会非常诡异。</p>
+<p>所以我的建议是，别一次性全改完。</p>
+<p>先让 <code>AI专用 -&gt; 家宽ip配置</code> 跑通。</p>
+<p>再确认 <code>dialer-proxy</code> 的前置节点生效。</p>
+<p>最后再用 <code>MATCH,普通节点</code> 把普通流量兜住。</p>
+<p>一步一步来。</p>
+<p>这样至少出了问题，你知道该回头看哪一层。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tangxk.cn/">Dekel</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tangxk.cn/2026/06/03/Clash-Verge-Rev-mihomo-dialer-proxy-AI%E4%B8%93%E7%94%A8%E9%93%BE%E5%BC%8F%E4%BB%A3%E7%90%86/">https://tangxk.cn/2026/06/03/Clash-Verge-Rev-mihomo-dialer-proxy-AI%E4%B8%93%E7%94%A8%E9%93%BE%E5%BC%8F%E4%BB%A3%E7%90%86/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://tangxk.cn" target="_blank">Dekel'Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Clash-Verge-Rev/">Clash Verge Rev</a><a class="post-meta__tags" href="/tags/mihomo/">mihomo</a><a class="post-meta__tags" href="/tags/dialer-proxy/">dialer-proxy</a><a class="post-meta__tags" href="/tags/AI/">AI</a><a class="post-meta__tags" href="/tags/%E4%BB%A3%E7%90%86/">代理</a><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a></div><div class="post-share"><div class="social-share" data-image="/img/theme-covers/gettyimages-2204180308-612x612.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://txkimg.oss-cn-beijing.aliyuncs.com/blog/wechat-pay.JPG" target="_blank"><img class="post-qr-code-img" src="https://txkimg.oss-cn-beijing.aliyuncs.com/blog/wechat-pay.JPG" alt="wechat"/ loading='lazy'></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://txkimg.oss-cn-beijing.aliyuncs.com/blog/ali-pay.JPG" target="_blank"><img class="post-qr-code-img" src="https://txkimg.oss-cn-beijing.aliyuncs.com/blog/ali-pay.JPG" alt="alipay"/ loading='lazy'></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/05/24/%E6%88%91%E6%8A%8A-Docker-%E5%AE%B9%E5%99%A8%E6%94%B9%E9%80%A0%E6%88%90%E4%BA%86%E4%B8%80%E4%B8%AA%E8%83%BD%E8%B7%91%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E7%9A%84-AI-%E5%B7%A5%E4%BD%9C%E7%AB%99/" title="Docker 开发容器图形化 AI 工作站配置教程"><img class="cover" src="/img/theme-covers/gettyimages-2230624187-612x612.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post" loading='lazy'><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Docker 开发容器图形化 AI 工作站配置教程</div></div><div class="info-2"><div class="info-item-1">在远程 Docker 开发容器中配置 SSH key 登录、host key 持久化、Mihomo 代理、XFCE、TigerVNC、noVNC、AI Toolbox 和 OpenCode 持久化环境。</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/12/30/win11%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E6%96%B9%E6%B3%95/" title="😄win11获取系统管理员权限方法😄"><img class="cover" src="/img/theme-covers/praa-misc01_s.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-30</div><div class="info-item-2">😄win11获取系统管理员权限方法😄</div></div><div class="info-2"><div class="info-item-1">歪门邪道，谨慎尝试</div></div></div></a><a class="pagination-related" href="/2024/04/25/%E4%BD%BF%E7%94%A8PicGo-Typora-Github-jsDelivr%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A-%E6%8F%90%E9%AB%98%E5%86%99%E4%BD%9C%E6%95%88%E7%8E%87/" title="🥸使用PicGo+Typora+Github+jsDelivr搭建图床，提高写作效率🥸"><img class="cover" src="/img/theme-covers/gettyimages-2195566777-612x612.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-25</div><div class="info-item-2">🥸使用PicGo+Typora+Github+jsDelivr搭建图床，提高写作效率🥸</div></div><div class="info-2"><div class="info-item-1">PicGo 是一个用于快速上传图片并获取图片 URL 链接的工具，让你摆脱了繁琐的流程，直接复制粘贴即可在 Markdown 编辑器中显示图片。如果你经常写图文文章，这个工具会让你的工作流更高效。</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E9%80%BB%E8%BE%91"><span class="toc-number">1.</span> <span class="toc-text">核心逻辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ldc-%E8%8A%82%E7%82%B9%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">ldc 节点配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E7%BB%84%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">代理组配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ai-%E4%B8%93%E7%94%A8%E7%BB%84"><span class="toc-number">3.1.</span> <span class="toc-text">AI 专用组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E8%8A%82%E7%82%B9%E7%BB%84"><span class="toc-number">4.</span> <span class="toc-text">普通节点组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ai-%E5%88%86%E6%B5%81%E8%A7%84%E5%88%99"><span class="toc-number">5.</span> <span class="toc-text">AI 分流规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8-relay"><span class="toc-number">6.</span> <span class="toc-text">为什么不用 relay</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E9%AA%8C%E8%AF%81"><span class="toc-number">7.</span> <span class="toc-text">怎么验证</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95-chatgpt"><span class="toc-number">7.1.</span> <span class="toc-text">测试 ChatGPT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E9%9D%9E-ai-%E7%BD%91%E7%AB%99"><span class="toc-number">7.2.</span> <span class="toc-text">测试非 AI 网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%9C%80%E7%BB%88%E5%87%BA%E5%8F%A3"><span class="toc-number">7.3.</span> <span class="toc-text">测试最终出口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E5%86%8D%E6%8F%90%E9%86%92%E5%87%A0%E4%B8%AA%E5%9D%91"><span class="toc-number">8.</span> <span class="toc-text">最后再提醒几个坑</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background: transparent;"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2023 - 2026 By Dekel</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div><div class="footer_custom_text">Hi, welcome to my <a href="https://tangxk.cn/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章、标签或关键词" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
